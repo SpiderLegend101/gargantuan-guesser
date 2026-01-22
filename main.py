@@ -5,6 +5,9 @@ import json
 import os
 import random
 from discord.ui import View, Button
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # -----------------------------
 # CONFIG
