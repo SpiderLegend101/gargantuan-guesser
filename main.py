@@ -8,10 +8,10 @@ import random
 # =====================
 # CONFIG
 # =====================
-TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = os.getenv("DISCORD_TOKEN")  # set in host env vars
 GUILD_ID = 1449955287682514976
 SPAWN_CHANNEL_ID = 1463900161032978677
-SPAWN_INTERVAL = 120
+SPAWN_INTERVAL = 120  # seconds
 
 DB_FILE = "db.json"
 ORES_DIR = "ores"
@@ -30,15 +30,22 @@ def save_db():
         json.dump(bananas_db, f, indent=4)
 
 # =====================
-# LOAD ORES
+# LOAD ORES FROM FOLDER
 # =====================
-ALL_ORES = [
-    f[:-4] for f in os.listdir(ORES_DIR)
-    if f.lower().endswith(".png")
-]
+# Converts: Rainbow_Crystal_Ore.webp -> Rainbow Crystal Ore
+ALL_ORES = []
+ORE_FILE_MAP = {}  # "Rainbow Crystal Ore" -> "Rainbow_Crystal_Ore.webp"
+
+for file in os.listdir(ORES_DIR):
+    if file.lower().endswith(".webp"):
+        name = file[:-5].replace("_", " ")
+        ALL_ORES.append(name)
+        ORE_FILE_MAP[name] = file
 
 if not ALL_ORES:
-    raise RuntimeError("No ore images found in /ores folder")
+    raise RuntimeError("❌ No .webp ore images found in /ores folder")
+
+print(f"Loaded {len(ALL_ORES)} ores")
 
 # =====================
 # BOT
@@ -50,9 +57,9 @@ bot = discord.Client(intents=intents)
 # BUTTON VIEW
 # =====================
 class OreView(View):
-    def __init__(self, correct):
+    def __init__(self, correct_ore):
         super().__init__(timeout=None)
-        self.correct = correct
+        self.correct_ore = correct_ore
         self.answered = False
 
 class OreButton(Button):
@@ -61,30 +68,39 @@ class OreButton(Button):
         self.view_ref = view
 
     async def callback(self, interaction: discord.Interaction):
+        # Someone already answered
         if self.view_ref.answered:
             await interaction.response.send_message(
-                "Already answered!", ephemeral=True
+                "Sorry, but this was answered by another person before you.",
+                ephemeral=True
             )
             return
 
-        if self.label == self.view_ref.correct:
+        # Correct answer
+        if self.label == self.view_ref.correct_ore:
             self.view_ref.answered = True
 
             uid = str(interaction.user.id)
             bananas_db[uid] = bananas_db.get(uid, 0) + 1
             save_db()
 
+            # Disable all buttons
             for b in self.view_ref.children:
                 b.disabled = True
 
             await interaction.response.edit_message(
-                content=f"🍌 {interaction.user.mention} got it first!\n"
-                        f"The ore was **{self.view_ref.correct}**.",
+                content=(
+                    f"🍌 {interaction.user.mention} guessed it first! +1 Banana.\n"
+                    f"The ore was **{self.view_ref.correct_ore}**."
+                ),
                 view=self.view_ref
             )
+
+        # Wrong answer
         else:
             await interaction.response.send_message(
-                "❌ Wrong guess!", ephemeral=True
+                "❌ Sorry, but your answer is incorrect.",
+                ephemeral=True
             )
 
 # =====================
@@ -96,6 +112,7 @@ async def spawn_ore():
         return
 
     correct = random.choice(ALL_ORES)
+
     decoys = random.sample(
         [o for o in ALL_ORES if o != correct],
         k=2
@@ -108,7 +125,8 @@ async def spawn_ore():
     for opt in options:
         view.add_item(OreButton(opt, view))
 
-    file = discord.File(f"{ORES_DIR}/{correct}.png")
+    file_path = os.path.join(ORES_DIR, ORE_FILE_MAP[correct])
+    file = discord.File(file_path)
 
     await channel.send(
         content="🪨 **Guess the ore!**",
@@ -128,4 +146,7 @@ async def on_ready():
     print(f"Logged in as {bot.user}")
     spawn_loop.start()
 
+# =====================
+# RUN
+# =====================
 bot.run(TOKEN)
