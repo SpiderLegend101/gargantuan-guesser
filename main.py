@@ -1,29 +1,23 @@
 import discord
 from discord.ext import tasks
-from discord import app_commands
 from discord.ui import View, Button
 import os
 import json
 import random
-import requests
 
 # =====================
-# CONFIG (YOU EDIT THESE)
+# CONFIG
 # =====================
-TOKEN = os.getenv("DISCORD_TOKEN")  # DO NOT PUT TOKEN HERE
-GUILD_ID = 1449955287682514976       # <-- PUT YOUR SERVER ID
-SPAWN_CHANNEL_ID = 1463900161032978677  # <-- PUT ORE SPAWN CHANNEL ID
-SPAWN_INTERVAL = 120  # seconds (2 minutes)
+TOKEN = os.getenv("DISCORD_TOKEN")
+GUILD_ID = 1449955287682514976
+SPAWN_CHANNEL_ID = 1463900161032978677
+SPAWN_INTERVAL = 120
 
 DB_FILE = "db.json"
+ORES_DIR = "ores"
 
 # =====================
-# WIKI API
-# =====================
-WIKI_API = "https://forge-roblox.fandom.com/api.php"
-
-# =====================
-# LOAD / SAVE DB
+# LOAD DB
 # =====================
 if os.path.exists(DB_FILE):
     with open(DB_FILE, "r") as f:
@@ -36,69 +30,29 @@ def save_db():
         json.dump(bananas_db, f, indent=4)
 
 # =====================
-# GET ALL ORES (ALL WORLDS)
+# LOAD ORES
 # =====================
-def get_all_ores():
-    ores = []
-    cmcontinue = None
+ALL_ORES = [
+    f[:-4] for f in os.listdir(ORES_DIR)
+    if f.lower().endswith(".png")
+]
 
-    while True:
-        params = {
-            "action": "query",
-            "list": "categorymembers",
-            "cmtitle": "Category:Ores",
-            "cmlimit": "500",
-            "format": "json"
-        }
-        if cmcontinue:
-            params["cmcontinue"] = cmcontinue
-
-        r = requests.get(WIKI_API, params=params).json()
-        ores.extend([p["title"] for p in r["query"]["categorymembers"]])
-
-        if "continue" not in r:
-            break
-        cmcontinue = r["continue"]["cmcontinue"]
-
-    return ores
+if not ALL_ORES:
+    raise RuntimeError("No ore images found in /ores folder")
 
 # =====================
-# GET ORE IMAGE
-# =====================
-def get_ore_image(ore_name):
-    params = {
-        "action": "query",
-        "titles": ore_name,
-        "prop": "pageimages",
-        "pithumbsize": 512,
-        "format": "json"
-    }
-
-    r = requests.get(WIKI_API, params=params).json()
-    pages = r["query"]["pages"]
-
-    for page in pages.values():
-        if "thumbnail" in page:
-            return page["thumbnail"]["source"]
-
-    return None
-
-ALL_ORES = get_all_ores()
-
-# =====================
-# BOT SETUP
+# BOT
 # =====================
 intents = discord.Intents.default()
 bot = discord.Client(intents=intents)
-tree = app_commands.CommandTree(bot)
 
 # =====================
 # BUTTON VIEW
 # =====================
 class OreView(View):
-    def __init__(self, correct_ore):
+    def __init__(self, correct):
         super().__init__(timeout=None)
-        self.correct_ore = correct_ore
+        self.correct = correct
         self.answered = False
 
 class OreButton(Button):
@@ -109,30 +63,28 @@ class OreButton(Button):
     async def callback(self, interaction: discord.Interaction):
         if self.view_ref.answered:
             await interaction.response.send_message(
-                "Sorry, but this was answered by another person before you.",
-                ephemeral=True
+                "Already answered!", ephemeral=True
             )
             return
 
-        if self.label == self.view_ref.correct_ore:
+        if self.label == self.view_ref.correct:
             self.view_ref.answered = True
 
-            user_id = str(interaction.user.id)
-            bananas_db[user_id] = bananas_db.get(user_id, 0) + 1
+            uid = str(interaction.user.id)
+            bananas_db[uid] = bananas_db.get(uid, 0) + 1
             save_db()
 
-            for item in self.view_ref.children:
-                item.disabled = True
+            for b in self.view_ref.children:
+                b.disabled = True
 
             await interaction.response.edit_message(
-                content=f"🍌 {interaction.user.mention} guessed it first! +1 Banana.\n"
-                        f"The ore was **{self.view_ref.correct_ore}**.",
+                content=f"🍌 {interaction.user.mention} got it first!\n"
+                        f"The ore was **{self.view_ref.correct}**.",
                 view=self.view_ref
             )
         else:
             await interaction.response.send_message(
-                "Wrong guess!",
-                ephemeral=True
+                "❌ Wrong guess!", ephemeral=True
             )
 
 # =====================
@@ -144,61 +96,36 @@ async def spawn_ore():
         return
 
     correct = random.choice(ALL_ORES)
-    image_url = get_ore_image(correct)
+    decoys = random.sample(
+        [o for o in ALL_ORES if o != correct],
+        k=2
+    )
 
-    decoys = random.sample([o for o in ALL_ORES if o != correct], 2)
     options = [correct] + decoys
     random.shuffle(options)
 
     view = OreView(correct)
-    for option in options:
-        view.add_item(OreButton(option, view))
+    for opt in options:
+        view.add_item(OreButton(opt, view))
 
-    embed = discord.Embed(title="Guess the ore!")
-    if image_url:
-        embed.set_image(url=image_url)
+    file = discord.File(f"{ORES_DIR}/{correct}.png")
 
-    await channel.send(embed=embed, view=view)
+    await channel.send(
+        content="🪨 **Guess the ore!**",
+        file=file,
+        view=view
+    )
 
 # =====================
-# SPAWN LOOP
+# LOOP
 # =====================
 @tasks.loop(seconds=SPAWN_INTERVAL)
 async def spawn_loop():
     await spawn_ore()
 
-# =====================
-# SLASH COMMANDS
-# =====================
-@tree.command(name="bananas", description="Check your bananas")
-async def bananas(interaction: discord.Interaction):
-    count = bananas_db.get(str(interaction.user.id), 0)
-    await interaction.response.send_message(f"🍌 You have {count} bananas.")
-
-@tree.command(name="leaderboard", description="Top banana holders")
-async def leaderboard(interaction: discord.Interaction):
-    top = sorted(bananas_db.items(), key=lambda x: x[1], reverse=True)[:10]
-    if not top:
-        await interaction.response.send_message("No bananas yet!")
-        return
-
-    msg = "**🍌 Banana Leaderboard 🍌**\n"
-    for i, (uid, count) in enumerate(top, 1):
-        user = await bot.fetch_user(int(uid))
-        msg += f"{i}. {user.name} — {count}\n"
-
-    await interaction.response.send_message(msg)
-
-# =====================
-# READY
-# =====================
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    await tree.sync(guild=discord.Object(id=GUILD_ID))
     spawn_loop.start()
 
-# =====================
-# RUN
-# =====================
 bot.run(TOKEN)
