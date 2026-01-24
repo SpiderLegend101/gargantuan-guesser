@@ -240,8 +240,6 @@ async def save(interaction: discord.Interaction):
     push_to_github()
     await interaction.response.send_message("✅ All player and server data saved and pushed to GitHub!", ephemeral=True)
 
-# (Other commands: setup, spawn, profile, leaderboard remain unchanged)
-
 tree.add_command(gg)
 
 # =====================
