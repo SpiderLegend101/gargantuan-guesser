@@ -18,7 +18,7 @@ SERVERS_FILE = "servers.json"
 ORES_DIR = "ores"
 SPAWN_INTERVAL = 60  # seconds
 
-# GitHub config for auto-save
+# GitHub config
 GITHUB_REPO = os.getenv("GITHUB_REPO")  # e.g. https://github.com/username/repo_name.git
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # personal access token
 
@@ -56,21 +56,27 @@ def get_user(uid):
         bananas_db[uid].setdefault("cooldown",0)
     return bananas_db[uid]
 
-def save_db():
-    with open(DB_FILE,"w") as f:
-        json.dump(bananas_db,f,indent=4)
+# =====================
+# SAVE FUNCTIONS
+# =====================
+def save_db(auto_push=True):
+    with open(DB_FILE, "w") as f:
+        json.dump(bananas_db, f, indent=4)
+    if auto_push:
+        push_to_github()
 
-def save_servers():
-    with open(SERVERS_FILE,"w") as f:
-        json.dump(servers_db,f,indent=4)
+def save_servers(auto_push=True):
+    with open(SERVERS_FILE, "w") as f:
+        json.dump(servers_db, f, indent=4)
+    if auto_push:
+        push_to_github()
 
 # =====================
-# PUSH TO GITHUB
+# GITHUB PUSH
 # =====================
 def push_to_github():
-    """Commit and push db.json + servers.json to GitHub"""
     if not GITHUB_REPO or not GITHUB_TOKEN:
-        print("❌ GitHub repo/token not set in environment")
+        print("❌ GitHub repo/token not set")
         return
     auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
     try:
@@ -82,7 +88,7 @@ def push_to_github():
         print("❌ Git push failed:", e)
 
 # =====================
-# ADD FOOTER
+# FOOTER
 # =====================
 def add_requester_footer(embed: discord.Embed, user: discord.User):
     embed.set_footer(text=f"Requested by {user}", icon_url=user.display_avatar.url)
@@ -93,7 +99,7 @@ def add_requester_footer(embed: discord.Embed, user: discord.User):
 ALL_ORES = []
 ORE_FILE_MAP = {}
 for file in os.listdir(ORES_DIR):
-    if file.lower().endswith((".png",".webp")):
+    if file.lower().endswith((".png", ".webp")):
         name = file.rsplit(".",1)[0].replace("_"," ")
         ALL_ORES.append(name)
         ORE_FILE_MAP[name] = file
@@ -106,7 +112,6 @@ if not ALL_ORES:
 intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
-
 bot = discord.Client(intents=intents)
 tree = app_commands.CommandTree(bot)
 
@@ -125,25 +130,25 @@ class OreButton(Button):
         super().__init__(label=label,style=discord.ButtonStyle.primary)
         self.view_ref = view
 
-    async def callback(self,interaction: discord.Interaction):
+    async def callback(self, interaction: discord.Interaction):
         uid = str(interaction.user.id)
         user = get_user(uid)
 
         if self.view_ref.answered:
-            await interaction.response.send_message("❌ Already guessed!",ephemeral=True)
+            await interaction.response.send_message("❌ Already guessed!", ephemeral=True)
             return
 
         now = time.time()
         if now < user["cooldown"]:
-            await interaction.response.send_message("⏳ Wait 3 seconds before guessing.",ephemeral=True)
+            await interaction.response.send_message("⏳ Wait 3 seconds before guessing.", ephemeral=True)
             return
 
         if self.label == self.view_ref.correct_ore:
             self.view_ref.answered = True
             user["bananas"] += 1
             user["streak"] += 1
-            user["best_streak"] = max(user["best_streak"],user["streak"])
-            save_db()
+            user["best_streak"] = max(user["best_streak"], user["streak"])
+            save_db(auto_push=True)
             for b in self.view_ref.children:
                 b.disabled = True
             await interaction.response.edit_message(
@@ -155,8 +160,8 @@ class OreButton(Button):
         else:
             user["streak"] = 0
             user["cooldown"] = now + 3
-            save_db()
-            await interaction.response.send_message("❌ Incorrect guess! 3s cooldown.",ephemeral=True)
+            save_db(auto_push=True)
+            await interaction.response.send_message("❌ Incorrect guess! 3s cooldown.", ephemeral=True)
 
 # =====================
 # SPAWN SYSTEM
@@ -184,17 +189,16 @@ async def spawn_ore(guild: discord.Guild, spawned_by: discord.User | None = None
 
     correct = random.choice(ALL_ORES)
     CURRENT_CORRECT[guild.id] = correct
-
-    decoys = random.sample([o for o in ALL_ORES if o != correct],2)
-    options = [correct]+decoys
+    decoys = random.sample([o for o in ALL_ORES if o != correct], 2)
+    options = [correct] + decoys
     random.shuffle(options)
 
     view = OreView(correct)
     CURRENT_VIEWS[guild.id] = view
     for opt in options:
-        view.add_item(OreButton(opt,view))
+        view.add_item(OreButton(opt, view))
 
-    file_path = os.path.join(ORES_DIR,ORE_FILE_MAP[correct])
+    file_path = os.path.join(ORES_DIR, ORE_FILE_MAP[correct])
     file = discord.File(file_path)
     embed = discord.Embed(title="🪨 Guess the ore!")
     if spawned_by:
@@ -211,7 +215,7 @@ async def spawn_loop():
             await spawn_ore(guild)
 
 # =====================
-# PRESENCE ROTATION
+# PRESENCE
 # =====================
 @tasks.loop(seconds=15)
 async def presence_loop():
@@ -223,28 +227,186 @@ async def presence_loop():
         await asyncio.sleep(15)
 
 # =====================
+# LEADERBOARD VIEW
+# =====================
+class LeaderboardView(View):
+    def __init__(self, requester: discord.User, guild: discord.Guild):
+        super().__init__(timeout=120)
+        self.page = 1
+        self.requester = requester
+        self.guild = guild
+        self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
+        self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
+        self.next_btn.callback = self.next_page
+        self.back_btn.callback = self.prev_page
+        self.add_item(self.next_btn)
+
+    async def build_embed(self):
+        embed = discord.Embed(color=discord.Color.gold())
+        guild_users = self.guild.members
+        guild_user_ids = {str(u.id) for u in guild_users}
+
+        if self.page == 1:
+            embed.title = "🏆 Leaderboard — 🍌 Most Bananas"
+            sorted_users = sorted(
+                ((uid,data) for uid,data in bananas_db.items() if uid in guild_user_ids),
+                key=lambda x: (x[1]["bananas"], x[1]["best_streak"]),
+                reverse=True
+            )
+            value_key = "bananas"
+        elif self.page == 2:
+            embed.title = "🏆 Leaderboard — 🔥 Current Streak"
+            sorted_users = sorted(
+                ((uid,data) for uid,data in bananas_db.items() if uid in guild_user_ids),
+                key=lambda x: x[1]["streak"],
+                reverse=True
+            )
+            value_key = "streak"
+        else:
+            embed.title = "🏆 Leaderboard — 🏆 Best Streak Ever"
+            sorted_users = sorted(
+                ((uid,data) for uid,data in bananas_db.items() if uid in guild_user_ids),
+                key=lambda x: x[1]["best_streak"],
+                reverse=True
+            )
+            value_key = "best_streak"
+
+        players, values = "", ""
+        top10_uids = []
+
+        for i, (uid,data) in enumerate(sorted_users[:10], start=1):
+            top10_uids.append(uid)
+            try:
+                user = await bot.fetch_user(int(uid))
+                name = user.mention
+            except:
+                name = "Unknown"
+            medal = {1:"🥇",2:"🥈",3:"🥉"}.get(i,f"{i}.")
+            players += f"{medal} {name}\n"
+            values += f"{data[value_key]}\n"
+
+        embed.add_field(name="Player", value=players or "—", inline=True)
+        embed.add_field(name="Value", value=values or "—", inline=True)
+
+        # rank if not top 10
+        try:
+            requester_data = bananas_db.get(str(self.requester.id))
+            if requester_data and str(self.requester.id) not in top10_uids:
+                sorted_for_rank = sorted(
+                    ((uid,data) for uid,data in bananas_db.items() if uid in guild_user_ids),
+                    key=lambda x: x[1][value_key],
+                    reverse=True
+                )
+                rank = next((i+1 for i,(uid,_) in enumerate(sorted_for_rank) if uid==str(self.requester.id)),"N/A")
+                embed.add_field(name="-------------", value=f"Your rank: #{rank}\nValue: {requester_data[value_key]}", inline=False)
+        except:
+            pass
+
+        embed.set_footer(text=f"Requested by {self.requester} | Page {self.page}/3",
+                         icon_url=self.requester.display_avatar.url)
+        self.clear_items()
+        if self.page > 1: self.add_item(self.back_btn)
+        if self.page < 3: self.add_item(self.next_btn)
+        return embed
+
+    async def next_page(self, interaction: discord.Interaction):
+        self.page += 1
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    async def prev_page(self, interaction: discord.Interaction):
+        self.page -= 1
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+# =====================
 # SLASH COMMANDS
 # =====================
 gg = app_commands.Group(name="gargantuan", description="Gargantuan Guesser commands")
 
 @gg.command(
+    name="setup",
+    description="Admins only — select spawn channel"
+)
+@app_commands.describe(channel="Admins only: choose spawn channel")
+async def setup(interaction: discord.Interaction, channel: discord.TextChannel):
+    if not interaction.user.guild_permissions.administrator:
+        await interaction.response.send_message("❌ Admins only.", ephemeral=True)
+        return
+    servers_db.setdefault(str(interaction.guild.id), {})["spawn_channel"] = channel.id
+    save_servers(auto_push=True)
+    await interaction.response.send_message(f"✅ Spawn channel set to {channel.mention}", ephemeral=True)
+
+@gg.command(
+    name="spawn",
+    description="Admins only — manually spawn an ore"
+)
+async def spawn(interaction: discord.Interaction):
+    if not interaction.user.guild_permissions.administrator:
+        await interaction.response.send_message("❌ Admins only.", ephemeral=True)
+        return
+    await interaction.response.defer(ephemeral=True)
+    await spawn_ore(interaction.guild, spawned_by=interaction.user)
+    await interaction.followup.send("✅ Ore spawned!", ephemeral=True)
+
+@gg.command(
+    name="leaderboard",
+    description="View the top players in your server"
+)
+async def leaderboard(interaction: discord.Interaction):
+    if not bananas_db:
+        await interaction.response.send_message("No data yet!", ephemeral=True)
+        return
+    view = LeaderboardView(interaction.user, interaction.guild)
+    embed = await view.build_embed()
+    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+
+@gg.command(
+    name="profile",
+    description="View your profile or another player"
+)
+@app_commands.describe(user="Optional: select another player")
+async def profile(interaction: discord.Interaction, user: discord.User | None = None):
+    target = user or interaction.user
+    data = get_user(str(target.id))
+    sorted_users = sorted(
+        ((uid,d) for uid,d in bananas_db.items() if uid in {str(m.id) for m in interaction.guild.members}),
+        key=lambda x:(x[1]["bananas"],x[1]["best_streak"]),
+        reverse=True
+    )
+    rank = next((i+1 for i,(uid,_) in enumerate(sorted_users) if uid==str(target.id)), "N/A")
+    embed = discord.Embed(title=f"🐒 {target.name}'s Profile", color=discord.Color.green())
+    embed.set_thumbnail(url=target.display_avatar.url)
+    embed.add_field(name="🍌 Bananas", value=data["bananas"], inline=True)
+    embed.add_field(name="🔥 Current Streak", value=data["streak"], inline=True)
+    embed.add_field(name="🏆 Best Streak", value=data["best_streak"], inline=True)
+    embed.add_field(name="🥇 Global Rank", value=f"#{rank}", inline=False)
+    add_requester_footer(embed, interaction.user)
+    await interaction.response.send_message(embed=embed, ephemeral=True)
+
+@gg.command(
     name="save",
-    description="Admins only — save all players' stats to disk and GitHub"
+    description="Admins only — save all stats to disk and GitHub"
 )
 async def save(interaction: discord.Interaction):
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("❌ Admins only", ephemeral=True)
         return
-    save_db()
-    save_servers()
-    push_to_github()
-    await interaction.response.send_message("✅ All player and server data saved and pushed to GitHub!", ephemeral=True)
+    save_db(auto_push=True)
+    save_servers(auto_push=True)
+    await interaction.response.send_message("✅ All data saved and pushed to GitHub!", ephemeral=True)
 
 tree.add_command(gg)
 
 # =====================
 # EVENTS
 # =====================
+@bot.event
+async def on_message(message: discord.Message):
+    if message.author.bot:
+        return
+    await bot.process_commands(message)
+
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
