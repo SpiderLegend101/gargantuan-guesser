@@ -1,5 +1,5 @@
 import discord
-from discord.ext import tasks
+from discord.ext import commands, tasks
 from discord import app_commands
 from discord.ui import View, Button
 import os
@@ -18,9 +18,8 @@ SERVERS_FILE = "servers.json"
 ORES_DIR = "ores"
 SPAWN_INTERVAL = 60  # seconds
 
-# GitHub config for auto-save
-GITHUB_REPO = os.getenv("GITHUB_REPO")  # e.g. https://github.com/username/repo_name.git
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # personal access token
+GITHUB_REPO = os.getenv("GITHUB_REPO")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 TUTORIAL_MESSAGE = (
     "🍌 **Welcome to Gargantuan Guesser!** 🍌\n\n"
@@ -36,17 +35,20 @@ TUTORIAL_MESSAGE = (
 # =====================
 # DATABASES
 # =====================
-if os.path.exists(DB_FILE):
-    with open(DB_FILE, "r") as f:
-        bananas_db = json.load(f)
-else:
-    bananas_db = {}
+def load_json(file_path):
+    if not os.path.exists(file_path):
+        with open(file_path, "w") as f:
+            f.write("{}")
+    try:
+        with open(file_path, "r") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        with open(file_path, "w") as f:
+            f.write("{}")
+        return {}
 
-if os.path.exists(SERVERS_FILE):
-    with open(SERVERS_FILE, "r") as f:
-        servers_db = json.load(f)
-else:
-    servers_db = {}
+bananas_db = load_json(DB_FILE)
+servers_db = load_json(SERVERS_FILE)
 
 def get_user(uid):
     if uid not in bananas_db:
@@ -68,24 +70,27 @@ def save_servers():
 # PUSH TO GITHUB
 # =====================
 def push_to_github():
-    """Commit and push db.json + servers.json to GitHub"""
     if not GITHUB_REPO or not GITHUB_TOKEN:
         print("❌ GitHub repo/token not set")
         return
     auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
     try:
-        subprocess.run(["git", "add", DB_FILE, SERVERS_FILE], check=True)
-        subprocess.run(["git", "commit", "-m", "Update bot stats"], check=True)
-        subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
+        subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
+        subprocess.run(["git","commit","-m","Update bot stats"], check=True)
+        subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
         print("✅ Data pushed to GitHub")
     except subprocess.CalledProcessError as e:
         print("❌ Git push failed:", e)
 
 # =====================
-# ADD FOOTER
+# BOT INIT
 # =====================
-def add_requester_footer(embed: discord.Embed, user: discord.User):
-    embed.set_footer(text=f"Requested by {user}", icon_url=user.display_avatar.url)
+intents = discord.Intents.default()
+intents.message_content = True
+intents.members = True
+
+bot = commands.Bot(command_prefix="!", intents=intents)
+tree = bot.tree
 
 # =====================
 # LOAD ORES
@@ -100,18 +105,13 @@ for file in os.listdir(ORES_DIR):
 if not ALL_ORES:
     raise RuntimeError("❌ No ore images found")
 
-# Keep track of last 10 spawns to avoid repeats
 LAST_10_ORES = []
 
 # =====================
-# BOT INIT
+# FOOTER UTILITY
 # =====================
-intents = discord.Intents.default()
-intents.message_content = True
-intents.members = True
-
-bot = discord.Client(intents=intents)
-tree = app_commands.CommandTree(bot)
+def add_requester_footer(embed: discord.Embed, user: discord.User):
+    embed.set_footer(text=f"Requested by {user}", icon_url=user.display_avatar.url)
 
 # =====================
 # BUTTON VIEW
@@ -147,7 +147,7 @@ class OreButton(Button):
             user["streak"] += 1
             user["best_streak"] = max(user["best_streak"],user["streak"])
             save_db()
-            push_to_github()  # Auto-save to GitHub
+            push_to_github()
             for b in self.view_ref.children:
                 b.disabled = True
             await interaction.response.edit_message(
@@ -169,7 +169,7 @@ class OreButton(Button):
 CURRENT_VIEWS = {}
 CURRENT_CORRECT = {}
 
-async def spawn_ore(guild: discord.Guild, spawned_by: discord.User | None = None):
+async def spawn_ore(guild: discord.Guild, spawned_by: discord.User | None=None):
     guild_id = str(guild.id)
     if guild_id not in servers_db:
         return
@@ -187,7 +187,7 @@ async def spawn_ore(guild: discord.Guild, spawned_by: discord.User | None = None
             await CURRENT_VIEWS[guild.id].message.edit(view=CURRENT_VIEWS[guild.id])
         await channel.send(f"❌ Nobody got it right! Ore was **{CURRENT_CORRECT[guild.id]}**.")
 
-    # Pick a new ore avoiding last 10
+    # Pick ore avoiding last 10
     possible_ores = [o for o in ALL_ORES if o not in LAST_10_ORES]
     if not possible_ores:
         possible_ores = ALL_ORES.copy()
@@ -335,7 +335,6 @@ class LeaderboardView(View):
 # =====================
 gg = app_commands.Group(name="gargantuan", description="Gargantuan Guesser commands")
 
-# Setup
 @gg.command(name="setup", description="Admins only — select the channel where ores will spawn")
 @app_commands.describe(channel="Admins only: choose which channel ores will appear in")
 async def setup(interaction: discord.Interaction, channel: discord.TextChannel):
@@ -347,24 +346,21 @@ async def setup(interaction: discord.Interaction, channel: discord.TextChannel):
     push_to_github()
     await interaction.response.send_message(f"✅ Spawn channel set to {channel.mention}", ephemeral=True)
 
-# Spawn
-@gg.command(name="spawn", description="Admins only — manually spawn an ore in the spawn channel")
+@gg.command(name="spawn", description="Admins only — manually spawn an ore")
 async def spawn(interaction: discord.Interaction):
     if not interaction.user.guild_permissions.administrator:
-        await interaction.response.send_message("❌ Admins only.", ephemeral=True)
+        await interaction.response.send_message("❌ Admins only", ephemeral=True)
         return
     await interaction.response.defer(ephemeral=True)
     await spawn_ore(interaction.guild, spawned_by=interaction.user)
     await interaction.followup.send("✅ Ore spawned!", ephemeral=True)
 
-# Leaderboard
-@gg.command(name="leaderboard", description="View the top players in your server")
+@gg.command(name="leaderboard", description="View top players in your server")
 async def leaderboard(interaction: discord.Interaction):
     view = LeaderboardView(interaction.user, interaction.guild)
     embed = await view.build_embed()
     await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
-# Profile
 @gg.command(name="profile", description="View your own or another player's profile")
 @app_commands.describe(user="Optional: select another player")
 async def profile(interaction: discord.Interaction, user: discord.User | None=None):
@@ -385,7 +381,6 @@ async def profile(interaction: discord.Interaction, user: discord.User | None=No
     add_requester_footer(embed, interaction.user)
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
-# Save
 @gg.command(name="save", description="Admins only — save all players' stats to disk and GitHub")
 async def save(interaction: discord.Interaction):
     if not interaction.user.guild_permissions.administrator:
@@ -404,7 +399,7 @@ tree.add_command(gg)
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    await tree.sync()  # Sync all commands so they appear
+    await tree.sync()  # Make sure all slash commands appear
     spawn_loop.start()
     presence_loop.start()
 
