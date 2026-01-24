@@ -195,6 +195,93 @@ async def presence_loop():
         await asyncio.sleep(15)
 
 # =====================
+# LEADERBOARD VIEW
+# =====================
+class LeaderboardView(View):
+    def __init__(self, requester: discord.User):
+        super().__init__(timeout=120)
+        self.page = 1
+        self.requester = requester
+
+        self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
+        self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
+
+        self.next_btn.callback = self.next_page
+        self.back_btn.callback = self.prev_page
+
+        self.add_item(self.next_btn)
+
+    async def build_embed(self):
+        embed = discord.Embed(color=discord.Color.gold())
+
+        if self.page == 1:
+            embed.title = "🏆 Leaderboard — 🍌 Most Bananas"
+            sorted_users = sorted(
+                bananas_db.items(),
+                key=lambda x: (x[1]["bananas"], x[1]["best_streak"]),
+                reverse=True
+            )
+            value_key = "bananas"
+
+        elif self.page == 2:
+            embed.title = "🏆 Leaderboard — 🔥 Current Streak"
+            sorted_users = sorted(
+                bananas_db.items(),
+                key=lambda x: x[1]["streak"],
+                reverse=True
+            )
+            value_key = "streak"
+
+        else:
+            embed.title = "🏆 Leaderboard — 🏆 Best Streak Ever"
+            sorted_users = sorted(
+                bananas_db.items(),
+                key=lambda x: x[1]["best_streak"],
+                reverse=True
+            )
+            value_key = "best_streak"
+
+        players = ""
+        values = ""
+
+        for i, (uid, data) in enumerate(sorted_users[:10], start=1):
+            try:
+                user = await bot.fetch_user(int(uid))
+                name = user.name
+            except:
+                name = "Unknown"
+
+            players += f"**{i}.** {name}\n"
+            values += f"{data[value_key]}\n"
+
+        embed.add_field(name="Player", value=players or "—", inline=True)
+        embed.add_field(name="Value", value=values or "—", inline=True)
+
+        embed.set_footer(
+            text=f"Requested by {self.requester}",
+            icon_url=self.requester.display_avatar.url
+        )
+
+        # Button logic
+        self.clear_items()
+        if self.page > 1:
+            self.add_item(self.back_btn)
+        if self.page < 3:
+            self.add_item(self.next_btn)
+
+        return embed
+
+    async def next_page(self, interaction: discord.Interaction):
+        self.page += 1
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    async def prev_page(self, interaction: discord.Interaction):
+        self.page -= 1
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+# =====================
 # SLASH COMMANDS
 # =====================
 gg = app_commands.Group(name="gargantuan", description="Gargantuan Guesser commands")
@@ -224,20 +311,10 @@ async def leaderboard(interaction: discord.Interaction):
     if not bananas_db:
         await interaction.response.send_message("No data yet!",ephemeral=True)
         return
-    sorted_users = sorted(bananas_db.items(), key=lambda x:(x[1]["bananas"],x[1]["best_streak"]), reverse=True)[:10]
-    embed = discord.Embed(title="🏆 LEADERBOARD 🏆", color=discord.Color.gold())
-    players, bananas, streaks = "", "", ""
-    for i,(uid,data) in enumerate(sorted_users,1):
-        try: name = (await bot.fetch_user(int(uid))).name
-        except: name = "Unknown"
-        players += f"**{i}.** {name}\n"
-        bananas += f"{data['bananas']}\n"
-        streaks += f"{data['best_streak']}\n"
-    embed.add_field(name="Player", value=players, inline=True)
-    embed.add_field(name="🍌 Bananas", value=bananas, inline=True)
-    embed.add_field(name="🔥 Best Streak", value=streaks, inline=True)
-    add_requester_footer(embed, interaction.user)
-    await interaction.response.send_message(embed=embed,ephemeral=True)
+
+    view = LeaderboardView(interaction.user)
+    embed = await view.build_embed()
+    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
 @gg.command(name="profile")
 @app_commands.describe(user="View another player's profile")
@@ -267,22 +344,20 @@ async def on_message(message: discord.Message):
 
     # Only trigger if user pings the bot directly (not replies)
     if bot.user in message.mentions and message.reference is None:
-        # Send ephemeral tutorial using a slash command interaction
         guild_id = str(message.guild.id)
         spawn_channel = None
         if guild_id in servers_db:
             spawn_channel = message.guild.get_channel(servers_db[guild_id].get("spawn_channel"))
 
-        # Ephemeral message in channel (via interaction followup)
+        # DM tutorial
+        try:
+            await message.author.send(TUTORIAL_MESSAGE)
+        except:
+            pass
+
+        # Channel notification (minimal)
         if spawn_channel:
-            # Create a fake interaction by sending a slash command message in channel
-            # Actual ephemeral can only be sent in real slash command, so we emulate it
-            # Here we just mention the user + DM
-            try:
-                await message.author.send(TUTORIAL_MESSAGE)  # DM
-            except:
-                pass
-            await spawn_channel.send(f"{message.author.mention}, check your DMs for tutorial!")  # minimal channel notice
+            await spawn_channel.send(f"{message.author.mention}, check your DMs for tutorial!")
 
     await bot.process_commands(message)
 
