@@ -23,8 +23,9 @@ TUTORIAL_MESSAGE = (
     "🏆 First correct guess wins **1 Banana**.\n"
     "🔥 Correct guesses build a **streak**.\n"
     "💥 Wrong guesses reset your streak.\n\n"
+    "**🎉 Join our official Discord server:** [Click Here!](https://discord.gg/bananite)\n\n"
     "🥇 `/gargantuan leaderboard`\n"
-    "👤 `/gargantuan profile`\n"
+    "👤 `/gargantuan profile`"
 )
 
 # =====================
@@ -168,11 +169,13 @@ async def spawn_ore(guild: discord.Guild, spawned_by: discord.User | None = None
     for opt in options:
         view.add_item(OreButton(opt,view))
 
-    file = discord.File(os.path.join(ORES_DIR,ORE_FILE_MAP[correct]))
-    content = "🪨 **Guess the ore!**"
+    file_path = os.path.join(ORES_DIR,ORE_FILE_MAP[correct])
+    file = discord.File(file_path)
+    embed = discord.Embed(title="🪨 Guess the ore!")
     if spawned_by:
-        content += f"\n\nSpawned by {spawned_by.mention}"
-    msg = await channel.send(content,file=file,view=view)
+        embed.description = f"Spawned by {spawned_by.mention}"
+    embed.set_image(url=f"attachment://{ORE_FILE_MAP[correct]}")
+    msg = await channel.send(embed=embed, file=file, view=view)
     view.message = msg
 
 @tasks.loop(seconds=SPAWN_INTERVAL)
@@ -198,10 +201,11 @@ async def presence_loop():
 # LEADERBOARD VIEW
 # =====================
 class LeaderboardView(View):
-    def __init__(self, requester: discord.User):
+    def __init__(self, requester: discord.User, guild: discord.Guild):
         super().__init__(timeout=120)
         self.page = 1
         self.requester = requester
+        self.guild = guild
 
         self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
         self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
@@ -214,28 +218,31 @@ class LeaderboardView(View):
     async def build_embed(self):
         embed = discord.Embed(color=discord.Color.gold())
 
+        # Filter users to only this server
+        guild_users = self.guild.members
+        guild_user_ids = {str(u.id) for u in guild_users}
+
+        # Select leaderboard page
         if self.page == 1:
             embed.title = "🏆 Leaderboard — 🍌 Most Bananas"
             sorted_users = sorted(
-                bananas_db.items(),
+                ((uid, data) for uid,data in bananas_db.items() if uid in guild_user_ids),
                 key=lambda x: (x[1]["bananas"], x[1]["best_streak"]),
                 reverse=True
             )
             value_key = "bananas"
-
         elif self.page == 2:
             embed.title = "🏆 Leaderboard — 🔥 Current Streak"
             sorted_users = sorted(
-                bananas_db.items(),
+                ((uid, data) for uid,data in bananas_db.items() if uid in guild_user_ids),
                 key=lambda x: x[1]["streak"],
                 reverse=True
             )
             value_key = "streak"
-
         else:
             embed.title = "🏆 Leaderboard — 🏆 Best Streak Ever"
             sorted_users = sorted(
-                bananas_db.items(),
+                ((uid, data) for uid,data in bananas_db.items() if uid in guild_user_ids),
                 key=lambda x: x[1]["best_streak"],
                 reverse=True
             )
@@ -244,21 +251,39 @@ class LeaderboardView(View):
         players = ""
         values = ""
 
+        top10_uids = []
+
         for i, (uid, data) in enumerate(sorted_users[:10], start=1):
+            top10_uids.append(uid)
             try:
                 user = await bot.fetch_user(int(uid))
-                name = user.name
+                name = user.mention
             except:
                 name = "Unknown"
-
-            players += f"**{i}.** {name}\n"
+            medal = {1:"🥇",2:"🥈",3:"🥉"}.get(i,f"{i}.")
+            players += f"{medal} {name}\n"
             values += f"{data[value_key]}\n"
 
         embed.add_field(name="Player", value=players or "—", inline=True)
         embed.add_field(name="Value", value=values or "—", inline=True)
 
+        # Show your rank if not top 10
+        try:
+            requester_data = bananas_db.get(str(self.requester.id))
+            if requester_data and str(self.requester.id) not in top10_uids:
+                # calculate rank
+                sorted_for_rank = sorted(
+                    ((uid,data) for uid,data in bananas_db.items() if uid in guild_user_ids),
+                    key=lambda x: x[1][value_key],
+                    reverse=True
+                )
+                rank = next((i+1 for i,(uid,_) in enumerate(sorted_for_rank) if uid==str(self.requester.id)),"N/A")
+                embed.add_field(name="-------------", value=f"Your rank: #{rank}\nValue: {requester_data[value_key]}", inline=False)
+        except:
+            pass
+
         embed.set_footer(
-            text=f"Requested by {self.requester}",
+            text=f"Requested by {self.requester} | Page {self.page}/3",
             icon_url=self.requester.display_avatar.url
         )
 
@@ -286,8 +311,13 @@ class LeaderboardView(View):
 # =====================
 gg = app_commands.Group(name="gargantuan", description="Gargantuan Guesser commands")
 
-@gg.command(name="setup")
-@app_commands.describe(channel="Select the channel for ore spawns")
+@gg.command(
+    name="setup",
+    description="Admins only — select the channel where ores will spawn"
+)
+@app_commands.describe(
+    channel="Admins only: choose which channel ores will appear in"
+)
 async def setup(interaction: discord.Interaction, channel: discord.TextChannel):
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("❌ Admins only.", ephemeral=True)
@@ -297,7 +327,10 @@ async def setup(interaction: discord.Interaction, channel: discord.TextChannel):
     save_servers()
     await interaction.response.send_message(f"✅ Spawn channel set to {channel.mention}", ephemeral=True)
 
-@gg.command(name="spawn")
+@gg.command(
+    name="spawn",
+    description="Admins only — manually spawn an ore in the spawn channel"
+)
 async def spawn(interaction: discord.Interaction):
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("❌ Admins only.",ephemeral=True)
@@ -306,22 +339,31 @@ async def spawn(interaction: discord.Interaction):
     await spawn_ore(interaction.guild, spawned_by=interaction.user)
     await interaction.followup.send("✅ Ore spawned!",ephemeral=True)
 
-@gg.command(name="leaderboard")
+@gg.command(
+    name="leaderboard",
+    description="View the top players in your server"
+)
 async def leaderboard(interaction: discord.Interaction):
     if not bananas_db:
         await interaction.response.send_message("No data yet!",ephemeral=True)
         return
-
-    view = LeaderboardView(interaction.user)
+    view = LeaderboardView(interaction.user, interaction.guild)
     embed = await view.build_embed()
     await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
-@gg.command(name="profile")
-@app_commands.describe(user="View another player's profile")
+@gg.command(
+    name="profile",
+    description="View your own or another player's profile"
+)
+@app_commands.describe(user="Optional: select another player")
 async def profile(interaction: discord.Interaction,user: discord.User | None=None):
     target = user or interaction.user
     data = get_user(str(target.id))
-    sorted_users = sorted(bananas_db.items(), key=lambda x:(x[1]["bananas"],x[1]["best_streak"]), reverse=True)
+    sorted_users = sorted(
+        ((uid,d) for uid,d in bananas_db.items() if uid in {str(m.id) for m in interaction.guild.members}),
+        key=lambda x:(x[1]["bananas"],x[1]["best_streak"]),
+        reverse=True
+    )
     rank = next((i+1 for i,(uid,_) in enumerate(sorted_users) if uid==str(target.id)),"N/A")
     embed = discord.Embed(title=f"🐒 {target.name}'s Profile", color=discord.Color.green())
     embed.set_thumbnail(url=target.display_avatar.url)
@@ -331,6 +373,18 @@ async def profile(interaction: discord.Interaction,user: discord.User | None=Non
     embed.add_field(name="🥇 Global Rank", value=f"#{rank}", inline=False)
     add_requester_footer(embed,interaction.user)
     await interaction.response.send_message(embed=embed,ephemeral=True)
+
+@gg.command(
+    name="save",
+    description="Admins only — save all players' stats to disk"
+)
+async def save(interaction: discord.Interaction):
+    if not interaction.user.guild_permissions.administrator:
+        await interaction.response.send_message("❌ Admins only", ephemeral=True)
+        return
+    save_db()
+    save_servers()
+    await interaction.response.send_message("✅ All player and server data saved!", ephemeral=True)
 
 tree.add_command(gg)
 
@@ -342,7 +396,6 @@ async def on_message(message: discord.Message):
     if message.author.bot:
         return
 
-    # Only trigger if user pings the bot directly (not replies)
     if bot.user in message.mentions and message.reference is None:
         guild_id = str(message.guild.id)
         spawn_channel = None
@@ -355,7 +408,7 @@ async def on_message(message: discord.Message):
         except:
             pass
 
-        # Channel notification (minimal)
+        # Minimal channel notice
         if spawn_channel:
             await spawn_channel.send(f"{message.author.mention}, check your DMs for tutorial!")
 
