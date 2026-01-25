@@ -12,6 +12,7 @@ import subprocess
 # =====================
 # CONFIG
 # =====================
+# Use environment variables only — no secrets in code
 TOKEN = os.getenv("DISCORD_TOKEN")
 DB_FILE = "db.json"
 SERVERS_FILE = "servers.json"
@@ -19,7 +20,7 @@ ORES_DIR = "ores"
 SPAWN_INTERVAL = 60  # seconds
 
 GITHUB_REPO = os.getenv("GITHUB_REPO")
-GITHUB_TOKEN = os.getenv("REPLIT_GITHUB_TOKEN")  # <-- updated to new Replit token
+GITHUB_TOKEN = os.getenv("REPLIT_GITHUB_TOKEN")
 
 TUTORIAL_MESSAGE = (
     "🍌 **Welcome to Gargantuan Guesser!** 🍌\n\n"
