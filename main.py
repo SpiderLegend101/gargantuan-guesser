@@ -70,7 +70,7 @@ def save_servers():
         json.dump(servers_db,f,indent=4)
 
 # =====================
-# GITHUB PUSH
+# GITHUB PUSH (updated)
 # =====================
 def push_to_github():
     if not GITHUB_REPO or not GITHUB_TOKEN:
@@ -78,15 +78,13 @@ def push_to_github():
         return
     auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
     try:
-        subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
-    except subprocess.CalledProcessError as e:
-        print("❌ Git add failed:", e)
-    try:
-        subprocess.run(["git","commit","-m","Update bot stats"], check=True)
-    except subprocess.CalledProcessError:
-        print("⚠️ Git commit failed (probably nothing to commit)")
-    try:
-        subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
+        # Stage all changes including untracked files
+        subprocess.run(["git", "add", "--all"], check=True)
+        # Commit with timestamp
+        commit_msg = f"Update db & servers @ {time.strftime('%Y-%m-%d %H:%M:%S')}"
+        subprocess.run(["git", "commit", "-m", commit_msg], check=True)
+        # Push to main branch
+        subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
         print("✅ Data pushed to GitHub")
     except subprocess.CalledProcessError as e:
         print("❌ Git push failed:", e)
