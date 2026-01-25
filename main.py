@@ -493,30 +493,36 @@ async def save(interaction: discord.Interaction):
     save_db()
     save_servers()
 
-    # Push changes to GitHub
     pushed = False
     if GITHUB_REPO and GITHUB_TOKEN:
         auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
         try:
+            # Configure Git identity just in case
+            subprocess.run(["git", "config", "user.name", "GargantuanBot"], check=True)
+            subprocess.run(["git", "config", "user.email", "bot@example.com"], check=True)
+
             # Stage all changes including untracked files
             subprocess.run(["git", "add", "--all"], check=True)
-            # Commit with a timestamp or user info
-            subprocess.run(["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], check=True)
-            # Push to the main branch
+
+            # Commit changes — if there’s nothing new, commit will fail, so ignore
+            subprocess.run(["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], check=False)
+
+            # Push to GitHub
             subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
             pushed = True
-        except subprocess.CalledProcessError:
+        except subprocess.CalledProcessError as e:
+            print("❌ Git push failed:", e)
             pushed = False
 
     # Respond to the admin
     if pushed:
         await interaction.response.send_message(
-            "✅ db.json and servers.json saved locally **and** pushed to GitHub! You can now pull from JRMA shell.", 
+            "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉", 
             ephemeral=True
         )
     else:
         await interaction.response.send_message(
-            "⚠️ Saved locally, but push to GitHub failed. Check GITHUB_TOKEN and GITHUB_REPO.", 
+            "✅ Saved locally. ⚠️ Push to GitHub failed (nothing to commit or check GITHUB_TOKEN/GITHUB_REPO).", 
             ephemeral=True
         )
 
