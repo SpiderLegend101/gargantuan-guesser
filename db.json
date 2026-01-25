@@ -78,15 +78,16 @@
         ]
     },
     "822008979981860904": {
-        "bananas": 4,
-        "streak": 4,
-        "best_streak": 4,
+        "bananas": 5,
+        "streak": 5,
+        "best_streak": 5,
         "cooldown": 0,
         "found": [
             "Cuprite",
             "Tin",
             "Aite",
-            "Magmaite"
+            "Magmaite",
+            "Duranite"
         ]
     }
 }
