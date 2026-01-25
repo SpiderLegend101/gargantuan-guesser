@@ -76,5 +76,14 @@
             "Galaxite",
             "Rivalite"
         ]
+    },
+    "822008979981860904": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Cuprite"
+        ]
     }
 }
