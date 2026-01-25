@@ -26,9 +26,9 @@
         ]
     },
     "1275387255833235468": {
-        "bananas": 28,
-        "streak": 28,
-        "best_streak": 28,
+        "bananas": 29,
+        "streak": 29,
+        "best_streak": 29,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -55,7 +55,8 @@
             "Moon Stone",
             "Galestor",
             "Bananite",
-            "Iron"
+            "Iron",
+            "Mosasaursit"
         ]
     }
 }
