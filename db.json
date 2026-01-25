@@ -78,13 +78,14 @@
         ]
     },
     "822008979981860904": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "cooldown": 0,
         "found": [
             "Cuprite",
-            "Tin"
+            "Tin",
+            "Aite"
         ]
     }
 }
