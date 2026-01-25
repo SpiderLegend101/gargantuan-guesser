@@ -64,5 +64,14 @@
             "Orange crystal",
             "Slimite"
         ]
+    },
+    "1203316936151400545": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Galaxite"
+        ]
     }
 }
