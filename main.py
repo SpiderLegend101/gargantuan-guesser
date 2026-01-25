@@ -35,17 +35,17 @@ TUTORIAL_MESSAGE = (
 )
 
 # =====================
-# DATABASES
+# DATABASE
 # =====================
 def load_json(file_path):
     if not os.path.exists(file_path):
-        with open(file_path, "w") as f:
+        with open(file_path,"w") as f:
             f.write("{}")
     try:
-        with open(file_path, "r") as f:
+        with open(file_path,"r") as f:
             return json.load(f)
     except json.JSONDecodeError:
-        with open(file_path, "w") as f:
+        with open(file_path,"w") as f:
             f.write("{}")
         return {}
 
@@ -70,7 +70,7 @@ def save_servers():
         json.dump(servers_db,f,indent=4)
 
 # =====================
-# PUSH TO GITHUB (Safe)
+# GITHUB PUSH
 # =====================
 def push_to_github():
     if not GITHUB_REPO or not GITHUB_TOKEN:
@@ -97,7 +97,6 @@ def push_to_github():
 intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
-
 bot = commands.Bot(command_prefix="!", intents=intents)
 tree = bot.tree
 
@@ -340,7 +339,7 @@ class LeaderboardView(View):
         await interaction.response.edit_message(embed=embed, view=self)
 
 # =====================
-# INDEX GALLERY VIEW (PokéDex style)
+# INDEX GALLERY VIEW
 # =====================
 class GalleryView(View):
     def __init__(self, user_id):
@@ -348,15 +347,12 @@ class GalleryView(View):
         self.user_id = str(user_id)
         self.page = 0
         self.ores_per_page = 21
-
         self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
         self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
         self.refresh_btn = Button(label="🔄 Refresh", style=discord.ButtonStyle.success)
-
         self.back_btn.callback = self.prev_page
         self.next_btn.callback = self.next_page
         self.refresh_btn.callback = self.refresh_page
-
         self.update_buttons()
 
     def update_buttons(self):
@@ -391,7 +387,6 @@ class GalleryView(View):
         for row in rows:
             line_emoji = ""
             line_status = ""
-
             col_widths = []
             for ore in row:
                 emoji_obj = None
@@ -400,7 +395,6 @@ class GalleryView(View):
                     emoji_obj = discord.utils.get(guild.emojis, name=emoji_name)
                 emoji_str = str(emoji_obj) if emoji_obj else f":{ore.replace(' ','_')}:"
                 col_widths.append(len(emoji_str + " " + ore))
-
             for idx, ore in enumerate(row):
                 discovered = ore in user_data["found"]
                 emoji_obj = None
@@ -415,7 +409,6 @@ class GalleryView(View):
                 left_pad = pad // 2 + 2
                 right_pad = pad - pad//2 + 2
                 line_status += " " * left_pad + tick + " " * right_pad
-
             description += line_emoji.rstrip() + "\n" + line_status.rstrip() + "\n\n"
 
         embed.description = description.strip()
@@ -520,14 +513,27 @@ async def on_ready():
     spawn_loop.start()
     presence_loop.start()
 
-@bot.event
-async def on_message(message):
-    if bot.user in message.mentions and not message.author.bot:
-        try:
-            await message.author.send(TUTORIAL_MESSAGE)
-            await message.channel.send(f"{message.author.mention}, check your DMs!")
-        except:
-            pass
-    await bot.process_commands(message)
+    @bot.event
+    async def on_message(message):
+        if not message.author.bot:
+            # Check if the message is a direct ping to the bot
+            if message.content.strip() in (f"<@{bot.user.id}>", f"<@!{bot.user.id}>"):
+                # Send DM
+                try:
+                    await message.author.send(TUTORIAL_MESSAGE)
+                except:
+                    pass
+
+                # Send message in the guild's spawn/setup channel
+                guild_id = str(message.guild.id)
+                if guild_id in servers_db:
+                    channel_id = servers_db[guild_id].get("spawn_channel")
+                    if channel_id:
+                        channel = message.guild.get_channel(channel_id)
+                        if channel:
+                            await channel.send(f"{message.author.mention}, check your DMs!")
+
+        await bot.process_commands(message)
+
 
 bot.run(TOKEN)
