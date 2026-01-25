@@ -19,7 +19,7 @@ ORES_DIR = "ores"
 SPAWN_INTERVAL = 60  # seconds
 
 GITHUB_REPO = os.getenv("GITHUB_REPO")
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_TOKEN = os.getenv("REPLIT_GITHUB_TOKEN")  # <-- updated to new Replit token
 
 TUTORIAL_MESSAGE = (
     "🍌 **Welcome to Gargantuan Guesser!** 🍌\n\n"
@@ -28,8 +28,10 @@ TUTORIAL_MESSAGE = (
     "🔥 Correct guesses build a **streak**.\n"
     "💥 Wrong guesses reset your streak.\n\n"
     "**🎉 Join our official Discord server:** [Click Here!](https://discord.gg/bananite)\n\n"
+    "Commands to try:\n"
     "🥇 `/gargantuan leaderboard`\n"
-    "👤 `/gargantuan profile`"
+    "👤 `/gargantuan profile`\n"
+    "🖼 `/gargantuan index`"
 )
 
 # =====================
@@ -52,10 +54,11 @@ servers_db = load_json(SERVERS_FILE)
 
 def get_user(uid):
     if uid not in bananas_db:
-        bananas_db[uid] = {"bananas":0,"streak":0,"best_streak":0,"cooldown":0}
+        bananas_db[uid] = {"bananas":0,"streak":0,"best_streak":0,"cooldown":0,"found":[]}
     else:
         bananas_db[uid].setdefault("best_streak",0)
         bananas_db[uid].setdefault("cooldown",0)
+        bananas_db[uid].setdefault("found",[])
     return bananas_db[uid]
 
 def save_db():
@@ -102,9 +105,8 @@ for file in os.listdir(ORES_DIR):
         name = file.rsplit(".",1)[0].replace("_"," ")
         ALL_ORES.append(name)
         ORE_FILE_MAP[name] = file
-if not ALL_ORES:
-    raise RuntimeError("❌ No ore images found")
 
+ALL_ORES = sorted(ALL_ORES)
 LAST_10_ORES = []
 
 # =====================
@@ -114,7 +116,7 @@ def add_requester_footer(embed: discord.Embed, user: discord.User):
     embed.set_footer(text=f"Requested by {user}", icon_url=user.display_avatar.url)
 
 # =====================
-# BUTTON VIEW
+# ORE BUTTONS
 # =====================
 class OreView(View):
     def __init__(self, correct_ore):
@@ -131,12 +133,12 @@ class OreButton(Button):
     async def callback(self,interaction: discord.Interaction):
         uid = str(interaction.user.id)
         user = get_user(uid)
+        now = time.time()
 
         if self.view_ref.answered:
             await interaction.response.send_message("❌ Already guessed!",ephemeral=True)
             return
 
-        now = time.time()
         if now < user["cooldown"]:
             await interaction.response.send_message("⏳ Wait 3 seconds before guessing.",ephemeral=True)
             return
@@ -146,6 +148,8 @@ class OreButton(Button):
             user["bananas"] += 1
             user["streak"] += 1
             user["best_streak"] = max(user["best_streak"],user["streak"])
+            if self.label not in user["found"]:
+                user["found"].append(self.label)
             save_db()
             push_to_github()
             for b in self.view_ref.children:
@@ -187,7 +191,6 @@ async def spawn_ore(guild: discord.Guild, spawned_by: discord.User | None=None):
             await CURRENT_VIEWS[guild.id].message.edit(view=CURRENT_VIEWS[guild.id])
         await channel.send(f"❌ Nobody got it right! Ore was **{CURRENT_CORRECT[guild.id]}**.")
 
-    # Pick ore avoiding last 10
     possible_ores = [o for o in ALL_ORES if o not in LAST_10_ORES]
     if not possible_ores:
         possible_ores = ALL_ORES.copy()
@@ -331,6 +334,108 @@ class LeaderboardView(View):
         await interaction.response.edit_message(embed=embed, view=self)
 
 # =====================
+# INDEX GALLERY VIEW (PokéDex style)
+# =====================
+class GalleryView(View):
+    def __init__(self, user_id):
+        super().__init__(timeout=180)
+        self.user_id = str(user_id)
+        self.page = 0
+        self.ores_per_page = 21  # 3x7 grid
+
+        self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
+        self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
+        self.refresh_btn = Button(label="🔄 Refresh", style=discord.ButtonStyle.success)
+
+        self.back_btn.callback = self.prev_page
+        self.next_btn.callback = self.next_page
+        self.refresh_btn.callback = self.refresh_page
+
+        self.update_buttons()
+
+    def update_buttons(self):
+        self.clear_items()
+        if self.page > 0:
+            self.add_item(self.back_btn)
+        if (self.page + 1) * self.ores_per_page < len(ALL_ORES):
+            self.add_item(self.next_btn)
+        self.add_item(self.refresh_btn)
+
+    def filtered_ores(self):
+        return ALL_ORES.copy()
+
+    async def build_embed(self):
+        user_data = get_user(self.user_id)
+        ores = self.filtered_ores()
+        start = self.page * self.ores_per_page
+        end = start + self.ores_per_page
+        ores_page = ores[start:end]
+
+        discovered_count = sum(1 for o in ores if o in user_data["found"])
+        embed = discord.Embed(title="🪨 Your Ore Collection", color=discord.Color.blurple())
+        description = f"**You've discovered {discovered_count}/{len(ores)} ores!**\n\n"
+
+        guild = None
+        for g in bot.guilds:
+            if any(int(self.user_id) == m.id for m in g.members):
+                guild = g
+                break
+
+        rows = [ores_page[i:i+3] for i in range(0, len(ores_page), 3)]
+        for row in rows:
+            line_emoji = ""
+            line_status = ""
+
+            col_widths = []
+            for ore in row:
+                emoji_obj = None
+                if guild:
+                    emoji_name = ore.replace(" ","_")
+                    emoji_obj = discord.utils.get(guild.emojis, name=emoji_name)
+                emoji_str = str(emoji_obj) if emoji_obj else f":{ore.replace(' ','_')}:"
+                col_widths.append(len(emoji_str + " " + ore))
+
+            for idx, ore in enumerate(row):
+                discovered = ore in user_data["found"]
+                emoji_obj = None
+                if guild:
+                    emoji_name = ore.replace(" ","_")
+                    emoji_obj = discord.utils.get(guild.emojis, name=emoji_name)
+                emoji_str = str(emoji_obj) if emoji_obj else f":{ore.replace(' ','_')}:"
+                cell = f"{emoji_str} {ore}"
+                pad = col_widths[idx] - len(cell)
+                line_emoji += cell + " " * (pad + 4)
+                tick = "✅" if discovered else "❌"
+                left_pad = pad // 2 + 2
+                right_pad = pad - pad//2 + 2
+                line_status += " " * left_pad + tick + " " * right_pad
+
+            description += line_emoji.rstrip() + "\n" + line_status.rstrip() + "\n\n"
+
+        embed.description = description.strip()
+        add_requester_footer(embed, await bot.fetch_user(int(self.user_id)))
+        return embed
+
+    async def next_page(self, interaction: discord.Interaction):
+        if (self.page + 1) * self.ores_per_page < len(ALL_ORES):
+            self.page += 1
+            self.update_buttons()
+            embed = await self.build_embed()
+            await interaction.response.edit_message(embed=embed, view=self)
+
+    async def prev_page(self, interaction: discord.Interaction):
+        if self.page > 0:
+            self.page -= 1
+            self.update_buttons()
+            embed = await self.build_embed()
+            await interaction.response.edit_message(embed=embed, view=self)
+
+    async def refresh_page(self, interaction: discord.Interaction):
+        self.update_buttons()
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+# =====================
 # SLASH COMMANDS
 # =====================
 gg = app_commands.Group(name="gargantuan", description="Gargantuan Guesser commands")
@@ -391,6 +496,12 @@ async def save(interaction: discord.Interaction):
     push_to_github()
     await interaction.response.send_message("✅ All data saved to disk and GitHub!", ephemeral=True)
 
+@gg.command(name="index", description="View your ore collection")
+async def index(interaction: discord.Interaction):
+    view = GalleryView(interaction.user.id)
+    embed = await view.build_embed()
+    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+
 tree.add_command(gg)
 
 # =====================
@@ -399,8 +510,18 @@ tree.add_command(gg)
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    await tree.sync()  # Make sure all slash commands appear
+    await tree.sync()
     spawn_loop.start()
     presence_loop.start()
+
+@bot.event
+async def on_message(message):
+    if bot.user in message.mentions and not message.author.bot:
+        try:
+            await message.author.send(TUTORIAL_MESSAGE)
+            await message.channel.send(f"{message.author.mention}, check your DMs!")
+        except:
+            pass
+    await bot.process_commands(message)
 
 bot.run(TOKEN)
