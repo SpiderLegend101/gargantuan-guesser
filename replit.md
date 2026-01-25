@@ -23,6 +23,6 @@ A Discord bot game where users guess ore types from images. Players earn "banana
 - `/gargantuan balance` - View your balance
 - `/gargantuan leaderboard` - View top players
 - `/gargantuan profile` - View your or another player's profile
-
+- `/gargantuan index`   - View your ore collection
 ## Running
 The bot runs via the "Discord Bot" workflow with `python main.py`
