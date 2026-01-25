@@ -491,35 +491,36 @@ async def save(interaction: discord.Interaction):
         await interaction.response.send_message("❌ Admins only", ephemeral=True)
         return
 
-    # Save local files first
+    # Save local JSON files first
     save_db()
     save_servers()
 
-    # Backup before pushing (optional)
-    try:
-        subprocess.run(["cp", "db.json", "db_backup.json"], check=True)
-        subprocess.run(["cp", "servers.json", "servers_backup.json"], check=True)
-    except:
-        pass
-
-    # Push changes to GitHub from JRMA
+    # Push changes to GitHub
+    pushed = False
     if GITHUB_REPO and GITHUB_TOKEN:
         auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
         try:
-            subprocess.run(["git", "add", DB_FILE, SERVERS_FILE, "main.py"], check=True)
-            subprocess.run(["git", "commit", "-m", f"Update bot stats by {interaction.user.name}"], check=True)
+            # Stage all changes including untracked files
+            subprocess.run(["git", "add", "--all"], check=True)
+            # Commit with a timestamp or user info
+            subprocess.run(["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], check=True)
+            # Push to the main branch
             subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
             pushed = True
         except subprocess.CalledProcessError:
             pushed = False
-    else:
-        pushed = False
 
-    # Response to admin
+    # Respond to the admin
     if pushed:
-        await interaction.response.send_message("✅ All data saved locally and pushed to GitHub from JRMA!", ephemeral=True)
+        await interaction.response.send_message(
+            "✅ db.json and servers.json saved locally **and** pushed to GitHub! You can now pull from JRMA shell.", 
+            ephemeral=True
+        )
     else:
-        await interaction.response.send_message("⚠️ Data saved locally, but GitHub push failed.", ephemeral=True)
+        await interaction.response.send_message(
+            "⚠️ Saved locally, but push to GitHub failed. Check GITHUB_TOKEN and GITHUB_REPO.", 
+            ephemeral=True
+        )
 
 
 @gg.command(name="index", description="View your ore collection")
