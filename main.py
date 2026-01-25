@@ -12,7 +12,6 @@ import subprocess
 # =====================
 # CONFIG
 # =====================
-# Use environment variables only — no secrets in code
 TOKEN = os.getenv("DISCORD_TOKEN")
 DB_FILE = "db.json"
 SERVERS_FILE = "servers.json"
@@ -71,7 +70,7 @@ def save_servers():
         json.dump(servers_db,f,indent=4)
 
 # =====================
-# PUSH TO GITHUB
+# PUSH TO GITHUB (Safe)
 # =====================
 def push_to_github():
     if not GITHUB_REPO or not GITHUB_TOKEN:
@@ -80,7 +79,13 @@ def push_to_github():
     auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
     try:
         subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
+    except subprocess.CalledProcessError as e:
+        print("❌ Git add failed:", e)
+    try:
         subprocess.run(["git","commit","-m","Update bot stats"], check=True)
+    except subprocess.CalledProcessError:
+        print("⚠️ Git commit failed (probably nothing to commit)")
+    try:
         subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
         print("✅ Data pushed to GitHub")
     except subprocess.CalledProcessError as e:
@@ -342,7 +347,7 @@ class GalleryView(View):
         super().__init__(timeout=180)
         self.user_id = str(user_id)
         self.page = 0
-        self.ores_per_page = 21  # 3x7 grid
+        self.ores_per_page = 21
 
         self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
         self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
