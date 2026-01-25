@@ -1,8 +1,8 @@
 {
     "1395328044599611466": {
-        "bananas": 21,
-        "streak": 14,
-        "best_streak": 14,
+        "bananas": 22,
+        "streak": 15,
+        "best_streak": 15,
         "cooldown": 1769328705.0110292,
         "found": [
             "Aetherit",
@@ -23,7 +23,8 @@
             "Lgarite",
             "Green Crystal",
             "Lightite",
-            "Gargantuan"
+            "Gargantuan",
+            "Pumice"
         ]
     },
     "1275387255833235468": {
