@@ -12,8 +12,6 @@ import subprocess
 from discord import Guild, Embed
 from discord.utils import get
 from discord import Interaction
-
-print("🔥 Gargantuan Bot STARTED — fresh run 112🔥")
 # =====================
 # CONFIG
 # =====================
