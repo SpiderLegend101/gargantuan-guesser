@@ -490,10 +490,37 @@ async def save(interaction: discord.Interaction):
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("❌ Admins only", ephemeral=True)
         return
+
+    # Save local files first
     save_db()
     save_servers()
-    push_to_github()
-    await interaction.response.send_message("✅ All data saved to disk and GitHub!", ephemeral=True)
+
+    # Backup before pushing (optional)
+    try:
+        subprocess.run(["cp", "db.json", "db_backup.json"], check=True)
+        subprocess.run(["cp", "servers.json", "servers_backup.json"], check=True)
+    except:
+        pass
+
+    # Push changes to GitHub from JRMA
+    if GITHUB_REPO and GITHUB_TOKEN:
+        auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
+        try:
+            subprocess.run(["git", "add", DB_FILE, SERVERS_FILE, "main.py"], check=True)
+            subprocess.run(["git", "commit", "-m", f"Update bot stats by {interaction.user.name}"], check=True)
+            subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
+            pushed = True
+        except subprocess.CalledProcessError:
+            pushed = False
+    else:
+        pushed = False
+
+    # Response to admin
+    if pushed:
+        await interaction.response.send_message("✅ All data saved locally and pushed to GitHub from JRMA!", ephemeral=True)
+    else:
+        await interaction.response.send_message("⚠️ Data saved locally, but GitHub push failed.", ephemeral=True)
+
 
 @gg.command(name="index", description="View your ore collection")
 async def index(interaction: discord.Interaction):
