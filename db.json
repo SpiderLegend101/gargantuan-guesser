@@ -27,9 +27,9 @@
         ]
     },
     "1275387255833235468": {
-        "bananas": 32,
-        "streak": 32,
-        "best_streak": 32,
+        "bananas": 33,
+        "streak": 33,
+        "best_streak": 33,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -59,7 +59,8 @@
             "Iron",
             "Mosasaursit",
             "Magmaite",
-            "Cardboardite"
+            "Cardboardite",
+            "Heavenite"
         ]
     }
 }
