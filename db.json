@@ -1,8 +1,8 @@
 {
     "1395328044599611466": {
-        "bananas": 10,
-        "streak": 3,
-        "best_streak": 7,
+        "bananas": 16,
+        "streak": 9,
+        "best_streak": 9,
         "cooldown": 1769328705.0110292,
         "found": [
             "Aetherit",
@@ -14,13 +14,18 @@
             "Aqujade",
             "Copper",
             "Ruby",
-            "Fireite"
+            "Fireite",
+            "Tide Carve",
+            "Mistvein",
+            "Crimson Crystal",
+            "Etherealite",
+            "Tin"
         ]
     },
     "1275387255833235468": {
-        "bananas": 25,
-        "streak": 25,
-        "best_streak": 25,
+        "bananas": 27,
+        "streak": 27,
+        "best_streak": 27,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -46,7 +51,8 @@
             "Amethyst",
             "Moon Stone",
             "Galestor",
-            "Bananite"
+            "Bananite",
+            "Iron"
         ]
     }
 }
