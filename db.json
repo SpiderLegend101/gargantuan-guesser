@@ -94,9 +94,9 @@
         ]
     },
     "822008979981860904": {
-        "bananas": 9,
-        "streak": 9,
-        "best_streak": 9,
+        "bananas": 10,
+        "streak": 10,
+        "best_streak": 10,
         "cooldown": 0,
         "found": [
             "Cuprite",
@@ -105,7 +105,8 @@
             "Magmaite",
             "Duranite",
             "Uranium",
-            "Blue Crystal"
+            "Blue Crystal",
+            "Arcane Crystal"
         ]
     },
     "1397897546109812798": {
