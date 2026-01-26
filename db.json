@@ -94,16 +94,17 @@
         ]
     },
     "822008979981860904": {
-        "bananas": 5,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 6,
+        "streak": 6,
+        "best_streak": 6,
         "cooldown": 0,
         "found": [
             "Cuprite",
             "Tin",
             "Aite",
             "Magmaite",
-            "Duranite"
+            "Duranite",
+            "Uranium"
         ]
     },
     "1397897546109812798": {
