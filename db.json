@@ -1,8 +1,8 @@
 {
     "1395328044599611466": {
-        "bananas": 24,
-        "streak": 17,
-        "best_streak": 17,
+        "bananas": 25,
+        "streak": 18,
+        "best_streak": 18,
         "cooldown": 1769328705.0110292,
         "found": [
             "Aetherit",
@@ -26,7 +26,8 @@
             "Gargantuan",
             "Pumice",
             "Tungsten",
-            "Volcanic Rock"
+            "Volcanic Rock",
+            "Magmaite"
         ]
     },
     "1275387255833235468": {
