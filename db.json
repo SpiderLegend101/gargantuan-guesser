@@ -31,9 +31,9 @@
         ]
     },
     "1275387255833235468": {
-        "bananas": 80,
-        "streak": 80,
-        "best_streak": 80,
+        "bananas": 81,
+        "streak": 81,
+        "best_streak": 81,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -86,7 +86,8 @@
             "Volcanic Rock",
             "Tin",
             "Coinite",
-            "Silver"
+            "Silver",
+            "Prismatic Heart"
         ]
     },
     "1203316936151400545": {
