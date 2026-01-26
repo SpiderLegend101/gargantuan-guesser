@@ -99,5 +99,14 @@
             "Magmaite",
             "Duranite"
         ]
+    },
+    "1397897546109812798": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Lgarite"
+        ]
     }
 }
