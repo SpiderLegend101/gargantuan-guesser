@@ -131,5 +131,14 @@
             "Demonite",
             "Gold"
         ]
+    },
+    "764059274045292544": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Sandstone"
+        ]
     }
 }
