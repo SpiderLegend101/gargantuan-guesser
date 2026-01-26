@@ -121,12 +121,13 @@
         ]
     },
     "879037669043236925": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
         "cooldown": 0,
         "found": [
-            "Demonite"
+            "Demonite",
+            "Gold"
         ]
     }
 }
