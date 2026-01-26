@@ -102,16 +102,17 @@
         ]
     },
     "1397897546109812798": {
-        "bananas": 5,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 6,
+        "streak": 6,
+        "best_streak": 6,
         "cooldown": 0,
         "found": [
             "Lgarite",
             "Cardboardite",
             "Aqujade",
             "Rivalite",
-            "Poopite"
+            "Poopite",
+            "Golem Heart"
         ]
     }
 }
