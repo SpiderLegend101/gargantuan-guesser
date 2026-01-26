@@ -140,5 +140,14 @@
         "found": [
             "Sandstone"
         ]
+    },
+    "1150161977251995758": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Orange crystal"
+        ]
     }
 }
