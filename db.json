@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 25,
-        "streak": 0,
+        "bananas": 26,
+        "streak": 1,
         "best_streak": 18,
         "cooldown": 1769599685.7448106,
         "found": [
@@ -27,7 +27,8 @@
             "Pumice",
             "Tungsten",
             "Volcanic Rock",
-            "Magmaite"
+            "Magmaite",
+            "Cryptex"
         ]
     },
     "1275387255833235468": {
