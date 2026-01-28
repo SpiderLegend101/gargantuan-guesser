@@ -165,5 +165,14 @@
         "found": [
             "Orange crystal"
         ]
+    },
+    "1385269173877477498": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Boneite"
+        ]
     }
 }
