@@ -160,9 +160,9 @@
     },
     "1150161977251995758": {
         "bananas": 1,
-        "streak": 1,
+        "streak": 0,
         "best_streak": 1,
-        "cooldown": 0,
+        "cooldown": 1769606606.8624563,
         "found": [
             "Orange crystal"
         ]
