@@ -210,5 +210,14 @@
             "Suryafal",
             "Volcanic Rock"
         ]
+    },
+    "961176214993776651": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Arcane Crystal"
+        ]
     }
 }
