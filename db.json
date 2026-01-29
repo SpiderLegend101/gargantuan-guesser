@@ -197,13 +197,14 @@
         ]
     },
     "1231982023590285312": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "cooldown": 0,
         "found": [
             "Gulabite",
-            "Suryafal"
+            "Suryafal",
+            "Volcanic Rock"
         ]
     }
 }
