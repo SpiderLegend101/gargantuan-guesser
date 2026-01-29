@@ -105,9 +105,9 @@
         ]
     },
     "822008979981860904": {
-        "bananas": 15,
-        "streak": 15,
-        "best_streak": 15,
+        "bananas": 16,
+        "streak": 16,
+        "best_streak": 16,
         "cooldown": 0,
         "found": [
             "Cuprite",
@@ -120,7 +120,8 @@
             "Arcane Crystal",
             "Scheelite",
             "Stone",
-            "Fireite"
+            "Fireite",
+            "Emerald"
         ]
     },
     "1397897546109812798": {
