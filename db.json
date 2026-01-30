@@ -165,13 +165,14 @@
         ]
     },
     "1150161977251995758": {
-        "bananas": 2,
-        "streak": 0,
+        "bananas": 3,
+        "streak": 1,
         "best_streak": 1,
         "cooldown": 1769618170.1523871,
         "found": [
             "Orange crystal",
-            "Lightite"
+            "Lightite",
+            "Uranium"
         ]
     },
     "1385269173877477498": {
