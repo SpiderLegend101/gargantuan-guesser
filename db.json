@@ -193,12 +193,13 @@
         ]
     },
     "1214043788058566697": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
         "cooldown": 0,
         "found": [
-            "Rainbow Crystal"
+            "Rainbow Crystal",
+            "Mushroomite"
         ]
     },
     "1231982023590285312": {
