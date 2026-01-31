@@ -227,16 +227,17 @@
         ]
     },
     "1145884527424720956": {
-        "bananas": 5,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 6,
+        "streak": 6,
+        "best_streak": 6,
         "cooldown": 1769829498.837555,
         "found": [
             "Iron",
             "Orange crystal",
             "Emerald",
             "Eye Ore",
-            "Quartz"
+            "Quartz",
+            "Mistvein"
         ]
     }
 }
