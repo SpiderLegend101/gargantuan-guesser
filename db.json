@@ -227,9 +227,9 @@
         ]
     },
     "1145884527424720956": {
-        "bananas": 6,
-        "streak": 6,
-        "best_streak": 6,
+        "bananas": 7,
+        "streak": 7,
+        "best_streak": 7,
         "cooldown": 1769829498.837555,
         "found": [
             "Iron",
@@ -237,7 +237,8 @@
             "Emerald",
             "Eye Ore",
             "Quartz",
-            "Mistvein"
+            "Mistvein",
+            "Voidstar"
         ]
     }
 }
