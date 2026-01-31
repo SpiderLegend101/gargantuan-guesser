@@ -227,10 +227,12 @@
         ]
     },
     "1145884527424720956": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
         "cooldown": 1769829498.837555,
-        "found": []
+        "found": [
+            "Iron"
+        ]
     }
 }
