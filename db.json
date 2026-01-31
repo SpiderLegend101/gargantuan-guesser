@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 28,
-        "streak": 3,
+        "bananas": 29,
+        "streak": 4,
         "best_streak": 18,
         "cooldown": 1769599685.7448106,
         "found": [
@@ -29,7 +29,8 @@
             "Volcanic Rock",
             "Magmaite",
             "Cryptex",
-            "Eye Ore"
+            "Eye Ore",
+            "Moon Stone"
         ]
     },
     "1275387255833235468": {
