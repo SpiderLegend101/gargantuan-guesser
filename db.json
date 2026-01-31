@@ -227,12 +227,13 @@
         ]
     },
     "1145884527424720956": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
         "cooldown": 1769829498.837555,
         "found": [
-            "Iron"
+            "Iron",
+            "Orange crystal"
         ]
     }
 }
