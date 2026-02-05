@@ -1,6 +1,2 @@
 discord.py
-<<<<<<< HEAD
 requests
-=======
-requests
->>>>>>> b79f78666ceded5e4700c2b7277a9c28a15b372c
