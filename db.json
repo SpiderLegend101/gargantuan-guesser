@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 6554,
-        "streak": 97,
+        "bananas": 6294,
+        "streak": 107,
         "best_streak": 109,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -96,9 +96,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 39,
-        "streak": 39,
-        "best_streak": 39,
+        "bananas": 780,
+        "streak": 50,
+        "best_streak": 50,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -136,7 +136,13 @@
             "Boneite",
             "Mythril",
             "Fichillium",
-            "Iron"
+            "Iron",
+            "Quartz",
+            "Golem Heart",
+            "Tin",
+            "Heart of The Island",
+            "Mosasaursit",
+            "Mistvein"
         ],
         "tutorial_sent": true
     },
@@ -161,14 +167,15 @@
         "tutorial_sent": true
     },
     "1231982023590285312": {
-        "bananas": 3,
-        "streak": 3,
-        "best_streak": 3,
+        "bananas": 4,
+        "streak": 4,
+        "best_streak": 4,
         "cooldown": 0,
         "found": [
             "Amethyst",
             "Sanctis",
-            "Ruby"
+            "Ruby",
+            "Galaxite"
         ],
         "tutorial_sent": true
     },
@@ -1465,10 +1472,15 @@
         "tutorial_sent": true
     },
     "1307642142705057795": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1004,
+        "streak": 4,
+        "best_streak": 4,
+        "found": [
+            "Bananite",
+            "Iron",
+            "Stone",
+            "Grass"
+        ],
         "tutorial_sent": true
     },
     "1418911690392600606": {
