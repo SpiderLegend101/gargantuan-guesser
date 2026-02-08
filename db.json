@@ -1,8 +1,8 @@
 {
     "1395328044599611466": {
-        "bananas": 6149,
-        "streak": 157,
-        "best_streak": 157,
+        "bananas": 6247,
+        "streak": 11,
+        "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
             "Aetherit",
@@ -99,9 +99,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1447,
-        "streak": 28,
-        "best_streak": 67,
+        "bananas": 4409,
+        "streak": 168,
+        "best_streak": 168,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -162,7 +162,21 @@
             "Silver",
             "Lapis Lazuli",
             "Grass",
-            "Iceite"
+            "Iceite",
+            "Aquajade",
+            "Stolen Heart",
+            "Galaxite",
+            "Heavenite",
+            "Gold",
+            "Evil Eye",
+            "Demonite",
+            "Voidfractal",
+            "Yeti Heart",
+            "Ruby",
+            "Rainbow Crystal",
+            "Sanctis",
+            "Lightite",
+            "Slimite"
         ],
         "tutorial_sent": true
     },
@@ -187,9 +201,9 @@
         "tutorial_sent": true
     },
     "1231982023590285312": {
-        "bananas": 1023,
-        "streak": 15,
-        "best_streak": 15,
+        "bananas": 943,
+        "streak": 25,
+        "best_streak": 25,
         "cooldown": 0,
         "found": [
             "Amethyst",
@@ -203,7 +217,13 @@
             "Evil Eye",
             "Grass",
             "Heart of The Island",
-            "Sand Stone"
+            "Sand Stone",
+            "Demonite",
+            "Obsidian",
+            "Eye Ore",
+            "Golem Heart",
+            "Cardboardite",
+            "Arcane Crystal"
         ],
         "tutorial_sent": true
     },
@@ -1171,10 +1191,12 @@
         "tutorial_sent": true
     },
     "1150161977251995758": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Tin"
+        ],
         "tutorial_sent": true
     },
     "1450135937311834152": {
@@ -1500,9 +1522,9 @@
         "tutorial_sent": true
     },
     "1307642142705057795": {
-        "bananas": 1030,
-        "streak": 15,
-        "best_streak": 15,
+        "bananas": 973,
+        "streak": 16,
+        "best_streak": 16,
         "found": [
             "Bananite",
             "Iron",
@@ -1512,7 +1534,8 @@
             "Stolen Heart",
             "Frost Fossil",
             "Aite",
-            "Slimite"
+            "Slimite",
+            "Golem Heart"
         ],
         "tutorial_sent": true
     },

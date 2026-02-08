@@ -13,7 +13,7 @@ from discord import Guild, Embed
 from discord.utils import get
 from discord import Interaction
 
-print("🔥 Gargantuan Bot STARTED — fresh run 🔥")
+print("🔥 Gargantuan Bot STARTED — fresh run 112🔥")
 # =====================
 # CONFIG
 # =====================
@@ -37,18 +37,16 @@ ACTIVE_SPAWN = set()
 # TUTORIAL MESSAGE
 # =====================
 TUTORIAL_MESSAGE = (
-    "🍌 **Welcome to Gargantuan Guesser!** 🍌\n\n"
-    "🪨 Guess the ore by clicking the correct button.\n"
-    "🏆 First correct guess wins **1 Banana**.\n"
-    "🔥 Correct guesses build a **streak**.\n"
-    "💥 Wrong guesses reset your streak.\n\n"
-    "**Commands:**\n"
-    "📚 /gargantuan index\n"
-    "👤 /gargantuan profile\n"
-    "🏆 /gargantuan leaderboard\n"
-    "🍌 /gargantuan redeem_spawn\n"
+    "# Welcome to Gargantuan Guesser!\n\n"
+    "Guess the ore by clicking the correct button. Correct guesses earn bananas and build your streak.\n\n"
+    "Use bananas to redeem random rarity ores or boost your streak for better rewards.\n"
+    "Unlock titles like **Master Collector** by discovering all ores on your index; your title appears on your profile.\n"
+    "Rarer ores are less likely to spawn.\n\n"
+    "Commands:\n"
+    "/gargantuan index — view your collection\n"
+    "/gargantuan profile — view your stats\n\n"
+    "Start guessing and collecting to level up!"
 )
-
 # =====================
 # DATABASE UTILITIES
 # =====================
@@ -331,107 +329,116 @@ def calculate_banana_reward(streak):
     else:
         return 1
 
-    # =====================
-    # ORE BUTTON & VIEW
-    # =====================
+# =====================
+# ORE BUTTON & VIEW
+# =====================
 class OreButton(Button):
-        def __init__(self, label, view: "OreView"):
-            super().__init__(label=label, style=discord.ButtonStyle.secondary)
-            self.ore_view = view
+    def __init__(self, label, view: "OreView"):
+        super().__init__(label=label, style=discord.ButtonStyle.secondary)
+        self.ore_view = view
 
-        async def callback(self, interaction: discord.Interaction):
-            if self.ore_view.answered:
-                await interaction.response.send_message(
-                    "⏱️ This ore has already been guessed!",
-                    ephemeral=True
-                )
-                return
+    async def callback(self, interaction: discord.Interaction):
+        # HARD STOP: expired or answered
+        if self.ore_view.answered or self.ore_view.expired:
+            await interaction.response.send_message(
+                "This ore has expired! Guess the latest one.",
+                ephemeral=True
+            )
+            return
 
-            user_id = str(interaction.user.id)
+        user_id = str(interaction.user.id)
 
-            if user_id in INCORRECT_USERS.get(self.ore_view.message_id, []):
-                await interaction.response.send_message(
-                    "❌ You already guessed incorrectly for this ore!",
-                    ephemeral=True
-                )
-                return
+        if user_id in INCORRECT_USERS.get(self.ore_view.message_id, []):
+            await interaction.response.send_message(
+                "❌ You already guessed incorrectly for this ore!",
+                ephemeral=True
+            )
+            return
 
-            if self.label == self.ore_view.correct:
-                self.ore_view.answered = True
-                await self.ore_view.disable_all()
+        # ✅ CORRECT
+        if self.label == self.ore_view.correct:
+            self.ore_view.answered = True
+            await self.ore_view.disable_all()
 
-                CURRENT_VIEWS.pop(self.ore_view.message_id, None)
+            CURRENT_VIEWS.pop(self.ore_view.message_id, None)
 
-                user_data = get_user(user_id)
-                reward = calculate_banana_reward(user_data["streak"])
-                user_data["bananas"] += reward
-                user_data["streak"] += 1
+            user_data = get_user(user_id)
+            reward = calculate_banana_reward(user_data["streak"])
+            user_data["bananas"] += reward
+            user_data["streak"] += 1
 
-                if user_data["streak"] > user_data["best_streak"]:
-                    user_data["best_streak"] = user_data["streak"]
+            if user_data["streak"] > user_data["best_streak"]:
+                user_data["best_streak"] = user_data["streak"]
 
-                if self.ore_view.correct not in user_data["found"]:
-                    user_data["found"].append(self.ore_view.correct)
+            # 🆕 NEW ORE CHECK
+            is_new = self.ore_view.correct not in user_data["found"]
+            if is_new:
+                user_data["found"].append(self.ore_view.correct)
 
-                save_db()
+            save_db()
 
-                await interaction.response.edit_message(
-                    content=(
-                        f"✅ Correct! {interaction.user.mention} found **{self.label}** 🍌\n"
-                        f"🔥 Streak: {user_data['streak']}\n"
-                        f"🍌 Reward: {reward} bananas"
-                    ),
-                    view=self.ore_view
-                )
+            msg = (
+                f"✅ Correct! {interaction.user.mention} found **{self.label}**\n"
+                f"🔥 Streak: {user_data['streak']}\n"
+                f"🍌 Reward: {reward} bananas"
+            )
+            if is_new:
+                msg += "\n✨ **New ore discovered!**"
 
-                if self.ore_view.channel_id:
-                    ACTIVE_SPAWN.discard(self.ore_view.channel_id)
+            await interaction.response.edit_message(
+                content=msg,
+                view=self.ore_view
+            )
 
-            else:
-                INCORRECT_USERS.setdefault(self.ore_view.message_id, []).append(user_id)
-                get_user(user_id)["streak"] = 0
-                save_db()
+            if self.ore_view.channel_id:
+                ACTIVE_SPAWN.discard(self.ore_view.channel_id)
 
-                await interaction.response.send_message(
-                    f"❌ Wrong! {self.label} is not correct.",
-                    ephemeral=True
-                )
+        # ❌ WRONG
+        else:
+            INCORRECT_USERS.setdefault(self.ore_view.message_id, []).append(user_id)
+            get_user(user_id)["streak"] = 0
+            save_db()
 
+            await interaction.response.send_message(
+                f"❌ Wrong! {self.label} is not correct.",
+                ephemeral=True
+            )
 
 class OreView(View):
-        def __init__(self, correct, options, message_id, rarity, channel_id=None, timeout=60):
-            super().__init__(timeout=timeout)
-            self.correct = correct
-            self.message_id = message_id
-            self.rarity = rarity
-            self.answered = False
-            self.channel_id = channel_id
+    def __init__(self, correct, options, message_id, rarity, channel_id=None, timeout=60):
+        super().__init__(timeout=timeout)
+        self.correct = correct
+        self.message_id = message_id
+        self.rarity = rarity
+        self.channel_id = channel_id
+        self.answered = False
+        self.expired = False
 
-            for opt in options:
-                self.add_item(OreButton(opt, self))
+        for opt in options:
+            self.add_item(OreButton(opt, self))
 
-        async def disable_all(self):
-            for child in self.children:
-                child.disabled = True
+    async def disable_all(self):
+        for child in self.children:
+            child.disabled = True
 
-        async def on_timeout(self):
-            if self.answered:
-                return
+    async def on_timeout(self):
+        if self.answered:
+            return
 
-            self.answered = True
-            await self.disable_all()
+        self.expired = True
+        self.answered = True
+        await self.disable_all()
 
-            CURRENT_VIEWS.pop(self.message_id, None)
-            INCORRECT_USERS.pop(self.message_id, None)
+        CURRENT_VIEWS.pop(self.message_id, None)
+        INCORRECT_USERS.pop(self.message_id, None)
 
-            if self.channel_id:
-                ACTIVE_SPAWN.discard(self.channel_id)
-                channel = bot.get_channel(self.channel_id)
-                if channel:
-                    await channel.send(
-                        f"⏱️ **Nobody guessed the ore. It was {self.correct}!**"
-                    )
-
+        if self.channel_id:
+            ACTIVE_SPAWN.discard(self.channel_id)
+            channel = bot.get_channel(self.channel_id)
+            if channel:
+                await channel.send(
+                    f"⏱️ **Nobody guessed the ore. It was {self.correct}!**"
+                )
 # =====================
 # SPAWN LOGIC
 # =====================
@@ -641,15 +648,29 @@ async def add_bananas(interaction: discord.Interaction, user: discord.Member, am
 # =====================
 def index_reward_text(user_data, rarity=None):
     found = set(user_data.get("found", []))
+    lines = []
 
-    if found == set(ALL_ORES):
-        return "**Reward:** Master Collector — Title"
+    # Full index — Master Collector
+    if not rarity:
+        total_discovered = sum(1 for ore in ALL_ORES if ore in found)
+        lines.append(f"**Discovered {total_discovered}/{len(ALL_ORES)} ores**")
 
-    if rarity:
-        ores = set(RARITY_DATA[rarity]["ores"])
-        if ores.issubset(found):
-            return f"**Reward:** {rarity.capitalize()} Collector — Title"
-    return None
+        all_done = found == set(ALL_ORES)
+        lines.append(f"Master Collector: {'Obtained ✅' if all_done else 'Unobtained ❌'}")
+        return "\n".join(lines)
+
+    # Rarity-specific index
+    ores = set(RARITY_DATA[rarity]["ores"])
+    discovered = [o for o in ores if o in found]
+    obtained = ores.issubset(found)
+
+    lines.append(f"**Discovered {len(discovered)}/{len(ores)} ores**")
+    lines.append(f"Rarity: {rarity.capitalize()}")
+    lines.append(f"{rarity.capitalize()} Collector: {'Obtained ✅' if obtained else 'Unobtained ❌'}")
+
+    return "\n".join(lines)
+
+
 # =====================
 # GALLERY VIEW
 # =====================
@@ -692,20 +713,16 @@ class GalleryView(View):
         end = start + self.ores_per_page
         ores_page = ores[start:end]
 
-        discovered = [o for o in ores if o in user_data["found"]]
-
         embed = Embed(
             title="🪨 Your Ore Collection",
             color=RARITY_DATA[self.rarity]["color"] if self.rarity else discord.Color.blurple()
         )
 
-        desc = f"**Discovered {len(discovered)}/{len(ores)} ores**\n"
-
+        # Add index reward text
         reward = index_reward_text(user_data, self.rarity)
+        desc = ""
         if reward:
-            desc += reward + "\n"
-
-        desc += "\n"
+            desc += reward + "\n\n"
 
         rows = [ores_page[i:i + 3] for i in range(0, len(ores_page), 3)]
         for row in rows:
@@ -744,9 +761,9 @@ class GalleryView(View):
             view=self
         )
 
-        # =====================
-        # INDEX COMMAND
-        # =====================
+# =====================
+# INDEX COMMAND
+# =====================
 @gargantuan.command(name="index",
 description="View your ore gallery")
 @app_commands.describe(rarity="Filter ores by rarity")
@@ -759,7 +776,6 @@ async def index(interaction: Interaction, rarity: str | None = None):
             view = GalleryView(interaction.user.id, rarity_value)
             embed = await view.build_embed(interaction.guild)
             await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
-
 # =====================
 # PROFILE COMMAND
 # =====================
@@ -785,12 +801,13 @@ async def profile(interaction: discord.Interaction):
         total_discovered = sum(1 for ore in ALL_ORES if ore in data["found"])
         embed.add_field(name="🔍 Ores Found", value=f"{total_discovered}/{len(ALL_ORES)}", inline=True)
         embed.add_field(name="🌐 Global Rank", value=f"#{rank}", inline=True)
-
         # Calculate title
         title = calculate_titles(data)
-        if title:
-            embed.add_field(name="🎖️ Title", value=title, inline=False)
-
+        embed.add_field(
+                name="🎖️ Title",
+                value=title if title else "None",
+                inline=False
+            )
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 # =====================
