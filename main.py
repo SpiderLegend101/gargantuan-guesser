@@ -166,6 +166,110 @@ RARITY_DATA = {
 ALL_RARITIES = list(RARITY_DATA.keys())
 ALL_ORES = [ore for data in RARITY_DATA.values() for ore in data["ores"]]
 
+EMOJI_MAP = {
+    # ===== COMMON =====
+    "Stone": 1469547474019418164,
+    "Sand Stone": 1469547459880423663,
+    "Copper": 1469547335301202224,
+    "Iron": 1469547410144497685,
+    "Grass": 1469547398350114999,
+    "Cardboardite": 1469547329886490656,
+    "Tungsten": 1469547488490029139,
+    "Fichillium": 1469547371838050475,
+    "Mosasaursit": 1469547430939725864,
+
+    # ===== UNCOMMON =====
+    "Tin": 1469547481690800138,
+    "Silver": 1469547465622552733,
+    "Gold": 1469547392121569310,
+    "Bananite": 1469547324458926194,
+    "Cobalt": 1469547331874586746,
+    "Titanium": 1469547483888615546,
+    "Lapis Lazuli": 1469547412048711856,
+    "Sulfur": 1469547476284477470,
+
+    # ===== RARE =====
+    "Mushroomite": 1469547433091530944,
+    "Platinum": 1469547443606650933,
+    "Volcanic Rock": 1469547497990127751,
+    "Quartz": 1469547450455953604,
+    "Amethyst": 1469547317840449546,
+    "Topaz": 1469547486141087896,
+    "Diamond": 1469547360894976062,
+    "Sapphire": 1469547461940089055,
+    "Boneite": 1469547328145985546,
+    "Scheelite": 1469547463734984865,
+    "Pumice": 1469547449088610495,
+    "Graphite": 1469547396190048276,
+    "Aetherit": 1469547313545351228,
+    "Dark Boneite": 1469547347817271447,
+    "Mistvein": 1469547425487130667,
+    "Lgarite": 1469547415970381925,
+
+    # ===== EPIC =====
+    "Aite": 1469547315776717033,
+    "Poopite": 1469547445607207094,
+    "Slimite": 1469547467644342353,
+    "Cuprite": 1469547345371857040,
+    "Obsidian": 1469547439366078465,
+    "Emerald": 1469547364372185243,
+    "Ruby": 1469547456135172218,
+    "Rivalite": 1469547454352592971,
+    "Blue Crystal": 1469547326489104396,
+    "Orange Crystal": 1469547441165570120,
+    "Green Crystal": 1469547400090751138,
+    "Magenta Crystal": 1469547419417968662,
+    "Crimson Crystal": 1469547337683701780,
+    "Larimar": 1469547413826965648,
+    "Neurotite": 1469547437759922247,
+    "Frost Fossil": 1469547377693294634,
+    "Tide Carve": 1469547479723933786,
+    "Moltenfrost": 1469547427101933770,
+    "Crimsonite": 1469547340686954496,
+    "Malachite": 1469547423360618596,
+    "Aquajade": 1469547319945986169,
+    "Cryptex": 1469547342838632754,
+    "Frogite": 1469547375327449159,
+
+    # ===== LEGENDARY =====
+    "Uranium": 1469547490469740609,
+    "Mythril": 1469547435498930299,
+    "Eye Ore": 1469547369971453973,
+    "Velchire": 1469547492185084007,
+    "Sanctis": 1469547457783271547,
+    "Fireite": 1469547373608042516,
+    "Magmaite": 1469547421280501882,
+    "Lightite": 1469547417643913226,
+    "Snowite": 1469547469657477185,
+    "Rainbow Crystal": 1469547452729135144,
+    "Moon Stone": 1469547429077586032,
+    "Voidstar": 1469547496085786776,
+    "Gulabite": 1469547402049356022,
+    "Coinite": 1469547333611159563,
+    "Prismatic Heart": 1469547447276670987,
+
+    # ===== MYTHICAL =====
+    "Demonite": 1469547351797530780,
+    "Darkryte": 1469547349125763184,
+    "Iceite": 1469547408232022067,
+    "Etherealite": 1469547365911232680,
+    "Duranite": 1469547362690269337,
+    "Voidfractal": 1469547494232035492,
+    "Galestor": 1469547386853527612,
+    "Evil Eye": 1469547368276824214,
+    "Yeti Heart": 1469547501035061343,
+    "Arcane Crystal": 1469547322215235865,
+
+    # ===== DIVINE =====
+    "Suryafal": 1469547477937033447,
+    "Stolen Heart": 1469547472140501104,
+    "Golem Heart": 1469547393946226931,
+    "Heart of The Island": 1469547403622223922,
+    "Heavenite": 1469547406302646324,
+    "Gargantuan": 1469547390028615791,
+    "Galaxite": 1469547384265642175
+}
+
             # =====================
             # ORE IMAGE MAP
             # =====================
@@ -276,19 +380,18 @@ class OreView(View):
                 for child in self.children:
                     child.disabled = True
 
-            async def on_timeout(self):
-                if self.answered:
-                    return
-                self.answered = True
-                await self.disable_all()
-                CURRENT_VIEWS.pop(self.message_id, None)
+                    async def on_timeout(self):
+                        if self.answered:
+                            return
+                        self.answered = True
+                        await self.disable_all()
+                        CURRENT_VIEWS.pop(self.message_id, None)
 
-                # Only send "nobody guessed" message if this is a channel spawn
-                if self.channel_id:
-                    channel = bot.get_channel(self.channel_id)
-                    if channel:
-                        await channel.send(f"⏱️ **Nobody guessed the ore. It was {self.correct}!**")
-                    ACTIVE_SPAWN.discard(self.channel_id)
+                        if self.channel_id and not self.answered:
+                            channel = bot.get_channel(self.channel_id)
+                            if channel:
+                                await channel.send(f"⏱️ **Nobody guessed the ore. It was {self.correct}!**")
+                        ACTIVE_SPAWN.discard(self.channel_id)
 
                     # Reset last_spawn so next ore appears instantly
                     for guild_id, data in servers_db.items():
@@ -296,9 +399,20 @@ class OreView(View):
                             servers_db[guild_id]["last_spawn"] = 0
                             save_servers()
                             break
-# =====================
-# SPAWN LOGIC
-# =====================
+
+LAST_SPAWNS = []  # global
+
+def pick_unique_ore(rarity):
+    global LAST_SPAWNS
+    candidates = RARITY_DATA[rarity]["ores"].copy()
+    for ore in LAST_SPAWNS[-10:]:
+        if ore in candidates:
+            candidates.remove(ore)
+    if not candidates:  # fallback if all ores used
+        candidates = RARITY_DATA[rarity]["ores"].copy()
+    ore = random.choice(candidates)
+    LAST_SPAWNS.append(ore)
+    return ore
 
     # =====================
     # SPAWN LOGIC (FIXED)
@@ -323,7 +437,7 @@ async def spawn_ore(
             return
 
         rarity = forced_rarity or pick_rarity()
-        ore = pick_ore_within_rarity(rarity)
+        ore = pick_unique_ore(rarity)
 
         options = random.sample(ALL_ORES, 3)
         if ore not in options:
@@ -486,112 +600,137 @@ async def add_bananas(interaction: discord.Interaction, user: discord.Member, am
     save_db()
     await interaction.response.send_message(f"🍌 Added {amount} bananas to {user.mention}.", ephemeral=True)
 
-# =====================
-# INDEX COMMAND
-# =====================
-@gargantuan.command(name="index", description="View your ore gallery")
-@app_commands.describe(rarity="Filter ores by rarity")
-@app_commands.choices(rarity=[
-    app_commands.Choice(name=r.capitalize(), value=r)
-    for r in ALL_RARITIES
-])
-async def index(interaction: discord.Interaction, rarity: str = None):
-    rarity_value = rarity.lower() if rarity else None
-    view = GalleryView(interaction.user.id, rarity_value)
-    embed = await view.build_embed()
-    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+                        # =====================
+                        # HELPER FUNCTIONS
+                        # =====================
+    # =====================
+    # HELPER FUNCTIONS
+    # =====================
+    def get_user(user_id: str):
+        """Fetch or initialize a user's data."""
+        if user_id not in DB["players"]:
+            DB["players"][user_id] = {"found": [], "bananas": 0}
+        return DB["players"][user_id]
 
-# =====================
-# INDEX GALLERY VIEW
-# =====================
-class GalleryView(View):
-                    def __init__(self, user_id, rarity=None):
-                        super().__init__(timeout=180)
-                        self.user_id = str(user_id)
-                        self.page = 0
-                        self.ores_per_page = 21
-                        self.rarity = rarity
 
-                        # Buttons
-                        self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
-                        self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
-                        self.refresh_btn = Button(label="🔄 Refresh", style=discord.ButtonStyle.success)
+    def add_footer(embed: discord.Embed, user: discord.User):
+        """Add footer with user info."""
+        embed.set_footer(text=f"{user.name}#{user.discriminator}", icon_url=user.display_avatar.url)
 
-                        self.back_btn.callback = self.prev_page
-                        self.next_btn.callback = self.next_page
-                        self.refresh_btn.callback = self.refresh_page
 
-                        self.update_buttons()
+    # =====================
+    # INDEX COMMAND
+    # =====================
+    @gargantuan.command(name="index", description="View your ore collection")
+    @app_commands.describe(rarity="Optional: filter ores by rarity")
+    async def index(interaction: discord.Interaction, rarity: str = None):
+        if rarity and rarity not in RARITY_DATA:
+            await interaction.response.send_message(
+                f"❌ Invalid rarity. Valid options: {', '.join(RARITY_DATA.keys())}", ephemeral=True
+            )
+            return
 
-                    def filtered_ores(self):
-                        ores = ALL_ORES.copy() if not self.rarity else sorted(RARITY_DATA[self.rarity]["ores"])
-                        return ores
+        view = GalleryView(interaction.user.id, rarity=rarity)
+        embed = await view.build_embed()
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
-                    def update_buttons(self):
-                        self.clear_items()
-                        if self.page > 0:
-                            self.add_item(self.back_btn)
-                        if (self.page + 1) * self.ores_per_page < len(self.filtered_ores()):
-                            self.add_item(self.next_btn)
-                        self.add_item(self.refresh_btn)
 
-                    async def build_embed(self):
-                        user_data = get_user(self.user_id)
-                        ores = self.filtered_ores()
-                        start = self.page * self.ores_per_page
-                        end = start + self.ores_per_page
-                        ores_page = ores[start:end]
+    # =====================
+    # GALLERY VIEW
+    # =====================
+    class GalleryView(discord.ui.View):
+        def __init__(self, user_id, rarity=None):
+            super().__init__(timeout=180)
+            self.user_id = str(user_id)
+            self.page = 0
+            self.ores_per_page = 21
+            self.rarity = rarity
 
-                        discovered = [ore for ore in ores if ore in user_data["found"]]
+            # Buttons
+            self.back_btn = discord.ui.Button(label="← Back", style=discord.ButtonStyle.secondary)
+            self.next_btn = discord.ui.Button(label="Next →", style=discord.ButtonStyle.primary)
+            self.refresh_btn = discord.ui.Button(label="🔄 Refresh", style=discord.ButtonStyle.success)
 
-                        embed = discord.Embed(
-                            title="🪨 Your Ore Collection",
-                            color=RARITY_DATA[self.rarity]["color"] if self.rarity else discord.Color.blurple()
-                        )
-                        desc = f"**Discovered {len(discovered)}/{len(ores)} ores**\n\n"
+            self.back_btn.callback = self.prev_page
+            self.next_btn.callback = self.next_page
+            self.refresh_btn.callback = self.refresh_page
 
-                        guild = None
-                        for g in bot.guilds:
-                            if any(int(self.user_id) == m.id for m in g.members):
-                                guild = g
-                                break
+            self.update_buttons()
 
-                        for i in range(0, len(ores_page), 3):
-                            row = ores_page[i:i + 3]
-                            line1, line2 = "", ""
-                            for ore in row:
-                                emoji = discord.utils.get(guild.emojis, name=ore.replace(" ", "_")) if guild else None
-                                emoji_str = str(emoji) if emoji else f":{ore.replace(' ', '_')}:"
-                                line1 += f"{emoji_str} {ore}    "
-                                line2 += ("✅" if ore in user_data["found"] else "❌") + "        "
-                            desc += line1.rstrip() + "\n" + line2.rstrip() + "\n\n"
+        def filtered_ores(self):
+            """Return ores filtered by rarity if specified."""
+            if self.rarity:
+                return sorted(RARITY_DATA[self.rarity]["ores"])
+            return ALL_ORES.copy()
 
-                        embed.description = desc.strip()
+        def update_buttons(self):
+            self.clear_items()
+            if self.page > 0:
+                self.add_item(self.back_btn)
+            if (self.page + 1) * self.ores_per_page < len(self.filtered_ores()):
+                self.add_item(self.next_btn)
+            self.add_item(self.refresh_btn)
 
-                        try:
-                            user = await bot.fetch_user(int(self.user_id))
-                            add_footer(embed, user)
-                        except:
-                            pass
+        async def build_embed(self):
+            user_data = get_user(self.user_id)
+            ores = self.filtered_ores()
+            start = self.page * self.ores_per_page
+            end = start + self.ores_per_page
+            ores_page = ores[start:end]
 
-                        return embed
+            discovered = [ore for ore in ores if ore in user_data["found"]]
 
-                    async def next_page(self, interaction: discord.Interaction):
-                        self.page += 1
-                        self.update_buttons()
-                        embed = await self.build_embed()
-                        await interaction.response.edit_message(embed=embed, view=self)
+            display_title = "🪨 Your Ore Collection"
+            if self.rarity:
+                display_title += f" — {self.rarity} Ores"
 
-                    async def prev_page(self, interaction: discord.Interaction):
-                        self.page -= 1
-                        self.update_buttons()
-                        embed = await self.build_embed()
-                        await interaction.response.edit_message(embed=embed, view=self)
+            embed = discord.Embed(
+                title=display_title,
+                color=RARITY_DATA[self.rarity]["color"] if self.rarity else discord.Color.blurple()
+            )
 
-                    async def refresh_page(self, interaction: discord.Interaction):
-                        self.update_buttons()
-                        embed = await self.build_embed()
-                        await interaction.response.edit_message(embed=embed, view=self)
+            desc = f"**Discovered {len(discovered)}/{len(ores)} ores**\n\n"
+
+            # Display ores in rows of 3
+            for i in range(0, len(ores_page), 3):
+                row = ores_page[i:i + 3]
+                line1, line2 = "", ""
+                for ore in row:
+                    emoji_id = EMOJI_MAP.get(ore)
+                    if emoji_id:
+                        emoji_str = f"<:{ore.replace(' ', '_')}:{emoji_id}>"
+                    else:
+                        emoji_str = f":{ore.replace(' ', '_')}:"
+                    line1 += f"{emoji_str} {ore}    "
+                    line2 += ("✅" if ore in user_data["found"] else "❌") + "        "
+                desc += line1.rstrip() + "\n" + line2.rstrip() + "\n\n"
+
+            embed.description = desc.strip()
+
+            try:
+                user = await bot.fetch_user(int(self.user_id))
+                add_footer(embed, user)
+            except:
+                pass
+
+            return embed
+
+        async def next_page(self, interaction: discord.Interaction):
+            self.page += 1
+            self.update_buttons()
+            embed = await self.build_embed()
+            await interaction.response.edit_message(embed=embed, view=self)
+
+        async def prev_page(self, interaction: discord.Interaction):
+            self.page -= 1
+            self.update_buttons()
+            embed = await self.build_embed()
+            await interaction.response.edit_message(embed=embed, view=self)
+
+        async def refresh_page(self, interaction: discord.Interaction):
+            self.update_buttons()
+            embed = await self.build_embed()
+            await interaction.response.edit_message(embed=embed, view=self)
 
 # =====================
 # PROFILE COMMAND
@@ -826,14 +965,16 @@ async def on_ready():
 # =====================
 @bot.event
 async def on_message(message: discord.Message):
-    if message.author.bot:
-        return
-    if bot.user in message.mentions or isinstance(message.channel, discord.DMChannel):
-        try:
-            await message.author.send(TUTORIAL_MESSAGE)
-        except:
-            pass
-    await bot.process_commands(message)
+        if message.author.bot:
+            return
+        if bot.user in message.mentions:
+            # Only trigger if directly pinged
+            if message.mentions[0].id == bot.user.id:
+                try:
+                    await message.author.send(TUTORIAL_MESSAGE)
+                except:
+                    pass
+        await bot.process_commands(message)
 
 # =====================
 # RUN BOT
