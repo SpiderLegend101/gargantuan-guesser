@@ -83,6 +83,20 @@ def get_user(uid: str):
                 }
             return bananas_db[uid]
 
+def calculate_titles(user_data):
+    """Return the rarest title achieved by a user, or Master Collector if complete."""
+    # Check if user completed full index
+    total_ores = {ore for ore in ALL_ORES}
+    found_ores = set(user_data.get("found", []))
+    if found_ores == total_ores:
+        return "Master Collector"
+
+    # Otherwise, check per rarity
+    for rarity in reversed(ALL_RARITIES):  # From Divine → Common
+        rarity_ores = set(RARITY_DATA[rarity]["ores"])
+        if rarity_ores.issubset(found_ores):
+            return f"{rarity.capitalize()} Collector"
+    return None
 
 def push_to_github():
             if not GITHUB_REPO or not GITHUB_TOKEN:
@@ -365,34 +379,38 @@ class OreButton(Button):
 
 
 class OreView(View):
-    def __init__(self, correct, options, message_id, rarity, channel_id=None, timeout=60):
-        super().__init__(timeout=timeout)
-        self.correct = correct
-        self.message_id = message_id
-        self.rarity = rarity
-        self.answered = False
-        self.channel_id = channel_id
+        def __init__(self, correct, options, message_id, rarity, channel_id=None, timeout=60):
+            super().__init__(timeout=timeout)
+            self.correct = correct
+            self.message_id = message_id
+            self.rarity = rarity
+            self.answered = False
+            self.channel_id = channel_id
 
-        for opt in options:
-            self.add_item(OreButton(opt, self))
+            for opt in options:
+                self.add_item(OreButton(opt, self))
 
-    async def disable_all(self):
-        for child in self.children:
-            child.disabled = True
+        async def disable_all(self):
+            for child in self.children:
+                child.disabled = True
 
-    async def on_timeout(self):
-        if self.answered:
-            return
-        self.answered = True
-        await self.disable_all()
-        CURRENT_VIEWS.pop(self.message_id, None)
+        async def on_timeout(self):
+                if self.answered:
+                    return
 
-        channel = bot.get_channel(self.channel_id) if self.channel_id else None
-        if channel:
-            await channel.send(f"⏱️ **Nobody guessed the ore. It was {self.correct}!**")
-        ACTIVE_SPAWN.discard(self.channel_id)
+                self.answered = True
+                await self.disable_all()
 
+                CURRENT_VIEWS.pop(self.message_id, None)
+                INCORRECT_USERS.pop(self.message_id, None)
 
+                if self.channel_id:
+                    ACTIVE_SPAWN.discard(self.channel_id)
+                    channel = bot.get_channel(self.channel_id)
+                    if channel:
+                        await channel.send(
+                            f"⏱️ **Nobody guessed the ore. It was {self.correct}!**"
+                        )
 # =====================
 # SPAWN LOGIC
 # =====================
@@ -411,8 +429,9 @@ async def spawn_ore(
 
     channel_id = guild_data.get("spawn_channel") if guild_data else None
     channel = channel_override or (bot.get_channel(channel_id) if channel_id else None)
-    if channel and channel.id in ACTIVE_SPAWN:
-        return
+        # Block ONLY public spawns, never DM spawns
+    if not dm_user and channel and channel.id in ACTIVE_SPAWN:
+            return
 
     rarity = forced_rarity or pick_rarity()
     ore = pick_ore_within_rarity(rarity)
@@ -574,6 +593,7 @@ async def redeem_spawn(interaction: discord.Interaction, rarity: str):
         user_data["bananas"] -= cost
         save_db()
 
+        # Always spawn in DM
         await spawn_ore(interaction.guild.id, forced_rarity=rarity_value, dm_user=interaction.user)
         await interaction.response.send_message(
             f"✅ Redeemed {cost} 🍌 bananas for a {rarity_value.capitalize()} ore! Check your DMs.",
@@ -646,7 +666,11 @@ class GalleryView(View):
                     title="🪨 Your Ore Collection",
                     color=RARITY_DATA[self.rarity]["color"] if self.rarity else discord.Color.blurple()
                 )
-                desc = f"**Discovered {len(discovered)}/{len(ores)} ores**\n\n"
+                desc = f"**Discovered {len(discovered)}/{len(ores)} ores**\n"
+                reward = index_reward_text(user_data, self.rarity)
+                if reward:
+                    desc += reward + "\n"
+                desc += "\n"
 
                 rows = [ores_page[i:i + 3] for i in range(0, len(ores_page), 3)]
                 for row in rows:
@@ -705,28 +729,45 @@ async def index(interaction: Interaction, rarity: str | None = None):
 # =====================
 @gargantuan.command(name="profile", description="View your profile")
 async def profile(interaction: discord.Interaction):
-    user_id = str(interaction.user.id)
-    data = get_user(user_id)
+        user_id = str(interaction.user.id)
+        data = get_user(user_id)
 
-    sorted_users = sorted(
-        bananas_db.items(),
-        key=lambda x: x[1]["bananas"],
-        reverse=True
-    )
-    rank = next((i + 1 for i, (uid, _) in enumerate(sorted_users) if uid == user_id), "N/A")
+        sorted_users = sorted(
+            bananas_db.items(),
+            key=lambda x: x[1]["bananas"],
+            reverse=True
+        )
+        rank = next((i + 1 for i, (uid, _) in enumerate(sorted_users) if uid == user_id), "N/A")
 
-    embed = discord.Embed(
-        title=f"{interaction.user.name}'s Profile",
-        color=discord.Color.gold()
-    )
-    embed.add_field(name="🍌 Bananas", value=data["bananas"], inline=True)
-    embed.add_field(name="🔥 Current Streak", value=data["streak"], inline=True)
-    embed.add_field(name="🏆 Best Streak", value=data["best_streak"], inline=True)
-    total_discovered = sum(1 for ore in ALL_ORES if ore in data["found"])
-    embed.add_field(name="🔍 Ores Found", value=f"{total_discovered}/{len(ALL_ORES)}", inline=True)
-    embed.add_field(name="🌐 Global Rank", value=f"#{rank}", inline=True)
-    await interaction.response.send_message(embed=embed, ephemeral=True)
+        embed = discord.Embed(
+            title=f"{interaction.user.name}'s Profile",
+            color=discord.Color.gold()
+        )
+        embed.add_field(name="🍌 Bananas", value=data["bananas"], inline=True)
+        embed.add_field(name="🔥 Current Streak", value=data["streak"], inline=True)
+        embed.add_field(name="🏆 Best Streak", value=data["best_streak"], inline=True)
+        total_discovered = sum(1 for ore in ALL_ORES if ore in data["found"])
+        embed.add_field(name="🔍 Ores Found", value=f"{total_discovered}/{len(ALL_ORES)}", inline=True)
+        embed.add_field(name="🌐 Global Rank", value=f"#{rank}", inline=True)
 
+        # Calculate title
+        title = calculate_titles(data)
+        if title:
+            embed.add_field(name="🎖️ Title", value=title, inline=False)
+
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
+def index_reward_text(user_data, rarity=None):
+    found = set(user_data.get("found", []))
+
+    if found == set(ALL_ORES):
+        return "**Reward:** Master Collector — Title"
+
+    if rarity:
+        ores = set(RARITY_DATA[rarity]["ores"])
+        if ores.issubset(found):
+            return f"**Reward:** {rarity.capitalize()} Collector — Title"
+    return None
 # =====================
 # SAVE COMMAND (ADMIN)
 # =====================

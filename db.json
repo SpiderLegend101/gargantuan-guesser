@@ -1,8 +1,8 @@
 {
     "1395328044599611466": {
-        "bananas": 6294,
-        "streak": 107,
-        "best_streak": 109,
+        "bananas": 6184,
+        "streak": 119,
+        "best_streak": 119,
         "cooldown": 1769866579.5397868,
         "found": [
             "Aetherit",
@@ -96,9 +96,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 780,
-        "streak": 50,
-        "best_streak": 50,
+        "bananas": 1845,
+        "streak": 65,
+        "best_streak": 65,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -142,7 +142,15 @@
             "Tin",
             "Heart of The Island",
             "Mosasaursit",
-            "Mistvein"
+            "Mistvein",
+            "Sand Stone",
+            "Suryafal",
+            "Gulabite",
+            "Volcanic Rock",
+            "Scheelite",
+            "Magenta Crystal",
+            "Copper",
+            "Cardboardite"
         ],
         "tutorial_sent": true
     },
@@ -1472,14 +1480,19 @@
         "tutorial_sent": true
     },
     "1307642142705057795": {
-        "bananas": 1004,
-        "streak": 4,
-        "best_streak": 4,
+        "bananas": 1030,
+        "streak": 15,
+        "best_streak": 15,
         "found": [
             "Bananite",
             "Iron",
             "Stone",
-            "Grass"
+            "Grass",
+            "Lapis Lazuli",
+            "Stolen Heart",
+            "Frost Fossil",
+            "Aite",
+            "Slimite"
         ],
         "tutorial_sent": true
     },
