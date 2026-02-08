@@ -48,66 +48,66 @@ TUTORIAL_MESSAGE = (
 # DATABASE UTILITIES
 # =====================
 def load_json(path):
-    if not os.path.exists(path):
-        with open(path, "w") as f:
-            json.dump({}, f)
-    try:
-        with open(path, "r") as f:
-            return json.load(f)
-    except json.JSONDecodeError:
-        with open(path, "w") as f:
-            json.dump({}, f)
-        return {}
+            if not os.path.exists(path):
+                with open(path, "w") as f:
+                    json.dump({}, f)
+            try:
+                with open(path, "r") as f:
+                    return json.load(f)
+            except json.JSONDecodeError:
+                with open(path, "w") as f:
+                    json.dump({}, f)
+                return {}
 
 bananas_db = load_json(DB_FILE)
 servers_db = load_json(SERVERS_FILE)
 
 def save_db():
-    with open(DB_FILE, "w") as f:
-        json.dump(bananas_db, f, indent=4)
+            with open(DB_FILE, "w") as f:
+                json.dump(bananas_db, f, indent=4)
 
 def save_servers():
-    with open(SERVERS_FILE, "w") as f:
-        json.dump(servers_db, f, indent=4)
+            with open(SERVERS_FILE, "w") as f:
+                json.dump(servers_db, f, indent=4)
 
 def get_user(uid: str):
-    if uid not in bananas_db:
-        bananas_db[uid] = {
-            "bananas": 0,
-            "streak": 0,
-            "best_streak": 0,
-            "found": []
-        }
-    return bananas_db[uid]
+            if uid not in bananas_db:
+                bananas_db[uid] = {
+                    "bananas": 0,
+                    "streak": 0,
+                    "best_streak": 0,
+                    "found": []
+                }
+            return bananas_db[uid]
 
 
 def push_to_github():
-    if not GITHUB_REPO or not GITHUB_TOKEN:
-        return
-    try:
+            if not GITHUB_REPO or not GITHUB_TOKEN:
+                return
+            try:
 
-        repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
-        subprocess.run(["git", "add", "."], check=True)
-        subprocess.run([
-            "git", "commit", "-m",
-            f"Auto save {time.strftime('%Y-%m-%d %H:%M:%S')}"
-        ], check=True)
-        subprocess.run(["git", "push", repo, "HEAD:main"], check=True)
-    except Exception:
-        pass
+                repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
+                subprocess.run(["git", "add", "."], check=True)
+                subprocess.run([
+                    "git", "commit", "-m",
+                    f"Auto save {time.strftime('%Y-%m-%d %H:%M:%S')}"
+                ], check=True)
+                subprocess.run(["git", "push", repo, "HEAD:main"], check=True)
+            except Exception:
+                pass
 
-        subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
-    except subprocess.CalledProcessError as e:
-        print("❌ Git add failed:", e)
-    try:
-        subprocess.run(["git","commit","-m","Update bot stats"], check=True)
-    except subprocess.CalledProcessError:
-        print("⚠️ Git commit failed (probably nothing to commit)")
-    try:
-        subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
-        print("✅ Data pushed to GitHub")
-    except subprocess.CalledProcessError as e:
-        print("❌ Git push failed:", e)
+                subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
+            except subprocess.CalledProcessError  as e:
+                print("❌ Git add failed:", e)
+            try:
+                subprocess.run(["git","commit","-m","Update bot stats"], check=True)
+            except subprocess.CalledProcessError:
+                print("⚠️ Git commit failed (probably nothing to commit)")
+            try:
+                subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
+                print("✅ Data pushed to GitHub")
+            except subprocess.CalledProcessError as e:
+                print("❌ Git push failed:", e)
 
 # =====================
 # BOT INIT
@@ -556,33 +556,49 @@ async def spawn(interaction: discord.Interaction, rarity: str = None):
 # =====================
 # REDEEM SPAWN COMMAND
 # =====================
-@gargantuan.command(name="redeem_spawn", description="Redeem bananas for a guaranteed ore of selected rarity")
-@app_commands.describe(rarity="Select rarity to redeem")
-@app_commands.choices(rarity=[app_commands.Choice(name=r.capitalize(), value=r) for r in ALL_RARITIES])
-async def redeem_spawn(interaction: discord.Interaction, rarity: str):
-    rarity_value = rarity.lower()
-    if rarity_value not in ALL_RARITIES:
-        await interaction.response.send_message(rarity_error_text(), ephemeral=True)
-        return
+    @gargantuan.command(name="redeem_spawn", description="Redeem bananas for a guaranteed ore of selected rarity")
+    @app_commands.describe(rarity="Select rarity to redeem")
+    @app_commands.choices(rarity=[app_commands.Choice(name=r.capitalize(), value=r) for r in ALL_RARITIES])
+    async def redeem_spawn(interaction: discord.Interaction, rarity: str):
+        rarity_value = rarity.lower()
+        if rarity_value not in ALL_RARITIES:
+            await interaction.response.send_message(rarity_error_text(), ephemeral=True)
+            return
 
-    user_data = get_user(str(interaction.user.id))
-    cost = RARITY_DATA[rarity_value]["cost"]
+        user_data = get_user(str(interaction.user.id))
+        cost = RARITY_DATA[rarity_value]["cost"]
 
-    if user_data["bananas"] < cost:
+        if user_data["bananas"] < cost:
+            await interaction.response.send_message(
+                f"❌ You need {cost} 🍌 bananas to redeem a {rarity_value.capitalize()} ore.",
+                ephemeral=True
+            )
+            return
+
+        user_data["bananas"] -= cost
+        save_db()
+
+        await spawn_ore(interaction.guild.id, forced_rarity=rarity_value, dm_user=interaction.user)
         await interaction.response.send_message(
-            f"❌ You need {cost} 🍌 bananas to redeem a {rarity_value.capitalize()} ore.",
+            f"✅ Redeemed {cost} 🍌 bananas for a {rarity_value.capitalize()} ore! Check your DMs.",
             ephemeral=True
         )
-        return
 
-    user_data["bananas"] -= cost
-    save_db()
+    # =====================
+    # ADD BANANAS COMMAND (ADMIN)
+    # =====================
+    @gargantuan.command(name="add_bananas", description="Admins only - add bananas to a user.")
+    @app_commands.checks.has_permissions(administrator=True)
+    @app_commands.describe(user="User to add bananas to", amount="Amount to add (1-1000)")
+    async def add_bananas(interaction: discord.Interaction, user: discord.Member, amount: int):
+        if amount < 1 or amount > 1000:
+            await interaction.response.send_message("❌ Amount must be between 1 and 1000.", ephemeral=True)
+            return
 
-    await spawn_ore(interaction.guild.id, forced_rarity=rarity_value, dm_user=interaction.user)
-    await interaction.response.send_message(
-        f"✅ Redeemed {cost} 🍌 bananas for a {rarity_value.capitalize()} ore! Check your DMs.",
-        ephemeral=True
-    )
+        user_data = get_user(str(user.id))
+        user_data["bananas"] += amount
+        save_db()
+        await interaction.response.send_message(f"🍌 Added {amount} bananas to {user.mention}.", ephemeral=True)
 
 # =====================
 # ADD BANANAS COMMAND (ADMIN)
