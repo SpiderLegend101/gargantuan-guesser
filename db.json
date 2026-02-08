@@ -1,8 +1,8 @@
 {
     "1395328044599611466": {
-        "bananas": 6184,
-        "streak": 119,
-        "best_streak": 119,
+        "bananas": 6149,
+        "streak": 157,
+        "best_streak": 157,
         "cooldown": 1769866579.5397868,
         "found": [
             "Aetherit",
@@ -90,15 +90,18 @@
             "Magenta Crystal",
             "Neurotite",
             "Orange Crystal",
-            "Eye Ore"
+            "Eye Ore",
+            "Slimite",
+            "Aquajade",
+            "Larimar"
         ],
         "answered": false,
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1845,
-        "streak": 65,
-        "best_streak": 65,
+        "bananas": 1447,
+        "streak": 28,
+        "best_streak": 67,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -150,7 +153,16 @@
             "Scheelite",
             "Magenta Crystal",
             "Copper",
-            "Cardboardite"
+            "Cardboardite",
+            "Pumice",
+            "Aite",
+            "Orange Crystal",
+            "Neurotite",
+            "Titanium",
+            "Silver",
+            "Lapis Lazuli",
+            "Grass",
+            "Iceite"
         ],
         "tutorial_sent": true
     },
@@ -175,15 +187,23 @@
         "tutorial_sent": true
     },
     "1231982023590285312": {
-        "bananas": 4,
-        "streak": 4,
-        "best_streak": 4,
+        "bananas": 1023,
+        "streak": 15,
+        "best_streak": 15,
         "cooldown": 0,
         "found": [
             "Amethyst",
             "Sanctis",
             "Ruby",
-            "Galaxite"
+            "Galaxite",
+            "Darkryte",
+            "Mushroomite",
+            "Stolen Heart",
+            "Platinum",
+            "Evil Eye",
+            "Grass",
+            "Heart of The Island",
+            "Sand Stone"
         ],
         "tutorial_sent": true
     },
@@ -2031,5 +2051,21 @@
         "streak": 0,
         "best_streak": 0,
         "found": []
+    },
+    "1381179065012064326": {
+        "bananas": 0,
+        "streak": 5,
+        "best_streak": 5,
+        "found": [
+            "Galaxite",
+            "Aite",
+            "Mythril",
+            "Ruby",
+            "Tide Carve",
+            "Tin",
+            "Rivalite",
+            "Stolen Heart",
+            "Sand Stone"
+        ]
     }
 }
