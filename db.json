@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 6247,
-        "streak": 11,
+        "bananas": 6199,
+        "streak": 15,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -99,9 +99,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 4409,
-        "streak": 168,
-        "best_streak": 168,
+        "bananas": 2374,
+        "streak": 185,
+        "best_streak": 185,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -176,7 +176,15 @@
             "Rainbow Crystal",
             "Sanctis",
             "Lightite",
-            "Slimite"
+            "Slimite",
+            "Prismatic Heart",
+            "Voidstar",
+            "Frost Fossil",
+            "Blue Crystal",
+            "Obsidian",
+            "Poopite",
+            "Tide Carve",
+            "Larimar"
         ],
         "tutorial_sent": true
     },
