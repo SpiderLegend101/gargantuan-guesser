@@ -49,81 +49,66 @@ TUTORIAL_MESSAGE = (
     # DATABASE UTILITIES
     # =====================
 def load_json(path):
-                if not os.path.exists(path):
-                    with open(path, "w") as f:
-                        json.dump({}, f)
-                try:
-                    with open(path, "r") as f:
-                        return json.load(f)
-                except json.JSONDecodeError:
-                    with open(path, "w") as f:
-                        json.dump({}, f)
-                    return {}
+    if not os.path.exists(path):
+        with open(path, "w") as f:
+            json.dump({}, f)
+    try:
+        with open(path, "r") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        with open(path, "w") as f:
+            json.dump({}, f)
+        return {}
 
 bananas_db = load_json(DB_FILE)
 servers_db = load_json(SERVERS_FILE)
 
 def save_db():
-                with open(DB_FILE, "w") as f:
-                    json.dump(bananas_db, f, indent=4)
+    with open(DB_FILE, "w") as f:
+        json.dump(bananas_db, f, indent=4)
 
 def save_servers():
-                with open(SERVERS_FILE, "w") as f:
-                    json.dump(servers_db, f, indent=4)
+    with open(SERVERS_FILE, "w") as f:
+        json.dump(servers_db, f, indent=4)
 
 def get_user(uid: str):
-                if uid not in bananas_db:
-                    bananas_db[uid] = {
-                        "bananas": 0,
-                        "streak": 0,
-                        "best_streak": 0,
-                        "found": []
-                    }
-                return bananas_db[uid]
+    if uid not in bananas_db:
+        bananas_db[uid] = {
+            "bananas": 0,
+            "streak": 0,
+            "best_streak": 0,
+            "found": []
+        }
+    return bananas_db[uid]
 
-def calculate_titles(user_data):
-        """Return the rarest title achieved by a user, or Master Collector if complete."""
-        # Check if user completed full index
-        total_ores = {ore for ore in ALL_ORES}
-        found_ores = set(user_data.get("found", []))
-        if found_ores == total_ores:
-            return "Master Collector"
-
-        # Otherwise, check per rarity
-        for rarity in reversed(ALL_RARITIES):  # From Divine → Common
-            rarity_ores = set(RARITY_DATA[rarity]["ores"])
-            if rarity_ores.issubset(found_ores):
-                return f"{rarity.capitalize()} Collector"
-        return None
 
 def push_to_github():
-                if not GITHUB_REPO or not GITHUB_TOKEN:
-                    return
-                try:
+    if not GITHUB_REPO or not GITHUB_TOKEN:
+        return
+    try:
 
-                    repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
-                    subprocess.run(["git", "add", "."], check=True)
-                    subprocess.run([
-                        "git", "commit", "-m",
-                        f"Auto save {time.strftime('%Y-%m-%d %H:%M:%S')}"
-                    ], check=True)
-                    subprocess.run(["git", "push", repo, "HEAD:main"], check=True)
-                except Exception:
-                    pass
+        repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run([
+            "git", "commit", "-m",
+            f"Auto save {time.strftime('%Y-%m-%d %H:%M:%S')}"
+        ], check=True)
+        subprocess.run(["git", "push", repo, "HEAD:main"], check=True)
+    except Exception:
+        pass
 
-                    subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
-                except subprocess.CalledProcessError as e:
-                    print("❌ Git add failed:", e)
-                try:
-                    subprocess.run(["git","commit","-m","Update bot stats"], check=True)
-                except subprocess.CalledProcessError:
-                    print("⚠️ Git commit failed (probably nothing to commit)")
-                try:
-                    subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
-                    print("✅ Data pushed to GitHub")
-                except subprocess.CalledProcessError as e:
-                    print("❌ Git push failed:", e)
-
+        subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
+    except subprocess.CalledProcessError as e:
+        print("❌ Git add failed:", e)
+    try:
+        subprocess.run(["git","commit","-m","Update bot stats"], check=True)
+    except subprocess.CalledProcessError:
+        print("⚠️ Git commit failed (probably nothing to commit)")
+    try:
+        subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
+        print("✅ Data pushed to GitHub")
+    except subprocess.CalledProcessError as e:
+        print("❌ Git push failed:", e)
     # =====================
     # BOT INIT
     # =====================
@@ -134,6 +119,21 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 tree = bot.tree
 
+# =============
+def calculate_titles(user_data):
+    """Return the rarest title achieved by a user, or Master Collector if complete."""
+    # Check if user completed full index
+    total_ores = {ore for ore in ALL_ORES}
+    found_ores = set(user_data.get("found", []))
+    if found_ores == total_ores:
+        return "Master Collector"
+
+    # Otherwise, check per rarity
+    for rarity in reversed(ALL_RARITIES):  # From Divine → Common
+        rarity_ores = set(RARITY_DATA[rarity]["ores"])
+        if rarity_ores.issubset(found_ores):
+            return f"{rarity.capitalize()} Collector"
+    return None
     # =====================
     # SLASH COMMAND GROUP
     # =====================
@@ -810,48 +810,47 @@ async def profile(interaction: discord.Interaction):
 
     # =====================
     # SAVE COMMAND (ADMIN)
-    # =====================
+    # =====================                        
 @gargantuan.command(name="save", description="Admins only — save all players' stats to disk and GitHub")
 async def save(interaction: discord.Interaction):
-                    if not interaction.user.guild_permissions.administrator:
-                        await interaction.response.send_message("❌ Admins only", ephemeral=True)
-                        return
+                                if not interaction.user.guild_permissions.administrator:
+                                    await interaction.response.send_message("❌ Admins only", ephemeral=True)
+                                    return
 
-                    # Save locally
-                    save_db()
-                    save_servers()
+                                # Save locally
+                                save_db()
+                                save_servers()
 
-                    pushed = False
-                    if GITHUB_REPO and GITHUB_TOKEN:
-                        try:
-                            # Add token to repo URL for authentication
-                            auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
+                                pushed = False
+                                if GITHUB_REPO and GITHUB_TOKEN:
+                                    try:
+                                        # Add token to repo URL for authentication
+                                        auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
 
-                            # Git config & push
-                            subprocess.run(["git", "config", "user.name", "GargantuanBot"], check=True)
-                            subprocess.run(["git", "config", "user.email", "bot@example.com"], check=True)
-                            subprocess.run(["git", "add", "--all"], check=True)
-                            subprocess.run(
-                                ["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], 
-                                check=False
-                            )
-                            subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
-                            pushed = True
-                        except subprocess.CalledProcessError as e:
-                            print("❌ Git push failed:", e)
-                            pushed = False
+                                        # Git config & push
+                                        subprocess.run(["git", "config", "user.name", "GargantuanBot"], check=True)
+                                        subprocess.run(["git", "config", "user.email", "bot@example.com"], check=True)
+                                        subprocess.run(["git", "add", "--all"], check=True)
+                                        subprocess.run(
+                                            ["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], 
+                                            check=False
+                                        )
+                                        subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
+                                        pushed = True
+                                    except subprocess.CalledProcessError as e:
+                                        print("❌ Git push failed:", e)
+                                        pushed = False
 
-                    if pushed:
-                        await interaction.response.send_message(
-                            "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉", 
-                            ephemeral=True
-                        )
-                    else:
-                        await interaction.response.send_message(
-                            "✅ Saved locally. ⚠️ Push to GitHub failed (nothing to commit or check GITHUB_TOKEN/GITHUB_REPO).", 
-                            ephemeral=True
-                        )
-
+                                if pushed:
+                                    await interaction.response.send_message(
+                                        "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉", 
+                                        ephemeral=True
+                                    )
+                                else:
+                                    await interaction.response.send_message(
+                                        "✅ Saved locally. ⚠️ Push to GitHub failed (nothing to commit or check GITHUB_TOKEN/GITHUB_REPO).", 
+                                        ephemeral=True
+                                    )
     # =====================
 @gargantuan.command(name="leaderboard", description="View the top players in your server")
 async def leaderboard(interaction: discord.Interaction):
