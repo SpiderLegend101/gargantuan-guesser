@@ -1,0 +1,33 @@
+modules = ["python-3.11"]
+[agent]
+expertMode = true
+
+[userenv]
+
+[userenv.shared]
+DISCORD_TOKEN = "MTQ1MDI5MDg3NTc0MDQ1NDk2NA.GGTL1r.kWWnyQqCbBknyIHQRXODLVsaAnhbVricybS_5o"
+REPLIT_GITHUB_TOKEN = "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"
+GITHUB_REPO = "https://github.com/SpiderLegend101/gargantuan-guesser.git"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Discord Bot"
+
+[[workflows.workflow]]
+name = "Discord Bot"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python main.py"
+
+[workflows.workflow.metadata]
+outputType = "console"

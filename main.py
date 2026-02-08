@@ -80,13 +80,12 @@ def get_user(uid: str):
         }
     return bananas_db[uid]
 
-# =====================
-# OPTIONAL GITHUB PUSH
-# =====================
+
 def push_to_github():
     if not GITHUB_REPO or not GITHUB_TOKEN:
         return
     try:
+
         repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
         subprocess.run(["git", "add", "."], check=True)
         subprocess.run([
@@ -96,6 +95,19 @@ def push_to_github():
         subprocess.run(["git", "push", repo, "HEAD:main"], check=True)
     except Exception:
         pass
+
+        subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
+    except subprocess.CalledProcessError as e:
+        print("❌ Git add failed:", e)
+    try:
+        subprocess.run(["git","commit","-m","Update bot stats"], check=True)
+    except subprocess.CalledProcessError:
+        print("⚠️ Git commit failed (probably nothing to commit)")
+    try:
+        subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
+        print("✅ Data pushed to GitHub")
+    except subprocess.CalledProcessError as e:
+        print("❌ Git push failed:", e)
 
 # =====================
 # BOT INIT
@@ -154,15 +166,17 @@ RARITY_DATA = {
 ALL_RARITIES = list(RARITY_DATA.keys())
 ALL_ORES = [ore for data in RARITY_DATA.values() for ore in data["ores"]]
 
-# =====================
-# ORE IMAGE MAP
-# =====================
+            # =====================
+            # ORE IMAGE MAP
+            # =====================
 ORE_IMAGE = {}
 if os.path.exists(ORES_DIR):
-    for f in os.listdir(ORES_DIR):
-        if f.lower().endswith((".png", ".webp")):
-            name = f.rsplit(".", 1)[0].replace("_", " ")
-            ORE_IMAGE[name] = f
+                for f in os.listdir(ORES_DIR):
+                    if f.lower().endswith((".png", ".webp")):
+                        # Keep original filename safe
+                        name = f.rsplit(".", 1)[0].replace("_", " ")
+                        ORE_IMAGE[name] = f"{ORES_DIR}/{f}"
+
 
 # =====================
 # RANDOM HELPERS
@@ -312,14 +326,10 @@ async def spawn_ore(
     )
 
     files = []
-    if ore in ORE_IMAGE:
-        embed.set_image(url=f"attachment://{ORE_IMAGE[ore]}")
-        files.append(
-            discord.File(
-                f"{ORES_DIR}/{ORE_IMAGE[ore]}",
-                filename=ORE_IMAGE[ore]
-            )
-        )
+    if ore in ORE_IMAGE and os.path.exists(ORE_IMAGE[ore]):
+            embed.set_image(url=f"attachment://{os.path.basename(ORE_IMAGE[ore])}")
+            files.append(discord.File(ORE_IMAGE[ore], filename=os.path.basename(ORE_IMAGE[ore])))
+
 
     if dm_user:
         msg = await dm_user.send(embed=embed, files=files)
@@ -584,11 +594,118 @@ class GalleryView(View):
 # =====================
 # PROFILE COMMAND
 # =====================
+# =====================
+# INDEX GALLERY VIEW
+# =====================
+class GalleryView(View):
+    def __init__(self, user_id, rarity=None):
+        super().__init__(timeout=180)
+        self.user_id = str(user_id)
+        self.page = 0
+        self.ores_per_page = 21
+        self.rarity = rarity
+
+        # Buttons
+        self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
+        self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
+        self.refresh_btn = Button(label="🔄 Refresh", style=discord.ButtonStyle.success)
+
+        self.back_btn.callback = self.prev_page
+        self.next_btn.callback = self.next_page
+        self.refresh_btn.callback = self.refresh_page
+
+        self.update_buttons()
+
+    def filtered_ores(self):
+        if not self.rarity:
+            return ALL_ORES.copy()
+        return RARITY_DATA[self.rarity]["ores"]
+
+    def update_buttons(self):
+        self.clear_items()
+        if self.page > 0:
+            self.add_item(self.back_btn)
+        if (self.page + 1) * self.ores_per_page < len(self.filtered_ores()):
+            self.add_item(self.next_btn)
+        self.add_item(self.refresh_btn)
+
+    async def build_embed(self):
+        user_data = get_user(self.user_id)
+        ores = self.filtered_ores()
+        start = self.page * self.ores_per_page
+        end = start + self.ores_per_page
+        ores_page = ores[start:end]
+
+        # Count discovered
+        discovered = [ore for ore in ores if ore in user_data["found"]]
+
+        embed = discord.Embed(
+            title="🪨 Your Ore Collection",
+            color=RARITY_DATA[self.rarity]["color"] if self.rarity else discord.Color.blurple()
+        )
+        desc = f"**Discovered {len(discovered)}/{len(ores)} ores**\n\n"
+
+        guild = None
+        for g in bot.guilds:
+            if any(int(self.user_id) == m.id for m in g.members):
+                guild = g
+                break
+
+        rows = [ores_page[i:i + 3] for i in range(0, len(ores_page), 3)]
+        for row in rows:
+            line1 = ""
+            line2 = ""
+            for ore in row:
+                emoji = None
+                if guild:
+                    emoji = discord.utils.get(guild.emojis, name=ore.replace(" ", "_"))
+                emoji_str = str(emoji) if emoji else f":{ore.replace(' ', '_')}:"
+                line1 += f"{emoji_str} {ore}    "
+                line2 += ("✅" if ore in user_data["found"] else "❌") + "        "
+            desc += line1.rstrip() + "\n" + line2.rstrip() + "\n\n"
+
+        embed.description = desc.strip()
+        add_requester_footer(embed, await bot.fetch_user(int(self.user_id)))
+        return embed
+
+    # Navigation
+    async def next_page(self, interaction: discord.Interaction):
+        self.page += 1
+        self.update_buttons()
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    async def prev_page(self, interaction: discord.Interaction):
+        self.page -= 1
+        self.update_buttons()
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    async def refresh_page(self, interaction: discord.Interaction):
+        self.update_buttons()
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+
+# =====================
+# PROFILE COMMAND
+# =====================
 @gargantuan.command(name="profile", description="View your profile")
 async def profile(interaction: discord.Interaction):
     user_id = str(interaction.user.id)
     data = get_user(user_id)
 
+    # Determine title by highest fully completed rarity
+    title = "No Title"
+    for rarity in reversed(ALL_RARITIES):  # Start from highest rarity
+        ores = RARITY_DATA[rarity]["ores"]
+        if all(o in data["found"] for o in ores):
+            title = f"{rarity.capitalize()} Collector"
+            break
+    if all(ore in data["found"] for ore in ALL_ORES):
+        title = "Master Collector"
+
+    # Global rank
     sorted_users = sorted(
         bananas_db.items(),
         key=lambda x: x[1]["bananas"],
@@ -597,7 +714,7 @@ async def profile(interaction: discord.Interaction):
     rank = next((i + 1 for i, (uid, _) in enumerate(sorted_users) if uid == user_id), "N/A")
 
     embed = discord.Embed(
-        title=f"{interaction.user.name}'s Profile",
+        title=f"{interaction.user.name}'s Profile — {title}",
         color=discord.Color.gold()
     )
     embed.add_field(name="🍌 Bananas", value=data["bananas"], inline=True)
@@ -606,44 +723,51 @@ async def profile(interaction: discord.Interaction):
     total_discovered = sum(1 for ore in ALL_ORES if ore in data["found"])
     embed.add_field(name="🔍 Ores Found", value=f"{total_discovered}/{len(ALL_ORES)}", inline=True)
     embed.add_field(name="🌐 Global Rank", value=f"#{rank}", inline=True)
-    await interaction.response.send_message(embed=embed, ephemeral=True)
 
+    await interaction.response.send_message(embed=embed, ephemeral=True)
 # =====================
 # SAVE COMMAND (ADMIN)
 # =====================
 @gargantuan.command(name="save", description="Admins only — save all players' stats to disk and GitHub")
 async def save(interaction: discord.Interaction):
-    if not interaction.user.guild_permissions.administrator:
-        await interaction.response.send_message("❌ Admins only", ephemeral=True)
-        return
+        if not interaction.user.guild_permissions.administrator:
+            await interaction.response.send_message("❌ Admins only", ephemeral=True)
+            return
 
-    save_db()
-    save_servers()
+        # Save locally
+        save_db()
+        save_servers()
 
-    pushed = False
-    if GITHUB_REPO and GITHUB_TOKEN:
-        auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
-        try:
-            subprocess.run(["git", "config", "user.name", "GargantuanBot"], check=True)
-            subprocess.run(["git", "config", "user.email", "bot@example.com"], check=True)
-            subprocess.run(["git", "add", "--all"], check=True)
-            subprocess.run(["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], check=False)
-            subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
-            pushed = True
-        except subprocess.CalledProcessError as e:
-            print("❌ Git push failed:", e)
-            pushed = False
+        pushed = False
+        if GITHUB_REPO and GITHUB_TOKEN:
+            try:
+                # Add token to repo URL for authentication
+                auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
 
-    if pushed:
-        await interaction.response.send_message(
-            "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉", 
-            ephemeral=True
-        )
-    else:
-        await interaction.response.send_message(
-            "✅ Saved locally. ⚠️ Push to GitHub failed (nothing to commit or check GITHUB_TOKEN/GITHUB_REPO).", 
-            ephemeral=True
-        )
+                # Git config & push
+                subprocess.run(["git", "config", "user.name", "GargantuanBot"], check=True)
+                subprocess.run(["git", "config", "user.email", "bot@example.com"], check=True)
+                subprocess.run(["git", "add", "--all"], check=True)
+                subprocess.run(
+                    ["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], 
+                    check=False
+                )
+                subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
+                pushed = True
+            except subprocess.CalledProcessError as e:
+                print("❌ Git push failed:", e)
+                pushed = False
+
+        if pushed:
+            await interaction.response.send_message(
+                "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉", 
+                ephemeral=True
+            )
+        else:
+            await interaction.response.send_message(
+                "✅ Saved locally. ⚠️ Push to GitHub failed (nothing to commit or check GITHUB_TOKEN/GITHUB_REPO).", 
+                ephemeral=True
+            )
 # =====================
 @gargantuan.command(name="leaderboard", description="View the top players in your server")
 async def leaderboard(interaction: discord.Interaction):
@@ -754,6 +878,98 @@ class LeaderboardView(View):
 
     async def prev_page(self, interaction: discord.Interaction):
         self.page -= 1
+
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+# =====================
+# INDEX GALLERY VIEW (PokéDex style)
+# =====================
+class GalleryView(View):
+    def __init__(self, user_id, rarity=None):
+        super().__init__(timeout=180)
+        self.user_id = str(user_id)
+        self.page = 0
+        self.ores_per_page = 21
+        self.rarity = rarity
+
+        # Buttons
+        self.back_btn = Button(label="← Back", style=discord.ButtonStyle.secondary)
+        self.next_btn = Button(label="Next →", style=discord.ButtonStyle.primary)
+        self.refresh_btn = Button(label="🔄 Refresh", style=discord.ButtonStyle.success)
+
+        self.back_btn.callback = self.prev_page
+        self.next_btn.callback = self.next_page
+        self.refresh_btn.callback = self.refresh_page
+
+        self.update_buttons()
+
+    def filtered_ores(self):
+        if not self.rarity:
+            return ALL_ORES.copy()
+        return RARITY_DATA[self.rarity]["ores"]
+
+    def update_buttons(self):
+        self.clear_items()
+        if self.page > 0:
+            self.add_item(self.back_btn)
+        if (self.page + 1) * self.ores_per_page < len(self.filtered_ores()):
+            self.add_item(self.next_btn)
+        self.add_item(self.refresh_btn)
+
+    async def build_embed(self):
+        user_data = get_user(self.user_id)
+        ores = self.filtered_ores()
+        start = self.page * self.ores_per_page
+        end = start + self.ores_per_page
+        ores_page = ores[start:end]
+
+        # Count discovered
+        discovered = [ore for ore in ores if ore in user_data["found"]]
+
+        embed = discord.Embed(
+            title="🪨 Your Ore Collection",
+            color=RARITY_DATA[self.rarity]["color"] if self.rarity else discord.Color.blurple()
+        )
+        desc = f"**Discovered {len(discovered)}/{len(ores)} ores**\n\n"
+
+        guild = None
+        for g in bot.guilds:
+            if any(int(self.user_id) == m.id for m in g.members):
+                guild = g
+                break
+
+        rows = [ores_page[i:i + 3] for i in range(0, len(ores_page), 3)]
+        for row in rows:
+            line1 = ""
+            line2 = ""
+            for ore in row:
+                emoji = None
+                if guild:
+                    emoji = discord.utils.get(guild.emojis, name=ore.replace(" ", "_"))
+                emoji_str = str(emoji) if emoji else f":{ore.replace(' ', '_')}:"
+                line1 += f"{emoji_str} {ore}    "
+                line2 += ("✅" if ore in user_data["found"] else "❌") + "        "
+            desc += line1.rstrip() + "\n" + line2.rstrip() + "\n\n"
+
+        embed.description = desc.strip()
+        add_requester_footer(embed, await bot.fetch_user(int(self.user_id)))
+        return embed
+
+    # Navigation
+    async def next_page(self, interaction: discord.Interaction):
+        self.page += 1
+        self.update_buttons()
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    async def prev_page(self, interaction: discord.Interaction):
+        self.page -= 1
+        self.update_buttons()
+        embed = await self.build_embed()
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    async def refresh_page(self, interaction: discord.Interaction):
         self.update_buttons()
         embed = await self.build_embed()
         await interaction.response.edit_message(embed=embed, view=self)
