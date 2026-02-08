@@ -99,9 +99,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 2374,
-        "streak": 185,
-        "best_streak": 185,
+        "bananas": 1744,
+        "streak": 191,
+        "best_streak": 191,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -184,7 +184,10 @@
             "Obsidian",
             "Poopite",
             "Tide Carve",
-            "Larimar"
+            "Larimar",
+            "Crimson Crystal",
+            "Cryptex",
+            "Platinum"
         ],
         "tutorial_sent": true
     },
