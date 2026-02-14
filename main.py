@@ -490,7 +490,11 @@ async def spawn_ore(
         if dm_user:
             msg = await dm_user.send(embed=embed, files=files)
             view = OreView(ore, options, ("dm", msg.id), rarity)
+            try:
             await msg.edit(view=view)
+            except discord.HTTPException as e:
+            print(f"[DM EDIT FAILED] {e}")
+
             CURRENT_VIEWS[("dm", msg.id)] = view
             return
 
@@ -499,28 +503,6 @@ async def spawn_ore(
         await msg.edit(view=view)
         CURRENT_VIEWS[(channel.id, msg.id)] = view
         ACTIVE_SPAWN.add(channel.id)
-
-    # =====================
-    # AUTO SPAWNER (respects interval)
-    # =====================
-@tasks.loop(seconds=5)
-async def auto_spawn():
-        now = time.time()
-        servers = load_json(SERVERS_FILE)
-        for gid, data in servers.items():
-            channel_id = data.get("spawn_channel")
-            if not channel_id or channel_id in ACTIVE_SPAWN:
-                continue
-            last_spawn = data.get("last_spawn", 0)
-            interval = data.get("interval", 60)
-            if now - last_spawn >= interval:
-                await spawn_ore(int(gid))
-                data["last_spawn"] = now
-        save_servers()
-
-@auto_spawn.before_loop
-async def before_spawn():
-        await bot.wait_until_ready()
 
     # =====================
     # ROTATE STATUS
@@ -968,22 +950,34 @@ class LeaderboardView(View):
     # =====================
     # AUTO SPAWN TASK
     # =====================
-@tasks.loop(seconds=10)
+@tasks.loop(seconds=5)
 async def auto_spawn():
-        for guild_id, data in servers_db.items():
+    now = time.time()
+
+    for guild_id, data in list(servers_db.items()):
+        try:
             channel_id = data.get("spawn_channel")
             last_spawn = data.get("last_spawn", 0)
-            now = time.time()
 
-            if channel_id and (now - last_spawn) >= 60 and channel_id not in ACTIVE_SPAWN:
-                await spawn_ore(int(guild_id), channel_override=bot.get_channel(channel_id))
+            if not channel_id:
+                continue
+
+            if channel_id in ACTIVE_SPAWN:
+                continue
+
+            if now - last_spawn >= 60:
+                channel = bot.get_channel(channel_id)
+                if not channel:
+                    continue
+
+                await spawn_ore(int(guild_id), channel_override=channel)
+
                 servers_db[guild_id]["last_spawn"] = now
                 save_servers()
 
-@auto_spawn.before_loop
-async def before_auto_spawn():
-        await bot.wait_until_ready()
-
+        except Exception as e:
+            print(f"[AUTO SPAWN ERROR] Guild {guild_id}: {e}")
+            continue
     # =====================
     # ROTATE STATUS (DND)
     # =====================
