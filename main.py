@@ -630,13 +630,13 @@ def index_reward_text(user_data, rarity=None):
         found = set(user_data.get("found", []))
         lines = []
 
-        # Full index — Master Collector
+        # Full index — Ultimate Collector
         if not rarity:
             total_discovered = sum(1 for ore in ALL_ORES if ore in found)
             lines.append(f"**Discovered {total_discovered}/{len(ALL_ORES)} ores**")
 
             all_done = found == set(ALL_ORES)
-            lines.append(f"Master Collector: {'Obtained ✅' if all_done else 'Unobtained ❌'}")
+            lines.append(f"Ultimate Collector: {'Obtained ✅' if all_done else 'Unobtained ❌'}")
             return "\n".join(lines)
 
         # Rarity-specific index
