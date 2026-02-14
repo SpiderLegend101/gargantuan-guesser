@@ -487,7 +487,7 @@ async def spawn_ore(
                 )
             )
 
-        if dm_user:
+                if dm_user:
             msg = await dm_user.send(embed=embed, files=files)
             view = OreView(ore, options, ("dm", msg.id), rarity)
             try:
@@ -495,8 +495,6 @@ async def spawn_ore(
             except discord.HTTPException as e:
             print(f"[DM EDIT FAILED] {e}")
 
-            CURRENT_VIEWS[("dm", msg.id)] = view
-            return
 
         msg = await channel.send(embed=embed, files=files)
         view = OreView(ore, options, (channel.id, msg.id), rarity, channel_id=channel.id)
