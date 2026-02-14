@@ -464,27 +464,28 @@ async def spawn_ore(
             color=RARITY_DATA[rarity]["color"]
         )
 
-        files = []
-        if ore in ORE_IMAGE:
-            embed.set_image(url=f"attachment://{ORE_IMAGE[ore]}")
-            files.append(
-                discord.File(
-                    f"{ORES_DIR}/{ORE_IMAGE[ore]}",
-                    filename=ORE_IMAGE[ore]
-                )
-            )
+files = []
 
-                        if dm_user:
-            msg = await dm_user.send(embed=embed, files=files)
-            view = OreView(ore, options, ("dm", msg.id), rarity)
+if ore in ORE_IMAGE:
+    embed.set_image(url=f"attachment://{ORE_IMAGE[ore]}")
+    files.append(
+        discord.File(
+            f"{ORES_DIR}/{ORE_IMAGE[ore]}",
+            filename=ORE_IMAGE[ore]
+        )
+    )
 
-            try:
-                await msg.edit(view=view)
-            except discord.HTTPException as e:
-                print(f"[DM EDIT FAILED] {e}")
+if dm_user:
+    msg = await dm_user.send(embed=embed, files=files)
+    view = OreView(ore, options, ("dm", msg.id), rarity)
 
-            CURRENT_VIEWS[("dm", msg.id)] = view
-            return
+    try:
+        await msg.edit(view=view)
+    except discord.HTTPException as e:
+        print(f"[DM EDIT FAILED] {e}")
+
+    CURRENT_VIEWS[("dm", msg.id)] = view
+    return
 
         msg = await channel.send(embed=embed, files=files)
         view = OreView(ore, options, (channel.id, msg.id), rarity, channel_id=channel.id)
