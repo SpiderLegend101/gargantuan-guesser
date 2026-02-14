@@ -125,7 +125,7 @@ def calculate_titles(user_data):
     # Check if user completed full index
     total_ores = {ore for ore in ALL_ORES}
     found_ores = set(user_data.get("found", []))
-    if found_ores == total_ores:
+    if total_ores.issubset(found_ores):
         return "Ultimate Collector"
 
     # Otherwise, check per rarity
@@ -635,7 +635,7 @@ def index_reward_text(user_data, rarity=None):
             total_discovered = sum(1 for ore in ALL_ORES if ore in found)
             lines.append(f"**Discovered {total_discovered}/{len(ALL_ORES)} ores**")
 
-            all_done = found == set(ALL_ORES)
+            all_done = set(ALL_ORES).issubset(found)
             lines.append(f"Ultimate Collector: {'Obtained ✅' if all_done else 'Unobtained ❌'}")
             return "\n".join(lines)
 
