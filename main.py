@@ -506,38 +506,6 @@ async def spawn_ore(
         ACTIVE_SPAWN.add(channel.id)
 
     # =====================
-    # ROTATE STATUS
-    # =====================
-statuses = [
-        discord.Game(name="discord.gg/bananite"),
-        discord.Game(name="@Gargantuan Guesser to play")
-    ]
-
-@tasks.loop(seconds=15)
-async def rotate_status():
-        i = 0
-        while True:
-            await bot.change_presence(status=discord.Status.dnd, activity=statuses[i])
-            i = (i + 1) % len(statuses)
-            await asyncio.sleep(15)
-
-    # =====================
-    # ON READY
-    # =====================
-@bot.event
-async def on_ready():
-        print(f"✅ Logged in as {bot.user}")
-        try:
-            synced = await bot.tree.sync()
-            print(f"🔁 Synced {len(synced)} commands")
-        except Exception as e:
-            print("Sync failed:", e)
-
-        if not auto_spawn.is_running():
-            auto_spawn.start()
-        if not rotate_status.is_running():
-            rotate_status.start()
-    # =====================
     # SETUP COMMAND
     # =====================
 @gargantuan.command(name="setup", description="Set the channel for ore spawns to occur")   
