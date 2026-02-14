@@ -12,6 +12,43 @@ import subprocess
 from discord import Guild, Embed
 from discord.utils import get
 from discord import Interaction
+import base64
+import aiohttp
+
+async def push_file_to_github(path: str, message: str) -> bool:
+    """
+    Push a file to GitHub via API. Returns True if success.
+    """
+    if not GITHUB_REPO or not GITHUB_TOKEN:
+        return False
+
+    # Read file content
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        return False
+
+    b64_content = base64.b64encode(content.encode()).decode()
+    api_url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{path}"
+
+    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+
+    async with aiohttp.ClientSession() as session:
+        # Check if file exists to get SHA
+        async with session.get(api_url, headers=headers) as resp:
+            if resp.status == 200:
+                data = await resp.json()
+                sha = data.get("sha")
+            else:
+                sha = None
+
+        payload = {"message": message, "content": b64_content}
+        if sha:
+            payload["sha"] = sha
+
+        async with session.put(api_url, headers=headers, json=payload) as resp:
+            return resp.status in (200, 201)
     # =====================
     # CONFIG
     # =====================
@@ -759,46 +796,33 @@ async def profile(interaction: discord.Interaction):
     # =====================
     # SAVE COMMAND (ADMIN)
     # =====================                        
-@gargantuan.command(name="save", description="Admins only — save all players' stats to disk and GitHub")
+@gargantuan.command(
+    name="save",
+    description="Admins only — save all players' stats to disk and GitHub"
+)
 async def save(interaction: discord.Interaction):
-                                if not interaction.user.guild_permissions.administrator:
-                                    await interaction.response.send_message("❌ Admins only", ephemeral=True)
-                                    return
+    if not interaction.user.guild_permissions.administrator:
+        await interaction.response.send_message("❌ Admins only", ephemeral=True)
+        return
 
-                                # Save locally
-                                save_db()
-                                save_servers()
+    # Save locally first
+    save_db()
+    save_servers()
 
-                                pushed = False
-                                if GITHUB_REPO and GITHUB_TOKEN:
-                                    try:
-                                        # Add token to repo URL for authentication
-                                        auth_repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
+    pushed_db = await push_file_to_github(DB_FILE, f"Update db.json by {interaction.user.name}")
+    pushed_servers = await push_file_to_github(SERVERS_FILE, f"Update servers.json by {interaction.user.name}")
 
-                                        # Git config & push
-                                        subprocess.run(["git", "config", "user.name", "GargantuanBot"], check=True)
-                                        subprocess.run(["git", "config", "user.email", "bot@example.com"], check=True)
-                                        subprocess.run(["git", "add", "--all"], check=True)
-                                        subprocess.run(
-                                            ["git", "commit", "-m", f"Update db & servers by {interaction.user.name}"], 
-                                            check=False
-                                        )
-                                        subprocess.run(["git", "push", auth_repo, "HEAD:main"], check=True)
-                                        pushed = True
-                                    except subprocess.CalledProcessError as e:
-                                        print("❌ Git push failed:", e)
-                                        pushed = False
+    if pushed_db and pushed_servers:
+        await interaction.response.send_message(
+            "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉",
+            ephemeral=True
+        )
+    else:
+        await interaction.response.send_message(
+            "✅ Saved locally. ⚠️ Push to GitHub failed (check GITHUB_TOKEN/GITHUB_REPO).",
+            ephemeral=True
+        )
 
-                                if pushed:
-                                    await interaction.response.send_message(
-                                        "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉", 
-                                        ephemeral=True
-                                    )
-                                else:
-                                    await interaction.response.send_message(
-                                        "✅ Saved locally. ⚠️ Push to GitHub failed (nothing to commit or check GITHUB_TOKEN/GITHUB_REPO).", 
-                                        ephemeral=True
-                                    )
     # =====================
 @gargantuan.command(name="leaderboard", description="View the top players in your server")
 async def leaderboard(interaction: discord.Interaction):
