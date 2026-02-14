@@ -38,7 +38,7 @@ TUTORIAL_MESSAGE = (
         "# Welcome to Gargantuan Guesser!\n\n"
         "Guess the ore by clicking the correct button. Correct guesses earn bananas and build your streak.\n\n"
         "Use bananas to redeem random rarity ores or boost your streak for better rewards.\n"
-        "Unlock titles like **Master Collector** by discovering all ores on your index; your title appears on your profile.\n"
+        "Unlock titles like **Ultimate Collector** by discovering all ores on your index; your title appears on your profile.\n"
         "Rarer ores are less likely to spawn.\n\n"
         "Commands:\n"
         "/gargantuan index — view your collection\n"
