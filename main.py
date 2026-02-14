@@ -163,7 +163,7 @@ RARITY_DATA = {
                           "Emerald", "Ruby", "Rivalite", "Blue Crystal", "Orange Crystal",
                           "Green Crystal", "Magenta Crystal", "Crimson Crystal", "Larimar",
                           "Neurotite", "Frost Fossil", "Tide Carve", "Moltenfrost",
-                          "Crimsonite", "Malachite", "Aquajade", "Cryptex", "Frogite"]},
+                          "Crimsonite", "Malachite", "Aquajade", "Cryptex", "Galestor", "Frogite"]},
         "legendary": {"color": 0xfdb745, "chance": 12, "cost": 40,
                       "ores": ["Uranium", "Mythril", "Eye Ore", "Velchire", "Sanctis",
                                "Fireite", "Magmaite", "Lightite", "Snowite",
@@ -171,7 +171,7 @@ RARITY_DATA = {
                                "Coinite", "Prismatic Heart"]},
         "mythical": {"color": 0xff4d4d, "chance": 10, "cost": 50,
                      "ores": ["Demonite", "Darkryte", "Iceite", "Etherealite",
-                              "Duranite", "Voidfractal", "Galestor", "Evil Eye",
+                              "Duranite", "Voidfractal", "Evil Eye",
                               "Yeti Heart", "Arcane Crystal"]},
         "divine": {"color": 0x5b2b9a, "cost": 60, "chance": 7,
                    "ores": ["Suryafal", "Stolen Heart", "Golem Heart", "Heart of The Island",
@@ -247,6 +247,7 @@ EMOJI_MAP = {
         "Malachite": 1469547423360618596,
         "Aquajade": 1469547319945986169,
         "Cryptex": 1469547342838632754,
+        "Galestor": 1469547386853527612,
         "Frogite": 1469547375327449159,
 
         # ===== LEGENDARY =====
@@ -273,7 +274,6 @@ EMOJI_MAP = {
         "Etherealite": 1469547365911232680,
         "Duranite": 1469547362690269337,
         "Voidfractal": 1469547494232035492,
-        "Galestor": 1469547386853527612,
         "Evil Eye": 1469547368276824214,
         "Yeti Heart": 1469547501035061343,
         "Arcane Crystal": 1469547322215235865,
