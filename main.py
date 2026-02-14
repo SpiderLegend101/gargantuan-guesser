@@ -117,22 +117,6 @@ def get_user(uid: str):
             "found": []
         }
     return bananas_db[uid]
-
-
-def push_to_github():
-    if not GITHUB_REPO or not GITHUB_TOKEN:
-        return
-    try:
-        repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
-        subprocess.run(["git", "add", "."], check=True)
-        subprocess.run(
-            ["git", "commit", "-m", f"Auto save {time.strftime('%Y-%m-%d %H:%M:%S')}"],
-            check=False
-        )
-        subprocess.run(["git", "push", repo, "HEAD:main"], check=True)
-    except subprocess.CalledProcessError as e:
-        print("Git push failed:", e)
-
     # =====================
     # BOT INIT
     # =====================
@@ -805,21 +789,18 @@ async def save(interaction: discord.Interaction):
         await interaction.response.send_message("❌ Admins only", ephemeral=True)
         return
 
-    # Save locally first
     save_db()
     save_servers()
 
-    pushed_db = await push_file_to_github(DB_FILE, f"Update db.json by {interaction.user.name}")
-    pushed_servers = await push_file_to_github(SERVERS_FILE, f"Update servers.json by {interaction.user.name}")
+    db_ok = await push_file_to_github(DB_FILE, f"Save by {interaction.user} ({interaction.user.id})")
+    servers_ok = await push_file_to_github(SERVERS_FILE, f"Save by {interaction.user} ({interaction.user.id})")
 
-    if pushed_db and pushed_servers:
-        await interaction.response.send_message(
-            "✅ db.json and servers.json saved locally **and** pushed to GitHub! 🎉",
-            ephemeral=True
-        )
+    if db_ok and servers_ok:
+        await interaction.response.send_message("✅ Saved locally and pushed to GitHub successfully!", ephemeral=True)
     else:
         await interaction.response.send_message(
-            "✅ Saved locally. ⚠️ Push to GitHub failed (check GITHUB_TOKEN/GITHUB_REPO).",
+            "✅ Saved locally.\n⚠️ GitHub push failed — check that `GITHUB_REPO` and `REPLIT_GITHUB_TOKEN` (or `GITHUB_TOKEN`) are set correctly "
+            "and that the token has `repo` scope.",
             ephemeral=True
         )
 
