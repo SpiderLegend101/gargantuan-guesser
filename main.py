@@ -86,29 +86,16 @@ def push_to_github():
     if not GITHUB_REPO or not GITHUB_TOKEN:
         return
     try:
-
         repo = GITHUB_REPO.replace("https://", f"https://{GITHUB_TOKEN}@")
         subprocess.run(["git", "add", "."], check=True)
-        subprocess.run([
-            "git", "commit", "-m",
-            f"Auto save {time.strftime('%Y-%m-%d %H:%M:%S')}"
-        ], check=True)
+        subprocess.run(
+            ["git", "commit", "-m", f"Auto save {time.strftime('%Y-%m-%d %H:%M:%S')}"],
+            check=False
+        )
         subprocess.run(["git", "push", repo, "HEAD:main"], check=True)
-    except Exception:
-        pass
+    except subprocess.CalledProcessError as e:
+        print("Git push failed:", e)
 
-        subprocess.run(["git","add",DB_FILE,SERVERS_FILE], check=True)
-    except subprocess.CalledProcessError as e:
-        print("❌ Git add failed:", e)
-    try:
-        subprocess.run(["git","commit","-m","Update bot stats"], check=True)
-    except subprocess.CalledProcessError:
-        print("⚠️ Git commit failed (probably nothing to commit)")
-    try:
-        subprocess.run(["git","push",auth_repo,"HEAD:main"], check=True)
-        print("✅ Data pushed to GitHub")
-    except subprocess.CalledProcessError as e:
-        print("❌ Git push failed:", e)
     # =====================
     # BOT INIT
     # =====================
