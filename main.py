@@ -20,6 +20,10 @@ async def push_file_to_github(path: str, message: str) -> bool:
     Push a file to GitHub via API. Returns True if success.
     """
     if not GITHUB_REPO or not GITHUB_TOKEN:
+        print(
+            f"[GITHUB PUSH] Missing config. "
+            f"GITHUB_REPO={GITHUB_REPO!r}, have_token={bool(GITHUB_TOKEN)}"
+        )
         return False
 
     # Read file content
@@ -27,12 +31,16 @@ async def push_file_to_github(path: str, message: str) -> bool:
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
     except FileNotFoundError:
+        print(f"[GITHUB PUSH] File not found: {path}")
         return False
 
     b64_content = base64.b64encode(content.encode()).decode()
     api_url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{path}"
 
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    headers = {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github+json",
+    }
 
     async with aiohttp.ClientSession() as session:
         # Check if file exists to get SHA
@@ -40,15 +48,25 @@ async def push_file_to_github(path: str, message: str) -> bool:
             if resp.status == 200:
                 data = await resp.json()
                 sha = data.get("sha")
-            else:
+            elif resp.status == 404:
                 sha = None
+            else:
+                text = await resp.text()
+                print(f"[GITHUB PUSH] GET {api_url} failed: {resp.status} {text}")
+                return False
 
         payload = {"message": message, "content": b64_content}
         if sha:
             payload["sha"] = sha
 
         async with session.put(api_url, headers=headers, json=payload) as resp:
-            return resp.status in (200, 201)
+            if resp.status in (200, 201):
+                print(f"[GITHUB PUSH] Successfully pushed {path}")
+                return True
+            else:
+                text = await resp.text()
+                print(f"[GITHUB PUSH] PUT {api_url} failed: {resp.status} {text}")
+                return False
     # =====================
     # CONFIG
     # =====================
