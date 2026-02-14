@@ -121,12 +121,12 @@ tree = bot.tree
 
 # =============
 def calculate_titles(user_data):
-    """Return the rarest title achieved by a user, or Master Collector if complete."""
+    """Return the rarest title achieved by a user, or Ultimate Collector if complete."""
     # Check if user completed full index
     total_ores = {ore for ore in ALL_ORES}
     found_ores = set(user_data.get("found", []))
     if found_ores == total_ores:
-        return "Master Collector"
+        return "Ultimate Collector"
 
     # Otherwise, check per rarity
     for rarity in reversed(ALL_RARITIES):  # From Divine → Common
