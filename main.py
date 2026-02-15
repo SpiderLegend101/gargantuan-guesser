@@ -76,7 +76,7 @@ SERVERS_FILE = "servers.json"
 ORES_DIR = "ores"
 
 GITHUB_REPO = os.getenv("GITHUB_REPO")
-GITHUB_TOKEN = os.getenv("REPLIT_GITHUB_TOKEN")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
     # =====================
     # GLOBAL STATE
