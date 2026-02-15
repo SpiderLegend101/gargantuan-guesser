@@ -3,8 +3,6 @@ from discord.ext import commands, tasks
 from discord import app_commands
 from discord.ui import View, Button
 import os
-os.system("curl -o db.json https://raw.githubusercontent.com/SpiderLegend101/gargantuan-guesser/main/db.json")
-os.system("curl -o servers.json https://raw.githubusercontent.com/SpiderLegend101/gargantuan-guesser/main/servers.json")
 import json
 import random
 import time
