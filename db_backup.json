@@ -1,9 +1,9 @@
 {
     "1395328044599611466": {
-        "bananas": 17,
-        "streak": 10,
-        "best_streak": 10,
-        "cooldown": 1769328705.0110292,
+        "bananas": 6202,
+        "streak": 16,
+        "best_streak": 189,
+        "cooldown": 1769866579.5397868,
         "found": [
             "Aetherit",
             "Heavenite",
@@ -15,18 +15,96 @@
             "Copper",
             "Ruby",
             "Fireite",
-            "Tide Carve",
+            "Quartz",
+            "Coinite",
+            "Platinum",
+            "Iceite",
+            "Galestor",
+            "Green Crystal",
+            "Stolen Heart",
+            "Malachite",
+            "Suryafal",
+            "Volcanic Rock",
             "Mistvein",
-            "Crimson Crystal",
-            "Etherealite",
+            "Snowite",
+            "Fichillium",
+            "Stone",
+            "Cobalt",
+            "Tide Carve",
+            "Iron",
+            "Magmaite",
+            "Rainbow Crystal",
+            "Blue Crystal",
+            "Voidstar",
             "Tin",
-            "Lgarite"
-        ]
+            "Rivalite",
+            "Grass",
+            "Darkryte",
+            "Dark Boneite",
+            "Cardboardite",
+            "Aite",
+            "Tungsten",
+            "Sanctis",
+            "Obsidian",
+            "Mythril",
+            "Lapis Lazuli",
+            "Bananite",
+            "Amethyst",
+            "Pumice",
+            "Frost Fossil",
+            "Gargantuan",
+            "Duranite",
+            "Velchire",
+            "Silver",
+            "Moon Stone",
+            "Lgarite",
+            "Poopite",
+            "Etherealite",
+            "Golem Heart",
+            "Gold",
+            "Yeti Heart",
+            "Emerald",
+            "Diamond",
+            "Uranium",
+            "Moltenfrost",
+            "Heart of The Island",
+            "Sand Stone",
+            "Titanium",
+            "Boneite",
+            "Crimsonite",
+            "Sulfur",
+            "Sapphire",
+            "Topaz",
+            "Orange crystal",
+            "Mosasaursit",
+            "Galaxite",
+            "Arcane Crystal",
+            "Frogite",
+            "Evil Eye Ore",
+            "Voidfractal",
+            "Crimson Crystal",
+            "Prismatic Heart",
+            "Cuprite",
+            "Lightite",
+            "Evil Eye",
+            "Magenta Crystal",
+            "Neurotite",
+            "Orange Crystal",
+            "Eye Ore",
+            "Slimite",
+            "Aquajade",
+            "Larimar"
+            "Cryptex"
+            "Gulabite"
+            "Graphite"
+        ],
+        "answered": false,
+        "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 27,
-        "streak": 27,
-        "best_streak": 27,
+        "bananas": 4,
+        "streak": 197,
+        "best_streak": 197,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -53,7 +131,1983 @@
             "Moon Stone",
             "Galestor",
             "Bananite",
-            "Iron"
+            "Malachite",
+            "Emerald",
+            "Coinite",
+            "Sapphire",
+            "Etherealite",
+            "Fireite",
+            "Magmaite",
+            "Dark Boneite",
+            "Boneite",
+            "Mythril",
+            "Fichillium",
+            "Iron",
+            "Quartz",
+            "Golem Heart",
+            "Tin",
+            "Heart of The Island",
+            "Mosasaursit",
+            "Mistvein",
+            "Sand Stone",
+            "Suryafal",
+            "Gulabite",
+            "Volcanic Rock",
+            "Scheelite",
+            "Magenta Crystal",
+            "Copper",
+            "Cardboardite",
+            "Pumice",
+            "Aite",
+            "Orange Crystal",
+            "Neurotite",
+            "Titanium",
+            "Silver",
+            "Lapis Lazuli",
+            "Grass",
+            "Iceite",
+            "Aquajade",
+            "Stolen Heart",
+            "Galaxite",
+            "Heavenite",
+            "Gold",
+            "Evil Eye",
+            "Demonite",
+            "Voidfractal",
+            "Yeti Heart",
+            "Ruby",
+            "Rainbow Crystal",
+            "Sanctis",
+            "Lightite",
+            "Slimite",
+            "Prismatic Heart",
+            "Voidstar",
+            "Frost Fossil",
+            "Blue Crystal",
+            "Obsidian",
+            "Poopite",
+            "Tide Carve",
+            "Larimar",
+            "Crimson Crystal",
+            "Cryptex",
+            "Platinum",
+            "Topaz",
+            "Aetherit",
+            "Lgarite",
+            "Graphite",
+            "Sulfur"
+        ],
+        "tutorial_sent": true
+    },
+    "1145884527424720956": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Coinite"
+        ],
+        "tutorial_sent": true
+    },
+    "764059274045292544": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "cooldown": 0,
+        "found": [
+            "Titanium"
+        ],
+        "tutorial_sent": true
+    },
+    "1231982023590285312": {
+        "bananas": 943,
+        "streak": 25,
+        "best_streak": 25,
+        "cooldown": 0,
+        "found": [
+            "Amethyst",
+            "Sanctis",
+            "Ruby",
+            "Galaxite",
+            "Darkryte",
+            "Mushroomite",
+            "Stolen Heart",
+            "Platinum",
+            "Evil Eye",
+            "Grass",
+            "Heart of The Island",
+            "Sand Stone",
+            "Demonite",
+            "Obsidian",
+            "Eye Ore",
+            "Golem Heart",
+            "Cardboardite",
+            "Arcane Crystal"
+        ],
+        "tutorial_sent": true
+    },
+    "1097492646009778180": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1443056985351258132": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "799314913780432938": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "755164115428704297": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1203620009624997903": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1439199321328193681": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1438977392130523168": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1230152835824615515": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1252319354486263830": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1175721577963343965": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "884962838882426900": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "323617452481052674": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1450126406502584415": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "540634221195165706": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1321491672466591805": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1250346404203860011": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "710514755110174760": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1348490703327727647": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1399853823547281449": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "987356909394870272": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1123511248953290804": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1377324398347812966": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1452470774295433459": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1323282714727682058": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1282271819067559973": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1059072561729777695": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "780114708183252992": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1249339805058469891": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1451573039081717864": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "800819568482189404": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1348223859681132646": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1399632798096162927": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1260633756956622949": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1204643633806966836": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "756909144635605053": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1380025208726884382": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1450810056580009984": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "944639510866694234": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1377905164643733627": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1203988079518679103": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1444243959521083483": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1011228182571126834": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "927539493030985799": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1326924362267365463": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1243684074405761149": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "807972932575690782": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1383366149235933306": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1448299138184904816": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1415344236710199326": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "955662139517992990": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1439458623616188468": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1452675306426077317": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1451573536555667539": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "411613357821657127": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1319266416427536435": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1369247650473574420": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "734128527527641108": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1396352297101168732": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "864041538731769897": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1015116208879714304": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1245350140227747860": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1261555325119627311": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1356348952668143757": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1449786222657540216": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1305694148460023853": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1451565581412208681": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1327332945186259085": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1226947891571200104": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1393390622639132745": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1286273353522614375": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1450723595730030764": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1200403280166141992": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1450828814216200304": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1325736810659446827": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1261952835017379870": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1319617292920684615": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1028627600488280085": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1029172898226782268": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1377174019291349113": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1449076129896861828": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1450844053917929516": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1394863272381120633": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1364673587402768571": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1323149524050513931": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1051234838809682051": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1027920444344500265": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1129160990089560074": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1354348947237240832": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1036685131139776512": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "943467477155864586": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "962379568210137138": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "882634508984254575": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1337469245939912724": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1274718108652666900": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "899865249044385822": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1402948963493220422": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "283133094330892288": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1373008060171292823": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1400824887924363345": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1085796633259819008": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1392818832401235990": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1251758080161742859": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1183809331221770400": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1240615498735943735": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "704925115342913612": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "917376833169784833": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1241138757571182614": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "661684421828542474": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1322899777469284385": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1442215920603758746": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1446383514147885237": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1347802726272335975": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1403012210313134131": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1319685716984205383": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1390954454710489140": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1320048667276742668": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1084088149778636920": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1405873891057864756": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1276114955023941705": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "851188027199455262": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1168187722364616735": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1276685940319981603": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1377949634126942231": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1375086874749698203": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1401253154879967402": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "745683560161214574": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1323654312584413215": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1376099355576238204": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1384517092287447091": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "944173872234774548": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1141615720799666266": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1452649497006964747": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1255095167678025738": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1242437155112882207": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1110555144371834880": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "514781967129116683": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1295370215659667528": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "809793941678587914": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1150161977251995758": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Tin"
+        ],
+        "tutorial_sent": true
+    },
+    "1450135937311834152": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "771649165113032725": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1425946652824567832": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1293358361487872055": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1127025801389424691": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1370670157340348508": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1117716981534183535": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1353222668740198524": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1449770831436582958": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1149469966832242778": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1386602045242474536": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1161446817347686462": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1354378312818102292": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1180550267612176440": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "879037669043236925": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1403986276985602162": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1226053389889175562": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1421665055249928212": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1396963980626624603": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1408521768666136788": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "660525742349877249": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1279156439402811394": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1214043788058566697": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1174567871335120946": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1012365865066438666": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1231935760546926736": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "747375932569813002": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "708325752457920614": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1383033338809417738": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1128673444565897277": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "822191880413642763": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "559391995886305280": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1444727559391543379": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1399885018234617957": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "997114721830441033": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1454431713488015481": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1018022567518425108": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "760383623751925791": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "743004560125198419": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1445415051753165012": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1416382277554016409": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "736745602465005590": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1441356656528330846": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1245262271886786583": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1421740226476376064": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "961176214993776651": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1307642142705057795": {
+        "bananas": 973,
+        "streak": 16,
+        "best_streak": 16,
+        "found": [
+            "Bananite",
+            "Iron",
+            "Stone",
+            "Grass",
+            "Lapis Lazuli",
+            "Stolen Heart",
+            "Frost Fossil",
+            "Aite",
+            "Slimite",
+            "Golem Heart"
+        ],
+        "tutorial_sent": true
+    },
+    "1418911690392600606": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "714943515385397308": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1180408964064743428": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1216233211643035809": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1258886201574817843": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "443204708493033472": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1385269173877477498": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1033913169241968700": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "784311452085125140": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1229945478884491325": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1362761290115973393": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1390381179156562012": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "918854736042659900": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "511933375523848223": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "734036276503904266": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "725853684767916055": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1430165088664289381": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1446493677164695607": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1416571845230071858": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "809476295653195776": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1443275147816472639": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "642651358079746058": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1425392765398683708": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1203316936151400545": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1451560966545342475": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1434915563817144320": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1317049021705093125": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "930441326363803739": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1335038713234718813": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "786583656654831636": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1227517513475166239": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1442811126344843331": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1397897546109812798": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "438628053220851715": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1387199609956470788": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "905806471726530640": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1360508279372906506": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1041204188270579803": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "762608673791934464": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1369011455340449932": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "846968475837923348": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1372895969045250118": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "699378283648647270": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "491798944842776576": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1138592301447401542": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "643658160497885184": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1407107753259831418": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "649946408866283552": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "988597801141297164": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1271661016677089390": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1366332039867138072": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "852628041893019709": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1245287871062212708": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1431514477454557225": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1400904251311653017": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "803996439214293014": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "937844846536843317": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1319856278876721164": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1439231429572563007": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "674688340267630602": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1330308054239150123": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1339385759865507903": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1417552145737056286": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "982895628273213440": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1176886002153951286": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1379453416073461844": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "936540578529828894": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "847381280374652988": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1195873120029003788": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "822008979981860904": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1433890064382951457": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1038778603996987434": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1323029103837974590": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1133323839179333743": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1202606228463685642": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1215832202936455192": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": [],
+        "tutorial_sent": true
+    },
+    "1450290875740454964": {
+        "bananas": 1000,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1381179065012064326": {
+        "bananas": 0,
+        "streak": 5,
+        "best_streak": 5,
+        "found": [
+            "Galaxite",
+            "Aite",
+            "Mythril",
+            "Ruby",
+            "Tide Carve",
+            "Tin",
+            "Rivalite",
+            "Stolen Heart",
+            "Sand Stone"
         ]
     }
 }
