@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 6205,
-        "streak": 17,
+        "bananas": 6204,
+        "streak": 30,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 4,
-        "streak": 197,
-        "best_streak": 197,
+        "bananas": 24,
+        "streak": 201,
+        "best_streak": 201,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -210,12 +210,13 @@
         "tutorial_sent": true
     },
     "764059274045292544": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
         "cooldown": 0,
         "found": [
-            "Titanium"
+            "Titanium",
+            "Slimite"
         ],
         "tutorial_sent": true
     },
@@ -2040,10 +2041,12 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Mushroomite"
+        ],
         "tutorial_sent": true
     },
     "1433890064382951457": {
