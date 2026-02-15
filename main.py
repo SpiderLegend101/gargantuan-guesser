@@ -107,12 +107,13 @@ def load_json(path):
     if not os.path.exists(path):
         with open(path, "w") as f:
             json.dump({}, f)
+        return {}
+
     try:
         with open(path, "r") as f:
             return json.load(f)
     except json.JSONDecodeError:
-        with open(path, "w") as f:
-            json.dump({}, f)
+        print(f"⚠️ WARNING: {path} is corrupted. NOT overwriting it.")
         return {}
 
 bananas_db = load_json(DB_FILE)
