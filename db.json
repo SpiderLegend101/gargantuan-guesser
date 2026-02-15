@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7204,
-        "streak": 30,
+        "bananas": 7264,
+        "streak": 42,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,7 +102,7 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 24,
+        "bananas": 1024,
         "streak": 201,
         "best_streak": 201,
         "cooldown": 0,
@@ -826,10 +826,13 @@
         "tutorial_sent": true
     },
     "1323149524050513931": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Diamond",
+            "Grass"
+        ],
         "tutorial_sent": true
     },
     "1051234838809682051": {
@@ -1542,9 +1545,9 @@
         "tutorial_sent": true
     },
     "1307642142705057795": {
-        "bananas": 973,
-        "streak": 16,
-        "best_streak": 16,
+        "bananas": 976,
+        "streak": 17,
+        "best_streak": 17,
         "found": [
             "Bananite",
             "Iron",
@@ -1555,7 +1558,8 @@
             "Frost Fossil",
             "Aite",
             "Slimite",
-            "Golem Heart"
+            "Golem Heart",
+            "Topaz"
         ],
         "tutorial_sent": true
     },
