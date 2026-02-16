@@ -1,4 +1,5 @@
-<img width="1287" height="974" alt="image" src="https://github.com/user-attachments/assets/f35aee0f-3d7b-48e2-b696-91acee8305c0" /># Gargantuan Guesser | Official Bot Info
+
+# Gargantuan Guesser | Official Bot Info
 
 **Owner:** SpiderLegend101 (GitHub) / saikigodd (Discord)  
 **Discord Home Server:** [Join here](https://discord.gg/bananite)  
