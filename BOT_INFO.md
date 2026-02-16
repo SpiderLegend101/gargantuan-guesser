@@ -1,4 +1,4 @@
-# Gargantuan Guesser | Official Bot Info
+<img width="1287" height="974" alt="image" src="https://github.com/user-attachments/assets/f35aee0f-3d7b-48e2-b696-91acee8305c0" /># Gargantuan Guesser | Official Bot Info
 
 **Owner:** SpiderLegend101 (GitHub) / saikigodd (Discord)  
 **Discord Home Server:** [Join here](https://discord.gg/bananite)  
@@ -7,19 +7,38 @@
 ---
 
 ## About the Bot
-Gargantuan Guesser is a proprietary Discord bot that allows users to guess random forge ores that spawn in a channel periodically.  
-This bot is fully owned and maintained by saikigodd.
+Gargantuan Guesser is a proprietary Discord bot that lets users **guess random forge ores** that spawn periodically in a channel.  
+Earn bananas, build streaks, unlock titles, and collect rare ores for bragging rights.  
+
+This bot is fully owned and maintained by saikigodd.  
 
 **All rights reserved. Unauthorized copying or redistribution is prohibited.**
 
 ---
 
 ## Commands
-- `/` – Start a new guessing game  
-- `/gargantuan leaderboard` – See top players  
-- `/help` – Get a full list of commands  
 
-*(More commands coming soon — join the server for updates!)*
+### 🔹 User Commands
+| Command | Description |
+|---------|-------------|
+| `/gargantuan index [rarity]` | View your ore collection. Optionally filter by rarity (`common`, `uncommon`, `rare`, `epic`, `legendary`, `mythical`, `divine`). Shows which ores you’ve found and your progress toward titles. |
+| `/gargantuan profile` | View your profile, including bananas, current streak, best streak, ores found, global rank, and earned title. |
+| `/gargantuan redeem_spawn <rarity>` | Redeem bananas for a guaranteed ore of selected rarity. The ore will always spawn in your DMs. Requires sufficient bananas. |
+| `/gargantuan leaderboard` | View the top players in your server. Multiple pages: most bananas, current streak, best streak ever. |
+
+### 🔹 Admin Commands
+| Command | Description |
+|---------|-------------|
+| `/gargantuan setup <channel>` | Set the channel for ore spawns. Admin-only. |
+| `/gargantuan spawn [rarity]` | Spawn a random ore or a specific rarity in the spawn channel. Admin-only. |
+| `/gargantuan add_bananas <user> <amount>` | Add bananas to a user (1–1000). Admin-only. |
+| `/gargantuan save` | Save all player stats to disk and push to GitHub. Admin-only. |
+
+### 🔹 Gameplay Notes
+- Ores have **rarity levels**: Common → Divine. Rarer ores are harder to find.  
+- Correct guesses reward bananas and increase streaks.  
+- Titles are unlocked by completing collections, e.g., **Ultimate Collector** for finding all ores.  
+- `/redeem_spawn` always spawns ores in DMs using bananas to avoid public competition.
 
 ---
 
@@ -29,5 +48,11 @@ This bot is **proprietary**. See the [LICENSE](LICENSE) file for full legal term
 
 ---
 
-## Screenshots / Preview
-*(Optional: add a few images or GIFs of the bot in action here)*
+## Screenshots
+```markdown
+![Bot Profile](images/screenshot1.png)
+![Tutorial message](images/screenshot1.png)
+![Guessing an Ore](images/screenshot1.png)
+![Leaderboard View](images/screenshot2.png)
+![Index View](images/screenshot1.png)
+![Profile View](images/screenshot1.png)
