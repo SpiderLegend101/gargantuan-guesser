@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7264,
-        "streak": 42,
+        "bananas": 7294,
+        "streak": 48,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -826,12 +826,13 @@
         "tutorial_sent": true
     },
     "1323149524050513931": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "found": [
             "Diamond",
-            "Grass"
+            "Grass",
+            "Cardboardite"
         ],
         "tutorial_sent": true
     },
@@ -2045,11 +2046,12 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
         "found": [
-            "Mushroomite"
+            "Mushroomite",
+            "Stolen Heart"
         ],
         "tutorial_sent": true
     },
