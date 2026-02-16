@@ -49,12 +49,3 @@ This bot is **proprietary**. See the [LICENSE](LICENSE) file for full legal term
 [Contact the owner for permission to use or collaborate](https://discord.com/users/1395328044599611466)
 
 ---
-
-## Screenshots
-```markdown
-![Bot Profile](images/screenshot1.png)
-![Tutorial message](images/screenshot1.png)
-![Guessing an Ore](images/screenshot1.png)
-![Leaderboard View](images/screenshot2.png)
-![Index View](images/screenshot1.png)
-![Profile View](images/screenshot1.png)
