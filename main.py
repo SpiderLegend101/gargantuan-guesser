@@ -656,6 +656,9 @@ def index_reward_text(user_data, rarity=None):
 
         return "\n".join(lines)
 
+# Bot created by saikigodd (discord) / SpiderLegend101 on GitHub
+# Unauthorized copying is prohibited
+
 
     # =====================
     # GALLERY VIEW
