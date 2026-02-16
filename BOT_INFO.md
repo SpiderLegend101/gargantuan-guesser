@@ -1,4 +1,4 @@
-<img width="900" height="300" alt="image" src="https://github.com/user-attachments/assets/a72d92e7-ca79-4c21-b51b-254c601594ad" />
+<img width="1000" height="350" alt="image" src="https://github.com/user-attachments/assets/a72d92e7-ca79-4c21-b51b-254c601594ad" />
 # Gargantuan Guesser | Official Bot Info
 
 **Owner:** SpiderLegend101 (GitHub) / saikigodd (Discord)  
