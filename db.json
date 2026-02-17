@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7404,
-        "streak": 24,
+        "bananas": 7454,
+        "streak": 34,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2156,8 +2156,8 @@
         ]
     },
     "1235342212334747841": {
-        "bananas": 122,
-        "streak": 6,
+        "bananas": 126,
+        "streak": 8,
         "best_streak": 8,
         "found": [
             "Iron",
@@ -2174,7 +2174,8 @@
             "Cardboardite",
             "Grass",
             "Silver",
-            "Neurotite"
+            "Neurotite",
+            "Heart of The Island"
         ]
     }
 }
