@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7439,
-        "streak": 21,
+        "bananas": 7404,
+        "streak": 24,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2156,9 +2156,9 @@
         ]
     },
     "1235342212334747841": {
-        "bananas": 9,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 122,
+        "streak": 6,
+        "best_streak": 8,
         "found": [
             "Iron",
             "Magmaite",
@@ -2168,7 +2168,13 @@
             "Stolen Heart",
             "Cobalt",
             "Tin",
-            "Emerald"
+            "Emerald",
+            "Iceite",
+            "Cuprite",
+            "Cardboardite",
+            "Grass",
+            "Silver",
+            "Neurotite"
         ]
     }
 }
