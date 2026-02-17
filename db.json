@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7425,
-        "streak": 17,
+        "bananas": 7439,
+        "streak": 21,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2153,6 +2153,22 @@
             "Stone",
             "Silver",
             "Tin"
+        ]
+    },
+    "1235342212334747841": {
+        "bananas": 9,
+        "streak": 5,
+        "best_streak": 5,
+        "found": [
+            "Iron",
+            "Magmaite",
+            "Suryafal",
+            "Aite",
+            "Fireite",
+            "Stolen Heart",
+            "Cobalt",
+            "Tin",
+            "Emerald"
         ]
     }
 }
