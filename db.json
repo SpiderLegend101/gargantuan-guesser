@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7358,
-        "streak": 18,
+        "bananas": 7396,
+        "streak": 6,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1024,
-        "streak": 201,
-        "best_streak": 201,
+        "bananas": 1034,
+        "streak": 203,
+        "best_streak": 203,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -2117,6 +2117,32 @@
             "Rivalite",
             "Stolen Heart",
             "Sand Stone"
+        ]
+    },
+    "1463999004642775152": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Sanctis"
+        ]
+    },
+    "1291372259126022176": {
+        "bananas": 20,
+        "streak": 0,
+        "best_streak": 11,
+        "found": [
+            "Sand Stone",
+            "Stolen Heart",
+            "Eye Ore",
+            "Platinum",
+            "Uranium",
+            "Stone",
+            "Demonite",
+            "Velchire",
+            "Topaz",
+            "Larimar",
+            "Ruby"
         ]
     }
 }
