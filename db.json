@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7709,
-        "streak": 85,
+        "bananas": 7774,
+        "streak": 98,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1044,
-        "streak": 205,
-        "best_streak": 205,
+        "bananas": 1049,
+        "streak": 206,
+        "best_streak": 206,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -2230,6 +2230,16 @@
             "Fireite",
             "Emerald",
             "Ruby"
+        ]
+    },
+    "1418244995265200189": {
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
+        "found": [
+            "Titanium",
+            "Voidstar",
+            "Volcanic Rock"
         ]
     }
 }
