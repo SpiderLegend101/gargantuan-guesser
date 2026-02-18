@@ -2048,16 +2048,17 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 7,
-        "streak": 6,
-        "best_streak": 6,
+        "bananas": 9,
+        "streak": 7,
+        "best_streak": 7,
         "found": [
             "Mushroomite",
             "Stolen Heart",
             "Fichillium",
             "Demonite",
             "Sand Stone",
-            "Scheelite"
+            "Scheelite",
+            "Quartz"
         ],
         "tutorial_sent": true
     },
@@ -2267,6 +2268,24 @@
             "Stone",
             "Diamond",
             "Mushroomite"
+        ]
+    },
+    "694513854591533066": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Tin",
+            "Mushroomite"
+        ]
+    },
+    "1366074109485649922": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Demonite",
+            "Grass"
         ]
     }
 }
