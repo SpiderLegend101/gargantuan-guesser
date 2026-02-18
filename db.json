@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7794,
-        "streak": 5,
+        "bananas": 7817,
+        "streak": 6,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2048,12 +2048,16 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 7,
+        "streak": 6,
+        "best_streak": 6,
         "found": [
             "Mushroomite",
-            "Stolen Heart"
+            "Stolen Heart",
+            "Fichillium",
+            "Demonite",
+            "Sand Stone",
+            "Scheelite"
         ],
         "tutorial_sent": true
     },
@@ -2191,9 +2195,9 @@
         "found": []
     },
     "442932662827614208": {
-        "bananas": 50,
-        "streak": 21,
-        "best_streak": 21,
+        "bananas": 65,
+        "streak": 24,
+        "best_streak": 24,
         "found": [
             "Gold",
             "Darkryte",
@@ -2211,7 +2215,10 @@
             "Platinum",
             "Titanium",
             "Evil Eye",
-            "Iron"
+            "Iron",
+            "Eye Ore",
+            "Malachite",
+            "Heart of The Island"
         ]
     },
     "1435709611603923035": {
@@ -2245,15 +2252,21 @@
         ]
     },
     "1032626740247404585": {
-        "bananas": 5,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 954,
+        "streak": 3,
+        "best_streak": 6,
         "found": [
             "Obsidian",
             "Suryafal",
             "Mythril",
             "Iceite",
-            "Coinite"
+            "Coinite",
+            "Platinum",
+            "Golem Heart",
+            "Darkryte",
+            "Stone",
+            "Diamond",
+            "Mushroomite"
         ]
     }
 }
