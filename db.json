@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7454,
-        "streak": 34,
+        "bananas": 7579,
+        "streak": 59,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1039,
-        "streak": 204,
-        "best_streak": 204,
+        "bananas": 1044,
+        "streak": 205,
+        "best_streak": 205,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -2156,9 +2156,9 @@
         ]
     },
     "1235342212334747841": {
-        "bananas": 126,
-        "streak": 8,
-        "best_streak": 8,
+        "bananas": 142,
+        "streak": 14,
+        "best_streak": 14,
         "found": [
             "Iron",
             "Magmaite",
@@ -2175,7 +2175,50 @@
             "Grass",
             "Silver",
             "Neurotite",
-            "Heart of The Island"
+            "Heart of The Island",
+            "Mythril",
+            "Sanctis",
+            "Demonite",
+            "Boneite"
+        ]
+    },
+    "1469545138576556137": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "442932662827614208": {
+        "bananas": 50,
+        "streak": 21,
+        "best_streak": 21,
+        "found": [
+            "Gold",
+            "Darkryte",
+            "Stolen Heart",
+            "Bananite",
+            "Stone",
+            "Amethyst",
+            "Rainbow Crystal",
+            "Rivalite",
+            "Mushroomite",
+            "Golem Heart",
+            "Snowite",
+            "Topaz",
+            "Sand Stone",
+            "Platinum",
+            "Titanium",
+            "Evil Eye",
+            "Iron"
+        ]
+    },
+    "1435709611603923035": {
+        "bananas": 2,
+        "streak": 0,
+        "best_streak": 1,
+        "found": [
+            "Sand Stone",
+            "Stone"
         ]
     }
 }
