@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7579,
-        "streak": 59,
+        "bananas": 7634,
+        "streak": 70,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2219,6 +2219,17 @@
         "found": [
             "Sand Stone",
             "Stone"
+        ]
+    },
+    "1160427377168486490": {
+        "bananas": 4,
+        "streak": 4,
+        "best_streak": 4,
+        "found": [
+            "Uranium",
+            "Fireite",
+            "Emerald",
+            "Ruby"
         ]
     }
 }
