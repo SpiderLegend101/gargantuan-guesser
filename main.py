@@ -405,7 +405,7 @@ class OreButton(Button):
                 msg = (
                     f"✅ Correct! {interaction.user.mention} found **{self.label}**\n"
                     f"🔥 Streak: {user_data['streak']}\n"
-                    f"🍌 Reward: {reward} bananas"
+                    f"🍌 Reward: {reward} Bananas"
                 )
                 if is_new:
                     msg += "\n✨ **New ore discovered!**"
@@ -425,7 +425,7 @@ class OreButton(Button):
                 save_db()
 
                 await interaction.response.send_message(
-                    f"❌ Wrong! {self.label} is not correct.",
+                    f"❌ Wrong! {self.label} is not correct. 🔥 Your streak has been reset.",
                     ephemeral=True
                 )
 
