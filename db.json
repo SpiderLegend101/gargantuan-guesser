@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7819,
-        "streak": 7,
+        "bananas": 7837,
+        "streak": 14,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1074,
-        "streak": 211,
-        "best_streak": 211,
+        "bananas": 1089,
+        "streak": 214,
+        "best_streak": 214,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -2289,12 +2289,24 @@
         ]
     },
     "1090818426437652555": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 33,
+        "streak": 16,
+        "best_streak": 16,
         "found": [
             "Voidfractal",
-            "Cardboardite"
+            "Cardboardite",
+            "Larimar",
+            "Tungsten",
+            "Mushroomite",
+            "Iron",
+            "Copper",
+            "Golem Heart",
+            "Bananite",
+            "Silver",
+            "Scheelite",
+            "Volcanic Rock",
+            "Cobalt",
+            "Green Crystal"
         ]
     }
 }
