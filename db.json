@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7846,
-        "streak": 17,
+        "bananas": 7849,
+        "streak": 18,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1089,
-        "streak": 214,
-        "best_streak": 214,
+        "bananas": 1104,
+        "streak": 217,
+        "best_streak": 217,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -2310,6 +2310,15 @@
             "Volcanic Rock",
             "Cobalt",
             "Green Crystal"
+        ]
+    },
+    "1442973285145907293": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Uranium",
+            "Boneite"
         ]
     }
 }
