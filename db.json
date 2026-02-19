@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7817,
-        "streak": 6,
+        "bananas": 7819,
+        "streak": 7,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2286,6 +2286,15 @@
         "found": [
             "Demonite",
             "Grass"
+        ]
+    },
+    "1090818426437652555": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Voidfractal",
+            "Cardboardite"
         ]
     }
 }
