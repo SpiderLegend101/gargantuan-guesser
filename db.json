@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7837,
-        "streak": 14,
+        "bananas": 7846,
+        "streak": 17,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2253,8 +2253,8 @@
         ]
     },
     "1032626740247404585": {
-        "bananas": 954,
-        "streak": 3,
+        "bananas": 958,
+        "streak": 6,
         "best_streak": 6,
         "found": [
             "Obsidian",
@@ -2267,7 +2267,10 @@
             "Darkryte",
             "Stone",
             "Diamond",
-            "Mushroomite"
+            "Mushroomite",
+            "Tin",
+            "Orange Crystal",
+            "Demonite"
         ]
     },
     "694513854591533066": {
