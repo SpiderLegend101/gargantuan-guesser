@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7849,
-        "streak": 18,
+        "bananas": 7870,
+        "streak": 23,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1104,
-        "streak": 217,
-        "best_streak": 217,
+        "bananas": 1114,
+        "streak": 219,
+        "best_streak": 219,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -1324,10 +1324,12 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Diamond"
+        ],
         "tutorial_sent": true
     },
     "1403986276985602162": {
@@ -1548,9 +1550,9 @@
         "tutorial_sent": true
     },
     "1307642142705057795": {
-        "bananas": 976,
-        "streak": 17,
-        "best_streak": 17,
+        "bananas": 979,
+        "streak": 18,
+        "best_streak": 18,
         "found": [
             "Bananite",
             "Iron",
@@ -1562,7 +1564,8 @@
             "Aite",
             "Slimite",
             "Golem Heart",
-            "Topaz"
+            "Topaz",
+            "Boneite"
         ],
         "tutorial_sent": true
     },
@@ -2048,9 +2051,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 9,
-        "streak": 7,
-        "best_streak": 7,
+        "bananas": 11,
+        "streak": 8,
+        "best_streak": 8,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2058,7 +2061,8 @@
             "Demonite",
             "Sand Stone",
             "Scheelite",
-            "Quartz"
+            "Quartz",
+            "Titanium"
         ],
         "tutorial_sent": true
     },
@@ -2254,7 +2258,7 @@
     },
     "1032626740247404585": {
         "bananas": 958,
-        "streak": 6,
+        "streak": 0,
         "best_streak": 6,
         "found": [
             "Obsidian",
