@@ -2139,8 +2139,8 @@
         ]
     },
     "1291372259126022176": {
-        "bananas": 20,
-        "streak": 0,
+        "bananas": 21,
+        "streak": 1,
         "best_streak": 11,
         "found": [
             "Sand Stone",
@@ -2153,7 +2153,8 @@
             "Velchire",
             "Topaz",
             "Larimar",
-            "Ruby"
+            "Ruby",
+            "Diamond"
         ]
     },
     "1157776494752444436": {
