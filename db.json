@@ -2257,8 +2257,8 @@
         ]
     },
     "1032626740247404585": {
-        "bananas": 958,
-        "streak": 0,
+        "bananas": 961,
+        "streak": 3,
         "best_streak": 6,
         "found": [
             "Obsidian",
@@ -2274,7 +2274,10 @@
             "Mushroomite",
             "Tin",
             "Orange Crystal",
-            "Demonite"
+            "Demonite",
+            "Cardboardite",
+            "Cobalt",
+            "Amethyst"
         ]
     },
     "694513854591533066": {
