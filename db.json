@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7910,
-        "streak": 31,
+        "bananas": 7890,
+        "streak": 35,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -210,9 +210,9 @@
         "tutorial_sent": true
     },
     "764059274045292544": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 3,
+        "streak": 0,
+        "best_streak": 3,
         "cooldown": 0,
         "found": [
             "Titanium",
@@ -2326,6 +2326,38 @@
         "found": [
             "Uranium",
             "Boneite"
+        ]
+    },
+    "970124666930860124": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Uranium",
+            "Stone"
+        ]
+    },
+    "709290154681958421": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1224974386101092393": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Orange Crystal",
+            "Heavenite"
+        ]
+    },
+    "1226268480777490494": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Grass"
         ]
     }
 }
