@@ -1324,11 +1324,15 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 5,
+        "streak": 5,
+        "best_streak": 5,
         "found": [
-            "Diamond"
+            "Diamond",
+            "Duranite",
+            "Darkryte",
+            "Moltenfrost",
+            "Stone"
         ],
         "tutorial_sent": true
     },
@@ -2359,6 +2363,53 @@
         "best_streak": 1,
         "found": [
             "Grass"
+        ]
+    },
+    "981300514765549608": {
+        "bananas": 8,
+        "streak": 5,
+        "best_streak": 9,
+        "found": [
+            "Copper",
+            "Magmaite",
+            "Slimite",
+            "Aite",
+            "Iceite",
+            "Uranium",
+            "Quartz",
+            "Amethyst",
+            "Gold",
+            "Cobalt",
+            "Golem Heart",
+            "Stone",
+            "Boneite",
+            "Sulfur",
+            "Suryafal",
+            "Etherealite"
+        ]
+    },
+    "805628305206018048": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Tin"
+        ]
+    },
+    "1099151029813121097": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Titanium"
+        ]
+    },
+    "1452005812279968018": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Etherealite"
         ]
     }
 }
