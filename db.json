@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7915,
-        "streak": 40,
+        "bananas": 7935,
+        "streak": 44,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -928,10 +928,17 @@
         "tutorial_sent": true
     },
     "1373008060171292823": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 7,
+        "streak": 6,
+        "best_streak": 6,
+        "found": [
+            "Diamond",
+            "Stone",
+            "Silver",
+            "Platinum",
+            "Copper",
+            "Blue Crystal"
+        ],
         "tutorial_sent": true
     },
     "1400824887924363345": {
@@ -1331,15 +1338,16 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 5,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 7,
+        "streak": 6,
+        "best_streak": 6,
         "found": [
             "Diamond",
             "Duranite",
             "Darkryte",
             "Moltenfrost",
-            "Stone"
+            "Stone",
+            "Uranium"
         ],
         "tutorial_sent": true
     },
@@ -2155,9 +2163,9 @@
         "found": []
     },
     "1381179065012064326": {
-        "bananas": 29,
-        "streak": 12,
-        "best_streak": 12,
+        "bananas": 32,
+        "streak": 13,
+        "best_streak": 13,
         "found": [
             "Galaxite",
             "Aite",
@@ -2412,9 +2420,9 @@
         ]
     },
     "981300514765549608": {
-        "bananas": 13,
-        "streak": 15,
-        "best_streak": 15,
+        "bananas": 208,
+        "streak": 56,
+        "best_streak": 56,
         "found": [
             "Copper",
             "Magmaite",
@@ -2435,7 +2443,25 @@
             "Tungsten",
             "Iron",
             "Platinum",
-            "Topaz"
+            "Topaz",
+            "Demonite",
+            "Heavenite",
+            "Velchire",
+            "Tin",
+            "Heart of The Island",
+            "Emerald",
+            "Poopite",
+            "Bananite",
+            "Dark Boneite",
+            "Diamond",
+            "Fireite",
+            "Gargantuan",
+            "Sand Stone",
+            "Crimson Crystal",
+            "Fichillium",
+            "Cardboardite",
+            "Volcanic Rock",
+            "Grass"
         ]
     },
     "805628305206018048": {
@@ -2463,16 +2489,28 @@
         ]
     },
     "1450998165812678726": {
-        "bananas": 7,
+        "bananas": 39,
         "streak": 1,
-        "best_streak": 2,
+        "best_streak": 12,
         "found": [
             "Copper",
             "Cardboardite",
             "Bananite",
             "Sapphire",
             "Silver",
-            "Mythril"
+            "Mythril",
+            "Obsidian",
+            "Sand Stone",
+            "Ruby",
+            "Coinite",
+            "Poopite",
+            "Demonite",
+            "Volcanic Rock",
+            "Tin",
+            "Etherealite",
+            "Eye Ore",
+            "Grass",
+            "Voidfractal"
         ]
     },
     "1039319546772869202": {
@@ -2490,6 +2528,14 @@
         "best_streak": 1,
         "found": [
             "Duranite"
+        ]
+    },
+    "1233754818682814465": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Iron"
         ]
     }
 }
