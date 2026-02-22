@@ -2366,8 +2366,8 @@
         ]
     },
     "981300514765549608": {
-        "bananas": 8,
-        "streak": 5,
+        "bananas": 14,
+        "streak": 8,
         "best_streak": 9,
         "found": [
             "Copper",
@@ -2385,7 +2385,9 @@
             "Boneite",
             "Sulfur",
             "Suryafal",
-            "Etherealite"
+            "Etherealite",
+            "Tungsten",
+            "Iron"
         ]
     },
     "805628305206018048": {
