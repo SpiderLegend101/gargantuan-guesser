@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7895,
-        "streak": 36,
+        "bananas": 7915,
+        "streak": 40,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1119,
-        "streak": 220,
-        "best_streak": 220,
+        "bananas": 1204,
+        "streak": 237,
+        "best_streak": 237,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -1217,11 +1217,18 @@
         "tutorial_sent": true
     },
     "1150161977251995758": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 13,
+        "streak": 8,
+        "best_streak": 8,
         "found": [
-            "Tin"
+            "Tin",
+            "Mythril",
+            "Stone",
+            "Etherealite",
+            "Copper",
+            "Heart of The Island",
+            "Cobalt",
+            "Slimite"
         ],
         "tutorial_sent": true
     },
@@ -2055,9 +2062,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 11,
-        "streak": 8,
-        "best_streak": 8,
+        "bananas": 150,
+        "streak": 41,
+        "best_streak": 41,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2066,7 +2073,33 @@
             "Sand Stone",
             "Scheelite",
             "Quartz",
-            "Titanium"
+            "Titanium",
+            "Copper",
+            "Crimsonite",
+            "Sapphire",
+            "Bananite",
+            "Evil Eye",
+            "Tin",
+            "Platinum",
+            "Aite",
+            "Ruby",
+            "Diamond",
+            "Gold",
+            "Grass",
+            "Gargantuan",
+            "Galestor",
+            "Pumice",
+            "Stone",
+            "Topaz",
+            "Silver",
+            "Poopite",
+            "Lightite",
+            "Neurotite",
+            "Snowite",
+            "Heavenite",
+            "Cobalt",
+            "Duranite",
+            "Iceite"
         ],
         "tutorial_sent": true
     },
@@ -2122,9 +2155,9 @@
         "found": []
     },
     "1381179065012064326": {
-        "bananas": 0,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 29,
+        "streak": 12,
+        "best_streak": 12,
         "found": [
             "Galaxite",
             "Aite",
@@ -2134,7 +2167,16 @@
             "Tin",
             "Rivalite",
             "Stolen Heart",
-            "Sand Stone"
+            "Sand Stone",
+            "Cobalt",
+            "Stone",
+            "Bananite",
+            "Poopite",
+            "Pumice",
+            "Gold",
+            "Dark Boneite",
+            "Grass",
+            "Gulabite"
         ]
     },
     "1463999004642775152": {
@@ -2146,8 +2188,8 @@
         ]
     },
     "1291372259126022176": {
-        "bananas": 21,
-        "streak": 1,
+        "bananas": 22,
+        "streak": 2,
         "best_streak": 11,
         "found": [
             "Sand Stone",
@@ -2161,7 +2203,8 @@
             "Topaz",
             "Larimar",
             "Ruby",
-            "Diamond"
+            "Diamond",
+            "Golem Heart"
         ]
     },
     "1157776494752444436": {
@@ -2369,9 +2412,9 @@
         ]
     },
     "981300514765549608": {
-        "bananas": 14,
-        "streak": 8,
-        "best_streak": 9,
+        "bananas": 13,
+        "streak": 15,
+        "best_streak": 15,
         "found": [
             "Copper",
             "Magmaite",
@@ -2390,7 +2433,9 @@
             "Suryafal",
             "Etherealite",
             "Tungsten",
-            "Iron"
+            "Iron",
+            "Platinum",
+            "Topaz"
         ]
     },
     "805628305206018048": {
@@ -2415,6 +2460,36 @@
         "best_streak": 1,
         "found": [
             "Etherealite"
+        ]
+    },
+    "1450998165812678726": {
+        "bananas": 7,
+        "streak": 1,
+        "best_streak": 2,
+        "found": [
+            "Copper",
+            "Cardboardite",
+            "Bananite",
+            "Sapphire",
+            "Silver",
+            "Mythril"
+        ]
+    },
+    "1039319546772869202": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Copper",
+            "Iron"
+        ]
+    },
+    "1152664661360119891": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Duranite"
         ]
     }
 }
