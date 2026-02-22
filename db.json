@@ -102,9 +102,9 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1114,
-        "streak": 219,
-        "best_streak": 219,
+        "bananas": 1119,
+        "streak": 220,
+        "best_streak": 220,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -2106,10 +2106,13 @@
         "tutorial_sent": true
     },
     "1215832202936455192": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Dark Boneite",
+            "Gargantuan"
+        ],
         "tutorial_sent": true
     },
     "1450290875740454964": {
