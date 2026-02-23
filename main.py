@@ -174,37 +174,66 @@ tree.add_command(gargantuan)
     # RARITY DATA
     # =====================
 RARITY_DATA = {
-        "common": {"color": 0x95a5a6, "chance": 22, "cost": 5,
-                   "ores": ["Stone", "Sand Stone", "Copper", "Iron", "Grass",
-                            "Cardboardite", "Tungsten", "Fichillium", "Mosasaursit"]},
-        "uncommon": {"color": 0x2ecc71, "chance": 19, "cost": 10,
-                     "ores": ["Tin", "Silver", "Gold", "Bananite", "Cobalt",
-                              "Titanium", "Lapis Lazuli", "Sulfur"]},
-        "rare": {"color": 0x3498db, "chance": 16, "cost": 20,
-                 "ores": ["Mushroomite", "Platinum", "Volcanic Rock", "Quartz",
-                          "Amethyst", "Topaz", "Diamond", "Sapphire", "Boneite",
-                          "Scheelite", "Pumice", "Graphite", "Aetherit", "Dark Boneite",
-                          "Mistvein", "Lgarite"]},
-        "epic": {"color": 0xbf75e9, "chance": 14, "cost": 30,
-                 "ores": ["Aite", "Poopite", "Slimite", "Cuprite", "Obsidian",
-                          "Emerald", "Ruby", "Rivalite", "Blue Crystal", "Orange Crystal",
-                          "Green Crystal", "Magenta Crystal", "Crimson Crystal", "Larimar",
-                          "Neurotite", "Frost Fossil", "Tide Carve", "Moltenfrost",
-                          "Crimsonite", "Malachite", "Aquajade", "Cryptex", "Galestor", "Frogite"]},
-        "legendary": {"color": 0xfdb745, "chance": 12, "cost": 40,
-                      "ores": ["Uranium", "Mythril", "Eye Ore", "Velchire", "Sanctis",
-                               "Fireite", "Magmaite", "Lightite", "Snowite",
-                               "Rainbow Crystal", "Moon Stone", "Voidstar", "Gulabite",
-                               "Coinite", "Prismatic Heart"]},
-        "mythical": {"color": 0xff4d4d, "chance": 10, "cost": 50,
-                     "ores": ["Demonite", "Darkryte", "Iceite", "Etherealite",
-                              "Duranite", "Voidfractal", "Evil Eye",
-                              "Yeti Heart", "Arcane Crystal"]},
-        "divine": {"color": 0x5b2b9a, "cost": 60, "chance": 7,
-                   "ores": ["Suryafal", "Stolen Heart", "Golem Heart", "Heart of The Island",
-                            "Heavenite", "Gargantuan", "Galaxite"]},
+    "common": {
+        "color": 0x95a5a6, "chance": 22, "cost": 5,
+        "ores": [
+            "Stone", "Sand Stone", "Copper", "Iron", "Grass",
+            "Cardboardite", "Tungsten", "Fichillium", "Mosasaursit"
+        ]
+    },
+    "uncommon": {
+        "color": 0x2ecc71, "chance": 19, "cost": 10,
+        "ores": [
+            "Tin", "Silver", "Bamboo", "Gold", "Roof Spire",
+            "Bananite", "Cobalt", "Titanium", "Lapis Lazuli", "Sulfur"
+        ]
+    },
+    "rare": {
+        "color": 0x3498db, "chance": 16, "cost": 20,
+        "ores": [
+            "Mushroomite", "Platinum", "Volcanic Rock", "Water Stone", "Earthite",
+            "Quartz", "Melonite", "Amethyst", "Rock Seed", "Topaz", "Aurelia-No-Ki",
+            "Diamond", "Sakuranite", "Sapphire", "Fruite", "Boneite", "Scheelite",
+            "Pumice", "Graphite", "Aetherit", "Dark Boneite", "Mistvein", "Lgarite"
+        ]
+    },
+    "epic": {
+        "color": 0xbf75e9, "chance": 14, "cost": 30,
+        "ores": [
+            "Aite", "Poopite", "Wraith", "Tiger's Eye", "Shikanite",
+            "Cyanite Jade", "Slimite", "Heat Steel", "Cuprite", "Magit",
+            "Sealed Curse", "Obsidian", "Emerald", "Blue Gem Quill", "Ruby",
+            "Rivalite", "Blue Crystal", "Orange Crystal", "Green Crystal",
+            "Magenta Crystal", "Crimson Crystal", "Lucky Cat", "Larimar",
+            "Neurotite", "Frost Fossil", "Tide Carve", "Moltenfrost",
+            "Crimsonite", "Malachite", "Aquajade", "Cryptex", "Galestor", "Frogite"
+        ]
+    },
+    "legendary": {
+        "color": 0xfdb745, "chance": 12, "cost": 40,
+        "ores": [
+            "Zenstone", "Sun Stone", "Duquack", "Azuryxite", "Roosite",
+            "Uranium", "Mythril", "Onyx", "Eye Ore", "Velchire", "Sanctis",
+            "Fireite", "Magmaite", "Lightite", "Snowite", "Rainbow Crystal",
+            "Moon Stone", "Voidstar", "Gulabite", "Coinite", "Prismatic Heart"
+        ]
+    },
+    "mythical": {
+        "color": 0xff4d4d, "chance": 10, "cost": 50,
+        "ores": [
+            "Meteorite", "Heavenly Orb", "Demonite", "Darkryte", "Iceite",
+            "Etherealite", "Duranite", "Voidfractal", "Evil Eye", "Yeti Heart",
+            "Arcane Crystal"
+        ]
+    },
+    "divine": {
+        "color": 0x5b2b9a, "chance": 7, "cost": 60,
+        "ores": [
+            "Suryafal", "Stolen Heart", "Golem Heart", "Heart of The Island",
+            "Heavenite", "Gargantuan", "Galaxite"
+        ]
     }
-
+}
 ALL_RARITIES = list(RARITY_DATA.keys())
 ALL_ORES = [ore for data in RARITY_DATA.values() for ore in data["ores"]]
 
@@ -232,6 +261,8 @@ EMOJI_MAP = {
         "Titanium": 1469547483888615546,
         "Lapis Lazuli": 1469547412048711856,
         "Sulfur": 1469547476284477470,
+        "Bamboo": 111111111111111111,
+        "Roof Spire": 111111111111111111,
 
         # ===== RARE =====
         "Mushroomite": 1469547433091530944,
@@ -250,6 +281,13 @@ EMOJI_MAP = {
         "Dark Boneite": 1469547347817271447,
         "Mistvein": 1469547425487130667,
         "Lgarite": 1469547415970381925,
+        "Water Stone": 111111111111111111,
+        "Earthite": 111111111111111111,
+        "Melonite": 111111111111111111,
+        "Rock Seed": 111111111111111111,
+        "Aurelia-No-Ki": 111111111111111111,
+        "Sakuranite": 111111111111111111,
+        "Fruite": 111111111111111111,
 
         # ===== EPIC =====
         "Aite": 1469547315776717033,
@@ -276,6 +314,15 @@ EMOJI_MAP = {
         "Cryptex": 1469547342838632754,
         "Galestor": 1469547386853527612,
         "Frogite": 1469547375327449159,
+        "Wraith": 111111111111111111,
+        "Tiger's Eye": 111111111111111111,
+        "Shikanite": 111111111111111111,
+        "Cyanite Jade": 111111111111111111,
+        "Heat Steel": 111111111111111111,
+        "Magit": 111111111111111111,
+        "Sealed Curse": 111111111111111111,
+        "Blue Gem Quill": 111111111111111111,
+        "Lucky Cat": 111111111111111111,
 
         # ===== LEGENDARY =====
         "Uranium": 1469547490469740609,
