@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7950,
-        "streak": 47,
+        "bananas": 7960,
+        "streak": 49,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1608,10 +1608,12 @@
         "tutorial_sent": true
     },
     "1245262271886786583": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Silver"
+        ],
         "tutorial_sent": true
     },
     "1421740226476376064": {
@@ -2130,9 +2132,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 190,
-        "streak": 49,
-        "best_streak": 49,
+        "bananas": 205,
+        "streak": 52,
+        "best_streak": 52,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2171,7 +2173,9 @@
             "Suryafal",
             "Galaxite",
             "Eye Ore",
-            "Uranium"
+            "Uranium",
+            "Iron",
+            "Tide Carve"
         ],
         "tutorial_sent": true
     },
@@ -2616,11 +2620,14 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 4,
+        "streak": 4,
+        "best_streak": 4,
         "found": [
-            "Silver"
+            "Silver",
+            "Eye Ore",
+            "Rainbow Crystal",
+            "Titanium"
         ]
     },
     "761282317519814726": {
@@ -2634,11 +2641,12 @@
         ]
     },
     "1272955325720559627": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
         "found": [
-            "Blue Crystal"
+            "Blue Crystal",
+            "Volcanic Rock"
         ]
     },
     "1451328408448536717": {
@@ -2658,5 +2666,11 @@
             "Eye Ore",
             "Duranite"
         ]
+    },
+    "1388472143930593382": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
     }
 }
