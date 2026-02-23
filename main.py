@@ -177,7 +177,7 @@ RARITY_DATA = {
     "common": {
         "color": 0x95a5a6, "chance": 22, "cost": 5,
         "ores": [
-            "Stone", "Sand Stone", "Copper", "Iron", "Grass",
+            "Stone", "Sandstone", "Copper", "Iron", "Grass",
             "Cardboardite", "Tungsten", "Fichillium", "Mosasaursit"
         ]
     },
@@ -243,7 +243,7 @@ ALL_ORES = [ore for data in RARITY_DATA.values() for ore in data["ores"]]
 EMOJI_MAP = {
         # ===== COMMON =====
         "Stone": 1469547474019418164,
-        "Sand Stone": 1469547459880423663,
+        "Sandstone": 1469547459880423663,
         "Copper": 1469547335301202224,
         "Iron": 1469547410144497685,
         "Grass": 1469547398350114999,
