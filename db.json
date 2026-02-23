@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7940,
-        "streak": 45,
+        "bananas": 7950,
+        "streak": 47,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -928,9 +928,9 @@
         "tutorial_sent": true
     },
     "1373008060171292823": {
-        "bananas": 185,
-        "streak": 26,
-        "best_streak": 33,
+        "bananas": 293,
+        "streak": 3,
+        "best_streak": 47,
         "found": [
             "Diamond",
             "Stone",
@@ -966,7 +966,12 @@
             "Sanctis",
             "Slimite",
             "Stolen Heart",
-            "Cobalt"
+            "Cobalt",
+            "Frost Fossil",
+            "Tungsten",
+            "Iceite",
+            "Heavenite",
+            "Sand Stone"
         ],
         "tutorial_sent": true
     },
@@ -2619,9 +2624,39 @@
         ]
     },
     "761282317519814726": {
-        "bananas": 0,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
+        "found": [
+            "Etherealite",
+            "Silver",
+            "Sand Stone"
+        ]
+    },
+    "1272955325720559627": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Blue Crystal"
+        ]
+    },
+    "1451328408448536717": {
+        "bananas": 2,
         "streak": 0,
-        "best_streak": 0,
-        "found": []
+        "best_streak": 2,
+        "found": [
+            "Copper",
+            "Obsidian"
+        ]
+    },
+    "1169642686043672750": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Eye Ore",
+            "Duranite"
+        ]
     }
 }
