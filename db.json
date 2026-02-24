@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7980,
-        "streak": 53,
+        "bananas": 8021,
+        "streak": 8,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -96,7 +96,9 @@
             "Larimar",
             "Cryptex",
             "Gulabite",
-            "Graphite"
+            "Graphite",
+            "Sandstone",
+            "Wraith"
         ],
         "answered": false,
         "tutorial_sent": true
