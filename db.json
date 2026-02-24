@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 8021,
-        "streak": 8,
+        "bananas": 8028,
+        "streak": 11,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -98,15 +98,16 @@
             "Gulabite",
             "Graphite",
             "Sandstone",
-            "Wraith"
+            "Wraith",
+            "Water Stone"
         ],
         "answered": false,
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1214,
-        "streak": 239,
-        "best_streak": 239,
+        "bananas": 904,
+        "streak": 12,
+        "best_streak": 241,
         "cooldown": 0,
         "found": [
             "Rivalite",
@@ -197,7 +198,17 @@
             "Aetherit",
             "Lgarite",
             "Graphite",
-            "Sulfur"
+            "Sulfur",
+            "Duquack",
+            "Sandstone",
+            "Bamboo",
+            "Root Spire",
+            "Earthite",
+            "Rock Seed",
+            "Blue Gem Quill",
+            "Onyx",
+            "Water Stone",
+            "Fruite"
         ],
         "tutorial_sent": true
     },
@@ -2148,9 +2159,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 265,
-        "streak": 64,
-        "best_streak": 64,
+        "bananas": 275,
+        "streak": 66,
+        "best_streak": 66,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2199,7 +2210,8 @@
             "Heart of The Island",
             "Magmaite",
             "Cardboardite",
-            "Golem Heart"
+            "Golem Heart",
+            "Moon Stone"
         ],
         "tutorial_sent": true
     },
@@ -2650,9 +2662,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 13,
-        "streak": 9,
-        "best_streak": 9,
+        "bananas": 15,
+        "streak": 10,
+        "best_streak": 10,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2662,7 +2674,8 @@
             "Cobalt",
             "Copper",
             "Mushroomite",
-            "Quartz"
+            "Quartz",
+            "Bananite"
         ]
     },
     "761282317519814726": {
