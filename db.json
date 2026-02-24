@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7760,
-        "streak": 27,
+        "bananas": 2695,
+        "streak": 32,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -105,7 +105,24 @@
             "Tigers Eye",
             "Blue Gem Quill",
             "Heat Steel",
-            "Lucky Cat"
+            "Lucky Cat",
+            "Sealed Curse",
+            "Magit",
+            "Cyanite Jade",
+            "Root Spire",
+            "Aurelia No Ki",
+            "Earthite",
+            "Sakuranite",
+            "Rock Seed",
+            "Fruite",
+            "Onyx",
+            "Zenstone",
+            "Roosite",
+            "Sun Stone",
+            "Azuryxite",
+            "Duquack",
+            "Heavenly Orb",
+            "Meteorite"
         ],
         "answered": false,
         "tutorial_sent": true
