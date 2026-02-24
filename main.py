@@ -192,7 +192,7 @@ RARITY_DATA = {
         "color": 0x3498db, "chance": 16, "cost": 20,
         "ores": [
             "Mushroomite", "Platinum", "Volcanic Rock", "Water Stone", "Earthite",
-            "Quartz", "Melonite", "Amethyst", "Rock Seed", "Topaz", "Aurelia-No-Ki",
+            "Quartz", "Melonite", "Amethyst", "Rock Seed", "Topaz", "Aurelia No Ki",
             "Diamond", "Sakuranite", "Sapphire", "Fruite", "Boneite", "Scheelite",
             "Pumice", "Graphite", "Aetherit", "Dark Boneite", "Mistvein", "Lgarite"
         ]
@@ -200,7 +200,7 @@ RARITY_DATA = {
     "epic": {
         "color": 0xbf75e9, "chance": 14, "cost": 30,
         "ores": [
-            "Aite", "Poopite", "Wraith", "Tiger's Eye",
+            "Aite", "Poopite", "Wraith", "Tigers Eye",
             "Cyanite Jade", "Slimite", "Heat Steel", "Cuprite", "Magit",
             "Sealed Curse", "Obsidian", "Emerald", "Blue Gem Quill", "Ruby",
             "Rivalite", "Blue Crystal", "Orange Crystal", "Green Crystal",
@@ -285,7 +285,7 @@ EMOJI_MAP = {
         "Earthite": 1475665976086233150,
         "Melonite": 1475666588597485642,
         "Rock Seed": 1475666869066272899,
-        "Aurelia-No-Ki": 1475665302141534449,
+        "Aurelia No Ki": 1475665302141534449,
         "Sakuranite": 1475667383715631154,
         "Fruite": 1475670632845938769,
 
@@ -315,7 +315,7 @@ EMOJI_MAP = {
         "Galestor": 1469547386853527612,
         "Frogite": 1469547375327449159,
         "Wraith": 1475667898520440922,
-        "Tiger's Eye": 1475667696975876207,
+        "Tigers Eye": 1475667696975876207,
         "Cyanite Jade": 1475665803704664216,
         "Heat Steel": 1475666123277078711,
         "Magit": 1475666502324584629,
