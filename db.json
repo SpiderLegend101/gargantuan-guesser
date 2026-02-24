@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 8028,
-        "streak": 11,
+        "bananas": 7745,
+        "streak": 24,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -99,7 +99,13 @@
             "Graphite",
             "Sandstone",
             "Wraith",
-            "Water Stone"
+            "Water Stone",
+            "Bamboo",
+            "Melonite",
+            "Tigers Eye",
+            "Blue Gem Quill",
+            "Heat Steel",
+            "Lucky Cat"
         ],
         "answered": false,
         "tutorial_sent": true
