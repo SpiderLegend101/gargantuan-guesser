@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 7745,
-        "streak": 24,
+        "bananas": 7750,
+        "streak": 25,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -111,8 +111,8 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 904,
-        "streak": 12,
+        "bananas": 1693,
+        "streak": 50,
         "best_streak": 241,
         "cooldown": 0,
         "found": [
@@ -214,7 +214,23 @@
             "Blue Gem Quill",
             "Onyx",
             "Water Stone",
-            "Fruite"
+            "Fruite",
+            "Aurelia No Ki",
+            "Tigers Eye",
+            "Magit",
+            "Lucky Cat",
+            "Sealed Curse",
+            "Cyanite Jade",
+            "Heat Steel",
+            "Wraith",
+            "Azuryxite",
+            "Sun Stone",
+            "Zenstone",
+            "Roosite",
+            "Meteorite",
+            "Heavenly Orb",
+            "Melonite",
+            "Sakuranite"
         ],
         "tutorial_sent": true
     },
@@ -1068,10 +1084,12 @@
         "tutorial_sent": true
     },
     "1322899777469284385": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Silver"
+        ],
         "tutorial_sent": true
     },
     "1442215920603758746": {
