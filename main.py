@@ -184,7 +184,7 @@ RARITY_DATA = {
     "uncommon": {
         "color": 0x2ecc71, "chance": 19, "cost": 10,
         "ores": [
-            "Tin", "Silver", "Bamboo", "Gold", "Roof Spire",
+            "Tin", "Silver", "Bamboo", "Gold", "Root Spire",
             "Bananite", "Cobalt", "Titanium", "Lapis Lazuli", "Sulfur"
         ]
     },
@@ -200,7 +200,7 @@ RARITY_DATA = {
     "epic": {
         "color": 0xbf75e9, "chance": 14, "cost": 30,
         "ores": [
-            "Aite", "Poopite", "Wraith", "Tiger's Eye", "Shikanite",
+            "Aite", "Poopite", "Wraith", "Tiger's Eye",
             "Cyanite Jade", "Slimite", "Heat Steel", "Cuprite", "Magit",
             "Sealed Curse", "Obsidian", "Emerald", "Blue Gem Quill", "Ruby",
             "Rivalite", "Blue Crystal", "Orange Crystal", "Green Crystal",
@@ -261,8 +261,8 @@ EMOJI_MAP = {
         "Titanium": 1469547483888615546,
         "Lapis Lazuli": 1469547412048711856,
         "Sulfur": 1469547476284477470,
-        "Bamboo": 111111111111111111,
-        "Roof Spire": 111111111111111111,
+        "Bamboo": 1475668771296252006,
+        "Root Spire": 1475667068610412774,
 
         # ===== RARE =====
         "Mushroomite": 1469547433091530944,
@@ -281,12 +281,12 @@ EMOJI_MAP = {
         "Dark Boneite": 1469547347817271447,
         "Mistvein": 1469547425487130667,
         "Lgarite": 1469547415970381925,
-        "Water Stone": 111111111111111111,
-        "Earthite": 111111111111111111,
-        "Melonite": 111111111111111111,
-        "Rock Seed": 111111111111111111,
-        "Aurelia-No-Ki": 111111111111111111,
-        "Sakuranite": 111111111111111111,
+        "Water Stone": 1475667811622981682,
+        "Earthite": 1475665976086233150,
+        "Melonite": 1475666588597485642,
+        "Rock Seed": 1475666869066272899,
+        "Aurelia-No-Ki": 1475665302141534449,
+        "Sakuranite": 1475667383715631154,
         "Fruite": 111111111111111111,
 
         # ===== EPIC =====
@@ -314,15 +314,14 @@ EMOJI_MAP = {
         "Cryptex": 1469547342838632754,
         "Galestor": 1469547386853527612,
         "Frogite": 1469547375327449159,
-        "Wraith": 111111111111111111,
-        "Tiger's Eye": 111111111111111111,
-        "Shikanite": 111111111111111111,
-        "Cyanite Jade": 111111111111111111,
-        "Heat Steel": 111111111111111111,
-        "Magit": 111111111111111111,
-        "Sealed Curse": 111111111111111111,
-        "Blue Gem Quill": 111111111111111111,
-        "Lucky Cat": 111111111111111111,
+        "Wraith": 1475667898520440922,
+        "Tiger's Eye": 1475667696975876207,
+        "Cyanite Jade": 1475665803704664216,
+        "Heat Steel": 1475666123277078711,
+        "Magit": 1475666502324584629,
+        "Sealed Curse": 1475667479467397160,
+        "Blue Gem Quill": 1475665612985598047,
+        "Lucky Cat": 1475666303699128393,
 
         # ===== LEGENDARY =====
         "Uranium": 1469547490469740609,
@@ -340,16 +339,16 @@ EMOJI_MAP = {
         "Gulabite": 1469547402049356022,
         "Coinite": 1469547333611159563,
         "Prismatic Heart": 1469547447276670987,
-        "Zenstone": 111111111111111111,
-        "Sun Stone": 111111111111111111,
-        "Duquack": 111111111111111111,
-        "Azuryxite": 111111111111111111,
-        "Roosite": 111111111111111111,
-        "Onyx": 111111111111111111,
+        "Zenstone": 1475667976060534894,
+        "Sun Stone": 1475667581200502837,
+        "Duquack": 1475665885002727464,
+        "Azuryxite": 1475665495108751441,
+        "Roosite": 1475666982245236827,
+        "Onyx": 1475666788221194290,
 
         # ===== MYTHICAL =====
-        "Meteorite": 111111111111111111,
-        "Heavenly Orb": 111111111111111111,
+        "Meteorite": 1475666692104523967,
+        "Heavenly Orb": 1475666222543540324,
         "Demonite": 1469547351797530780,
         "Darkryte": 1469547349125763184,
         "Iceite": 1469547408232022067,
