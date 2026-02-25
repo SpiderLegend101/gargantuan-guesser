@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 2740,
-        "streak": 41,
+        "bananas": 10,
+        "streak": 83,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -122,7 +122,8 @@
             "Azuryxite",
             "Duquack",
             "Heavenly Orb",
-            "Meteorite"
+            "Meteorite",
+            "Kyubite"
         ],
         "answered": false,
         "tutorial_sent": true
