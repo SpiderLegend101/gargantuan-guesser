@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 2695,
-        "streak": 32,
+        "bananas": 2725,
+        "streak": 38,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -128,8 +128,8 @@
         "tutorial_sent": true
     },
     "1275387255833235468": {
-        "bananas": 1703,
-        "streak": 52,
+        "bananas": 1708,
+        "streak": 53,
         "best_streak": 241,
         "cooldown": 0,
         "found": [
@@ -1442,8 +1442,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 58,
-        "streak": 10,
+        "bananas": 67,
+        "streak": 13,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1475,7 +1475,8 @@
             "Fichillium",
             "Copper",
             "Sand Stone",
-            "Demonite"
+            "Demonite",
+            "Heavenly Orb"
         ],
         "tutorial_sent": true
     },
@@ -1676,11 +1677,12 @@
         "tutorial_sent": true
     },
     "1245262271886786583": {
-        "bananas": 1,
-        "streak": 0,
+        "bananas": 2,
+        "streak": 1,
         "best_streak": 1,
         "found": [
-            "Silver"
+            "Silver",
+            "Gargantuan"
         ],
         "tutorial_sent": true
     },
@@ -2569,9 +2571,9 @@
         ]
     },
     "981300514765549608": {
-        "bananas": 208,
-        "streak": 56,
-        "best_streak": 56,
+        "bananas": 213,
+        "streak": 57,
+        "best_streak": 57,
         "found": [
             "Copper",
             "Magmaite",
