@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 2725,
-        "streak": 38,
+        "bananas": 2740,
+        "streak": 41,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1701,9 +1701,9 @@
         "tutorial_sent": true
     },
     "1307642142705057795": {
-        "bananas": 982,
-        "streak": 19,
-        "best_streak": 19,
+        "bananas": 985,
+        "streak": 20,
+        "best_streak": 20,
         "found": [
             "Bananite",
             "Iron",
@@ -1716,7 +1716,8 @@
             "Slimite",
             "Golem Heart",
             "Topaz",
-            "Boneite"
+            "Boneite",
+            "Heart of The Island"
         ],
         "tutorial_sent": true
     },
