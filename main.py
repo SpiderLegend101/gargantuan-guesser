@@ -230,7 +230,7 @@ RARITY_DATA = {
         "color": 0x5b2b9a, "chance": 7, "cost": 60,
         "ores": [
             "Suryafal", "Stolen Heart", "Golem Heart", "Heart of The Island",
-            "Heavenite", "Gargantuan", "Galaxite"
+            "Heavenite", "Gargantuan", "Kyubite", "Galaxite"
         ]
     }
 }
@@ -366,6 +366,7 @@ EMOJI_MAP = {
         "Heart of The Island": 1469547403622223922,
         "Heavenite": 1469547406302646324,
         "Gargantuan": 1469547390028615791,
+        "Kyubite": 1476170950851694593,
         "Galaxite": 1469547384265642175
     }
     # =====================
