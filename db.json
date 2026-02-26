@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 25,
-        "streak": 86,
+        "bananas": 40,
+        "streak": 89,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1424,7 +1424,7 @@
     },
     "1180550267612176440": {
         "bananas": 17,
-        "streak": 9,
+        "streak": 0,
         "best_streak": 9,
         "found": [
             "Copper",
@@ -1443,8 +1443,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 67,
-        "streak": 13,
+        "bananas": 70,
+        "streak": 14,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1477,7 +1477,8 @@
             "Copper",
             "Sand Stone",
             "Demonite",
-            "Heavenly Orb"
+            "Heavenly Orb",
+            "Mythril"
         ],
         "tutorial_sent": true
     },
@@ -2206,9 +2207,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 275,
-        "streak": 66,
-        "best_streak": 66,
+        "bananas": 315,
+        "streak": 74,
+        "best_streak": 74,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2258,7 +2259,13 @@
             "Magmaite",
             "Cardboardite",
             "Golem Heart",
-            "Moon Stone"
+            "Moon Stone",
+            "Kyubite",
+            "Sakuranite",
+            "Sun Stone",
+            "Rainbow Crystal",
+            "Zenstone",
+            "Etherealite"
         ],
         "tutorial_sent": true
     },
@@ -2709,9 +2716,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 15,
-        "streak": 10,
-        "best_streak": 10,
+        "bananas": 18,
+        "streak": 11,
+        "best_streak": 11,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2722,18 +2729,20 @@
             "Copper",
             "Mushroomite",
             "Quartz",
-            "Bananite"
+            "Bananite",
+            "Heavenite"
         ]
     },
     "761282317519814726": {
-        "bananas": 4,
-        "streak": 4,
-        "best_streak": 4,
+        "bananas": 5,
+        "streak": 0,
+        "best_streak": 5,
         "found": [
             "Etherealite",
             "Silver",
             "Sand Stone",
-            "Lapis Lazuli"
+            "Lapis Lazuli",
+            "Zenstone"
         ]
     },
     "1272955325720559627": {
@@ -2781,6 +2790,22 @@
             "Cobalt",
             "Silver",
             "Mushroomite"
+        ]
+    },
+    "865590739622821939": {
+        "bananas": 1,
+        "streak": 0,
+        "best_streak": 1,
+        "found": [
+            "Meteorite"
+        ]
+    },
+    "1370962829217108101": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Copper"
         ]
     }
 }
