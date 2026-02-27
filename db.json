@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 40,
-        "streak": 89,
+        "bananas": 60,
+        "streak": 93,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -981,8 +981,8 @@
         "tutorial_sent": true
     },
     "1373008060171292823": {
-        "bananas": 295,
-        "streak": 5,
+        "bananas": 299,
+        "streak": 7,
         "best_streak": 47,
         "found": [
             "Diamond",
@@ -1443,8 +1443,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 70,
-        "streak": 14,
+        "bananas": 75,
+        "streak": 2,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1478,7 +1478,9 @@
             "Sand Stone",
             "Demonite",
             "Heavenly Orb",
-            "Mythril"
+            "Mythril",
+            "Mushroomite",
+            "Aetherit"
         ],
         "tutorial_sent": true
     },
@@ -1974,11 +1976,13 @@
         "tutorial_sent": true
     },
     "1360508279372906506": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "found": [
-            "Quartz"
+            "Quartz",
+            "Tin",
+            "Root Spire"
         ],
         "tutorial_sent": true
     },
@@ -2207,9 +2211,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 315,
-        "streak": 74,
-        "best_streak": 74,
+        "bananas": 345,
+        "streak": 80,
+        "best_streak": 80,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2265,7 +2269,10 @@
             "Sun Stone",
             "Rainbow Crystal",
             "Zenstone",
-            "Etherealite"
+            "Etherealite",
+            "Blue Crystal",
+            "Bamboo",
+            "Heavenly Orb"
         ],
         "tutorial_sent": true
     },
@@ -2716,9 +2723,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 18,
-        "streak": 11,
-        "best_streak": 11,
+        "bananas": 24,
+        "streak": 13,
+        "best_streak": 13,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2730,7 +2737,9 @@
             "Mushroomite",
             "Quartz",
             "Bananite",
-            "Heavenite"
+            "Heavenite",
+            "Tin",
+            "Iron"
         ]
     },
     "761282317519814726": {
@@ -2807,5 +2816,11 @@
         "found": [
             "Copper"
         ]
+    },
+    "1472109265056432302": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
     }
 }
