@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 60,
-        "streak": 93,
+        "bananas": 65,
+        "streak": 94,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1443,8 +1443,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 75,
-        "streak": 2,
+        "bananas": 77,
+        "streak": 0,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1480,7 +1480,8 @@
             "Heavenly Orb",
             "Mythril",
             "Mushroomite",
-            "Aetherit"
+            "Aetherit",
+            "Sandstone"
         ],
         "tutorial_sent": true
     },
