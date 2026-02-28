@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 65,
-        "streak": 94,
+        "bananas": 70,
+        "streak": 95,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1443,8 +1443,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 77,
-        "streak": 0,
+        "bananas": 79,
+        "streak": 2,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1481,7 +1481,8 @@
             "Mythril",
             "Mushroomite",
             "Aetherit",
-            "Sandstone"
+            "Sandstone",
+            "Kyubite"
         ],
         "tutorial_sent": true
     },
@@ -2212,9 +2213,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 345,
-        "streak": 80,
-        "best_streak": 80,
+        "bananas": 375,
+        "streak": 86,
+        "best_streak": 86,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2273,7 +2274,9 @@
             "Etherealite",
             "Blue Crystal",
             "Bamboo",
-            "Heavenly Orb"
+            "Heavenly Orb",
+            "Sandstone",
+            "Boneite"
         ],
         "tutorial_sent": true
     },
@@ -2313,12 +2316,13 @@
         "tutorial_sent": true
     },
     "1215832202936455192": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "found": [
             "Dark Boneite",
-            "Gargantuan"
+            "Gargantuan",
+            "Voidstar"
         ],
         "tutorial_sent": true
     },
@@ -2823,5 +2827,14 @@
         "streak": 0,
         "best_streak": 0,
         "found": []
+    },
+    "1428352944121843726": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Tin",
+            "Sandstone"
+        ]
     }
 }
