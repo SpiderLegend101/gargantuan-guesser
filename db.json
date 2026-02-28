@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 75,
-        "streak": 96,
+        "bananas": 90,
+        "streak": 99,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2214,9 +2214,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 395,
-        "streak": 90,
-        "best_streak": 90,
+        "bananas": 400,
+        "streak": 91,
+        "best_streak": 91,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2433,9 +2433,9 @@
         "found": []
     },
     "442932662827614208": {
-        "bananas": 65,
-        "streak": 24,
-        "best_streak": 24,
+        "bananas": 70,
+        "streak": 25,
+        "best_streak": 25,
         "found": [
             "Gold",
             "Darkryte",
@@ -2456,7 +2456,8 @@
             "Iron",
             "Eye Ore",
             "Malachite",
-            "Heart of The Island"
+            "Heart of The Island",
+            "Bamboo"
         ]
     },
     "1435709611603923035": {
