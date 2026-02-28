@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 70,
-        "streak": 95,
+        "bananas": 75,
+        "streak": 96,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1443,8 +1443,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 79,
-        "streak": 2,
+        "bananas": 80,
+        "streak": 3,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1482,7 +1482,8 @@
             "Mushroomite",
             "Aetherit",
             "Sandstone",
-            "Kyubite"
+            "Kyubite",
+            "Velchire"
         ],
         "tutorial_sent": true
     },
@@ -2213,9 +2214,9 @@
         "tutorial_sent": true
     },
     "822008979981860904": {
-        "bananas": 375,
-        "streak": 86,
-        "best_streak": 86,
+        "bananas": 395,
+        "streak": 90,
+        "best_streak": 90,
         "found": [
             "Mushroomite",
             "Stolen Heart",
@@ -2276,7 +2277,8 @@
             "Bamboo",
             "Heavenly Orb",
             "Sandstone",
-            "Boneite"
+            "Boneite",
+            "Orange Crystal"
         ],
         "tutorial_sent": true
     },
@@ -2316,13 +2318,14 @@
         "tutorial_sent": true
     },
     "1215832202936455192": {
-        "bananas": 3,
-        "streak": 3,
-        "best_streak": 3,
+        "bananas": 4,
+        "streak": 4,
+        "best_streak": 4,
         "found": [
             "Dark Boneite",
             "Gargantuan",
-            "Voidstar"
+            "Voidstar",
+            "Duranite"
         ],
         "tutorial_sent": true
     },
@@ -2728,9 +2731,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 24,
-        "streak": 13,
-        "best_streak": 13,
+        "bananas": 30,
+        "streak": 15,
+        "best_streak": 15,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2744,7 +2747,8 @@
             "Bananite",
             "Heavenite",
             "Tin",
-            "Iron"
+            "Iron",
+            "Meteorite"
         ]
     },
     "761282317519814726": {
