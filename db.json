@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 90,
-        "streak": 99,
+        "bananas": 95,
+        "streak": 100,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -981,8 +981,8 @@
         "tutorial_sent": true
     },
     "1373008060171292823": {
-        "bananas": 299,
-        "streak": 7,
+        "bananas": 303,
+        "streak": 9,
         "best_streak": 47,
         "found": [
             "Diamond",
@@ -1025,7 +1025,9 @@
             "Iceite",
             "Heavenite",
             "Sand Stone",
-            "Darkryte"
+            "Darkryte",
+            "Tigers Eye",
+            "Graphite"
         ],
         "tutorial_sent": true
     },
@@ -1443,8 +1445,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 80,
-        "streak": 3,
+        "bananas": 82,
+        "streak": 5,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1483,7 +1485,8 @@
             "Aetherit",
             "Sandstone",
             "Kyubite",
-            "Velchire"
+            "Velchire",
+            "Suryafal"
         ],
         "tutorial_sent": true
     },
@@ -2172,10 +2175,13 @@
         "tutorial_sent": true
     },
     "982895628273213440": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Magit",
+            "Meteorite"
+        ],
         "tutorial_sent": true
     },
     "1176886002153951286": {
@@ -2336,8 +2342,8 @@
         "found": []
     },
     "1381179065012064326": {
-        "bananas": 35,
-        "streak": 0,
+        "bananas": 38,
+        "streak": 3,
         "best_streak": 14,
         "found": [
             "Galaxite",
@@ -2358,7 +2364,10 @@
             "Dark Boneite",
             "Grass",
             "Gulabite",
-            "Lapis Lazuli"
+            "Lapis Lazuli",
+            "Bamboo",
+            "Obsidian",
+            "Heavenly Orb"
         ]
     },
     "1463999004642775152": {
@@ -2711,16 +2720,18 @@
         ]
     },
     "1233754818682814465": {
-        "bananas": 7,
-        "streak": 3,
-        "best_streak": 4,
+        "bananas": 9,
+        "streak": 5,
+        "best_streak": 5,
         "found": [
             "Iron",
             "Stolen Heart",
             "Moon Stone",
             "Stone",
             "Sand Stone",
-            "Orange Crystal"
+            "Orange Crystal",
+            "Sanctis",
+            "Tin"
         ]
     },
     "1474328763050492095": {
@@ -2732,9 +2743,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 30,
-        "streak": 15,
-        "best_streak": 15,
+        "bananas": 33,
+        "streak": 16,
+        "best_streak": 16,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2841,5 +2852,21 @@
             "Tin",
             "Sandstone"
         ]
+    },
+    "1301614317170593834": {
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
+        "found": [
+            "Melonite",
+            "Bamboo",
+            "Heavenly Orb"
+        ]
+    },
+    "721063236371480717": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
     }
 }
