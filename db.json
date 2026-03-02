@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 95,
-        "streak": 100,
+        "bananas": 105,
+        "streak": 102,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -825,10 +825,12 @@
         "tutorial_sent": true
     },
     "1319617292920684615": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Tin"
+        ],
         "tutorial_sent": true
     },
     "1028627600488280085": {
@@ -1197,10 +1199,12 @@
         "tutorial_sent": true
     },
     "1276685940319981603": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": [],
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Stone"
+        ],
         "tutorial_sent": true
     },
     "1377949634126942231": {
@@ -1445,8 +1449,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 82,
-        "streak": 5,
+        "bananas": 90,
+        "streak": 9,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1486,7 +1490,11 @@
             "Sandstone",
             "Kyubite",
             "Velchire",
-            "Suryafal"
+            "Suryafal",
+            "Magmaite",
+            "Bamboo",
+            "Melonite",
+            "Sakuranite"
         ],
         "tutorial_sent": true
     },
@@ -2175,12 +2183,13 @@
         "tutorial_sent": true
     },
     "982895628273213440": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "found": [
             "Magit",
-            "Meteorite"
+            "Meteorite",
+            "Root Spire"
         ],
         "tutorial_sent": true
     },
@@ -2810,16 +2819,18 @@
         "found": []
     },
     "1116447457623167136": {
-        "bananas": 11,
-        "streak": 8,
-        "best_streak": 8,
+        "bananas": 15,
+        "streak": 10,
+        "best_streak": 10,
         "found": [
             "Iron",
             "Blue Crystal",
             "Mistvein",
             "Cobalt",
             "Silver",
-            "Mushroomite"
+            "Mushroomite",
+            "Grass",
+            "Platinum"
         ]
     },
     "865590739622821939": {
@@ -2868,5 +2879,29 @@
         "streak": 0,
         "best_streak": 0,
         "found": []
+    },
+    "1459943796170035240": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Green Crystal"
+        ]
+    },
+    "1183794432462573579": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Meteorite"
+        ]
+    },
+    "1399150490507284561": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Heart of The Island"
+        ]
     }
 }
