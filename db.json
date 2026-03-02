@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 105,
-        "streak": 102,
+        "bananas": 110,
+        "streak": 103,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1449,8 +1449,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 90,
-        "streak": 9,
+        "bananas": 92,
+        "streak": 2,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -1494,7 +1494,8 @@
             "Magmaite",
             "Bamboo",
             "Melonite",
-            "Sakuranite"
+            "Sakuranite",
+            "Sun Stone"
         ],
         "tutorial_sent": true
     },
@@ -2388,8 +2389,8 @@
         ]
     },
     "1291372259126022176": {
-        "bananas": 22,
-        "streak": 2,
+        "bananas": 24,
+        "streak": 4,
         "best_streak": 11,
         "found": [
             "Sand Stone",
@@ -2404,7 +2405,9 @@
             "Larimar",
             "Ruby",
             "Diamond",
-            "Golem Heart"
+            "Golem Heart",
+            "Sandstone",
+            "Silver"
         ]
     },
     "1157776494752444436": {
@@ -2897,11 +2900,13 @@
         ]
     },
     "1399150490507284561": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "found": [
-            "Heart of The Island"
+            "Heart of The Island",
+            "Lapis Lazuli",
+            "Tide Carve"
         ]
     }
 }
