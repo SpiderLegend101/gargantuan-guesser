@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 140,
-        "streak": 109,
+        "bananas": 145,
+        "streak": 110,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1453,8 +1453,8 @@
         "tutorial_sent": true
     },
     "879037669043236925": {
-        "bananas": 92,
-        "streak": 2,
+        "bananas": 93,
+        "streak": 3,
         "best_streak": 15,
         "found": [
             "Diamond",
@@ -2458,9 +2458,9 @@
         "found": []
     },
     "442932662827614208": {
-        "bananas": 70,
-        "streak": 25,
-        "best_streak": 25,
+        "bananas": 75,
+        "streak": 26,
+        "best_streak": 26,
         "found": [
             "Gold",
             "Darkryte",
@@ -2951,6 +2951,15 @@
             "Silver",
             "Melonite",
             "Golem Heart"
+        ]
+    },
+    "1254115557247287369": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Darkryte",
+            "Suryafal"
         ]
     }
 }
