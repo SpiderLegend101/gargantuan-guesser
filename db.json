@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 120,
-        "streak": 105,
+        "bananas": 125,
+        "streak": 106,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2761,9 +2761,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 36,
-        "streak": 17,
-        "best_streak": 17,
+        "bananas": 39,
+        "streak": 18,
+        "best_streak": 18,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2867,16 +2867,19 @@
         "found": []
     },
     "1428352944121843726": {
-        "bananas": 11,
-        "streak": 8,
-        "best_streak": 8,
+        "bananas": 24,
+        "streak": 13,
+        "best_streak": 13,
         "found": [
             "Tin",
             "Sandstone",
             "Bananite",
             "Golem Heart",
             "Evil Eye",
-            "Grass"
+            "Grass",
+            "Slimite",
+            "Silver",
+            "Stone"
         ]
     },
     "1301614317170593834": {
@@ -2932,9 +2935,9 @@
         ]
     },
     "1124434434700103820": {
-        "bananas": 13,
-        "streak": 6,
-        "best_streak": 6,
+        "bananas": 15,
+        "streak": 7,
+        "best_streak": 7,
         "found": [
             "Stone",
             "Root Spire",
@@ -2946,7 +2949,8 @@
             "Obsidian",
             "Tungsten",
             "Silver",
-            "Melonite"
+            "Melonite",
+            "Golem Heart"
         ]
     }
 }
