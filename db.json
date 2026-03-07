@@ -2670,11 +2670,12 @@
         ]
     },
     "805628305206018048": {
-        "bananas": 1,
-        "streak": 1,
-        "best_streak": 1,
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
         "found": [
-            "Tin"
+            "Tin",
+            "Platinum"
         ]
     },
     "1099151029813121097": {
@@ -2740,9 +2741,9 @@
         ]
     },
     "1233754818682814465": {
-        "bananas": 11,
-        "streak": 6,
-        "best_streak": 6,
+        "bananas": 15,
+        "streak": 8,
+        "best_streak": 8,
         "found": [
             "Iron",
             "Stolen Heart",
@@ -2752,7 +2753,8 @@
             "Orange Crystal",
             "Sanctis",
             "Tin",
-            "Tigers Eye"
+            "Tigers Eye",
+            "Quartz"
         ]
     },
     "1474328763050492095": {
@@ -2764,9 +2766,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 42,
-        "streak": 19,
-        "best_streak": 19,
+        "bananas": 55,
+        "streak": 22,
+        "best_streak": 22,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2783,7 +2785,9 @@
             "Iron",
             "Meteorite",
             "Diamond",
-            "Amethyst"
+            "Amethyst",
+            "Root Spire",
+            "Iceite"
         ]
     },
     "761282317519814726": {
@@ -2964,6 +2968,30 @@
         "found": [
             "Darkryte",
             "Suryafal"
+        ]
+    },
+    "1374408937259925689": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1469845249005191313": {
+        "bananas": 13,
+        "streak": 1,
+        "best_streak": 6,
+        "found": [
+            "Cardboardite",
+            "Iceite",
+            "Cobalt",
+            "Cyanite Jade",
+            "Sandstone",
+            "Roosite",
+            "Tin",
+            "Crimson Crystal",
+            "Iron",
+            "Sulfur",
+            "Gold"
         ]
     }
 }
