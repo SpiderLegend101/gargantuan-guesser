@@ -2766,9 +2766,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 55,
-        "streak": 22,
-        "best_streak": 22,
+        "bananas": 65,
+        "streak": 24,
+        "best_streak": 24,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2787,7 +2787,9 @@
             "Diamond",
             "Amethyst",
             "Root Spire",
-            "Iceite"
+            "Iceite",
+            "Blue Crystal",
+            "Tungsten"
         ]
     },
     "761282317519814726": {
@@ -2992,6 +2994,15 @@
             "Iron",
             "Sulfur",
             "Gold"
+        ]
+    },
+    "1232362503279874111": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Etherealite",
+            "Velchire"
         ]
     }
 }
