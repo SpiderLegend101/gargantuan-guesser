@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 150,
-        "streak": 111,
+        "bananas": 170,
+        "streak": 115,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1435,8 +1435,8 @@
         "tutorial_sent": true
     },
     "1180550267612176440": {
-        "bananas": 17,
-        "streak": 0,
+        "bananas": 19,
+        "streak": 2,
         "best_streak": 9,
         "found": [
             "Copper",
@@ -1450,7 +1450,9 @@
             "Lightite",
             "Graphite",
             "Demonite",
-            "Sand Stone"
+            "Sand Stone",
+            "Earthite",
+            "Cardboardite"
         ],
         "tutorial_sent": true
     },
@@ -2395,8 +2397,8 @@
         ]
     },
     "1291372259126022176": {
-        "bananas": 24,
-        "streak": 4,
+        "bananas": 25,
+        "streak": 5,
         "best_streak": 11,
         "found": [
             "Sand Stone",
@@ -2413,7 +2415,8 @@
             "Diamond",
             "Golem Heart",
             "Sandstone",
-            "Silver"
+            "Silver",
+            "Grass"
         ]
     },
     "1157776494752444436": {
@@ -2766,9 +2769,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 65,
-        "streak": 24,
-        "best_streak": 24,
+        "bananas": 70,
+        "streak": 25,
+        "best_streak": 25,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2789,7 +2792,8 @@
             "Root Spire",
             "Iceite",
             "Blue Crystal",
-            "Tungsten"
+            "Tungsten",
+            "Snowite"
         ]
     },
     "761282317519814726": {
@@ -2903,10 +2907,13 @@
         ]
     },
     "721063236371480717": {
-        "bananas": 0,
+        "bananas": 2,
         "streak": 0,
-        "best_streak": 0,
-        "found": []
+        "best_streak": 2,
+        "found": [
+            "Water Stone",
+            "Diamond"
+        ]
     },
     "1459943796170035240": {
         "bananas": 1,
@@ -2945,9 +2952,9 @@
         ]
     },
     "1124434434700103820": {
-        "bananas": 15,
-        "streak": 7,
-        "best_streak": 7,
+        "bananas": 17,
+        "streak": 8,
+        "best_streak": 8,
         "found": [
             "Stone",
             "Root Spire",
@@ -2979,8 +2986,8 @@
         "found": []
     },
     "1469845249005191313": {
-        "bananas": 13,
-        "streak": 1,
+        "bananas": 21,
+        "streak": 3,
         "best_streak": 6,
         "found": [
             "Cardboardite",
@@ -2993,7 +3000,14 @@
             "Crimson Crystal",
             "Iron",
             "Sulfur",
-            "Gold"
+            "Gold",
+            "Poopite",
+            "Fichillium",
+            "Uranium",
+            "Stone",
+            "Blue Crystal",
+            "Heavenite",
+            "Sanctis"
         ]
     },
     "1232362503279874111": {
@@ -3004,5 +3018,68 @@
             "Etherealite",
             "Velchire"
         ]
+    },
+    "1393136869348479008": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Lightite",
+            "Magit"
+        ]
+    },
+    "1439014012548415599": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Lucky Cat",
+            "Bananite"
+        ]
+    },
+    "1030517571788750908": {
+        "bananas": 1,
+        "streak": 0,
+        "best_streak": 1,
+        "found": [
+            "Magenta Crystal"
+        ]
+    },
+    "960537213018472469": {
+        "bananas": 40,
+        "streak": 10,
+        "best_streak": 10,
+        "found": [
+            "Stone",
+            "Cardboardite",
+            "Root Spire",
+            "Duquack",
+            "Ruby",
+            "Fichillium",
+            "Sandstone",
+            "Boneite",
+            "Meteorite",
+            "Gold",
+            "Iron",
+            "Orange Crystal",
+            "Lucky Cat",
+            "Darkryte",
+            "Aetherit",
+            "Sapphire",
+            "Copper",
+            "Heavenly Orb",
+            "Iceite",
+            "Sun Stone",
+            "Silver",
+            "Eye Ore",
+            "Frogite",
+            "Water Stone"
+        ]
+    },
+    "1152395324279771287": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
     }
 }
