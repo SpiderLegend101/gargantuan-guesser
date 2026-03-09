@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 170,
-        "streak": 115,
+        "bananas": 175,
+        "streak": 116,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -3112,16 +3112,17 @@
         ]
     },
     "1152395324279771287": {
-        "bananas": 13,
-        "streak": 9,
-        "best_streak": 9,
+        "bananas": 15,
+        "streak": 10,
+        "best_streak": 10,
         "found": [
             "Grass",
             "Bamboo",
             "Stone",
             "Green Crystal",
             "Water Stone",
-            "Sandstone"
+            "Sandstone",
+            "Cardboardite"
         ]
     },
     "1480295184758472754": {
@@ -3130,6 +3131,18 @@
         "best_streak": 1,
         "found": [
             "Mosasaursit"
+        ]
+    },
+    "1475340673073938535": {
+        "bananas": 9,
+        "streak": 7,
+        "best_streak": 7,
+        "found": [
+            "Stone",
+            "Bamboo",
+            "Kyubite",
+            "Golem Heart",
+            "Copper"
         ]
     }
 }
