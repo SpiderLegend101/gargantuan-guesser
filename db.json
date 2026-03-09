@@ -1435,8 +1435,8 @@
         "tutorial_sent": true
     },
     "1180550267612176440": {
-        "bananas": 19,
-        "streak": 2,
+        "bananas": 20,
+        "streak": 3,
         "best_streak": 9,
         "found": [
             "Copper",
@@ -1452,7 +1452,8 @@
             "Demonite",
             "Sand Stone",
             "Earthite",
-            "Cardboardite"
+            "Cardboardite",
+            "Duranite"
         ],
         "tutorial_sent": true
     },
@@ -2769,9 +2770,9 @@
         ]
     },
     "1407967992104620094": {
-        "bananas": 70,
-        "streak": 25,
-        "best_streak": 25,
+        "bananas": 90,
+        "streak": 29,
+        "best_streak": 29,
         "found": [
             "Silver",
             "Eye Ore",
@@ -2793,7 +2794,10 @@
             "Iceite",
             "Blue Crystal",
             "Tungsten",
-            "Snowite"
+            "Snowite",
+            "Yeti Heart",
+            "Lightite",
+            "Duquack"
         ]
     },
     "761282317519814726": {
@@ -2986,9 +2990,9 @@
         "found": []
     },
     "1469845249005191313": {
-        "bananas": 21,
-        "streak": 3,
-        "best_streak": 6,
+        "bananas": 966,
+        "streak": 0,
+        "best_streak": 15,
         "found": [
             "Cardboardite",
             "Iceite",
@@ -3007,7 +3011,30 @@
             "Stone",
             "Blue Crystal",
             "Heavenite",
-            "Sanctis"
+            "Sanctis",
+            "Duquack",
+            "Etherealite",
+            "Obsidian",
+            "Meteorite",
+            "Sun Stone",
+            "Water Stone",
+            "Root Spire",
+            "Golem Heart",
+            "Bananite",
+            "Eye Ore",
+            "Heat Steel",
+            "Mythril",
+            "Yeti Heart",
+            "Tungsten",
+            "Bamboo",
+            "Demonite",
+            "Kyubite",
+            "Zenstone",
+            "Amethyst",
+            "Gargantuan",
+            "Titanium",
+            "Heart of The Island",
+            "Quartz"
         ]
     },
     "1232362503279874111": {
@@ -3029,25 +3056,33 @@
         ]
     },
     "1439014012548415599": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 1008,
+        "streak": 1,
+        "best_streak": 4,
         "found": [
             "Lucky Cat",
-            "Bananite"
+            "Bananite",
+            "Azuryxite",
+            "Meteorite",
+            "Blue Gem Quill",
+            "Stone",
+            "Heavenly Orb"
         ]
     },
     "1030517571788750908": {
-        "bananas": 1,
-        "streak": 0,
-        "best_streak": 1,
+        "bananas": 4,
+        "streak": 3,
+        "best_streak": 3,
         "found": [
-            "Magenta Crystal"
+            "Magenta Crystal",
+            "Root Spire",
+            "Titanium",
+            "Grass"
         ]
     },
     "960537213018472469": {
         "bananas": 40,
-        "streak": 10,
+        "streak": 0,
         "best_streak": 10,
         "found": [
             "Stone",
@@ -3077,9 +3112,24 @@
         ]
     },
     "1152395324279771287": {
-        "bananas": 0,
-        "streak": 0,
-        "best_streak": 0,
-        "found": []
+        "bananas": 13,
+        "streak": 9,
+        "best_streak": 9,
+        "found": [
+            "Grass",
+            "Bamboo",
+            "Stone",
+            "Green Crystal",
+            "Water Stone",
+            "Sandstone"
+        ]
+    },
+    "1480295184758472754": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Mosasaursit"
+        ]
     }
 }
