@@ -3053,12 +3053,13 @@
         ]
     },
     "1393136869348479008": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 3,
+        "streak": 3,
+        "best_streak": 3,
         "found": [
             "Lightite",
-            "Magit"
+            "Magit",
+            "Voidfractal"
         ]
     },
     "1439014012548415599": {
@@ -3172,8 +3173,8 @@
         "found": []
     },
     "1353874257779753043": {
-        "bananas": 13,
-        "streak": 0,
+        "bananas": 14,
+        "streak": 1,
         "best_streak": 9,
         "found": [
             "Grass",
@@ -3183,7 +3184,8 @@
             "Duquack",
             "Sapphire",
             "Iron",
-            "Heart of The Island"
+            "Heart of The Island",
+            "Sandstone"
         ]
     }
 }
