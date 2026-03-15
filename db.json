@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 180,
-        "streak": 117,
+        "bananas": 205,
+        "streak": 122,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -1436,8 +1436,8 @@
         "tutorial_sent": true
     },
     "1180550267612176440": {
-        "bananas": 26,
-        "streak": 2,
+        "bananas": 28,
+        "streak": 4,
         "best_streak": 9,
         "found": [
             "Copper",
@@ -1457,7 +1457,8 @@
             "Duranite",
             "Magmaite",
             "Bamboo",
-            "Tungsten"
+            "Tungsten",
+            "Duquack"
         ],
         "tutorial_sent": true
     },
@@ -3068,9 +3069,9 @@
         ]
     },
     "1439014012548415599": {
-        "bananas": 1009,
-        "streak": 2,
-        "best_streak": 4,
+        "bananas": 1018,
+        "streak": 0,
+        "best_streak": 6,
         "found": [
             "Lucky Cat",
             "Bananite",
@@ -3079,7 +3080,14 @@
             "Blue Gem Quill",
             "Stone",
             "Heavenly Orb",
-            "Scheelite"
+            "Scheelite",
+            "Cardboardite",
+            "Diamond",
+            "Copper",
+            "Volcanic Rock",
+            "Stolen Heart",
+            "Poopite",
+            "Heart of The Island"
         ]
     },
     "1030517571788750908": {
@@ -3179,7 +3187,7 @@
         "found": []
     },
     "1353874257779753043": {
-        "bananas": 16,
+        "bananas": 26,
         "streak": 3,
         "best_streak": 9,
         "found": [
@@ -3192,12 +3200,19 @@
             "Iron",
             "Heart of The Island",
             "Sandstone",
-            "Water Stone"
+            "Water Stone",
+            "Copper",
+            "Iceite",
+            "Tungsten",
+            "Zenstone",
+            "Voidfractal",
+            "Mosasaursit",
+            "Cardboardite"
         ]
     },
     "1251441898879713303": {
-        "bananas": 6,
-        "streak": 0,
+        "bananas": 7,
+        "streak": 1,
         "best_streak": 3,
         "found": [
             "Stone",
@@ -3205,7 +3220,8 @@
             "Tin",
             "Amethyst",
             "Volcanic Rock",
-            "Magenta Crystal"
+            "Magenta Crystal",
+            "Heavenly Orb"
         ]
     },
     "1468817084220706980": {
@@ -3218,11 +3234,12 @@
         ]
     },
     "1426894275190198404": {
-        "bananas": 1,
-        "streak": 0,
+        "bananas": 2,
+        "streak": 1,
         "best_streak": 1,
         "found": [
-            "Volcanic Rock"
+            "Volcanic Rock",
+            "Mistvein"
         ]
     }
 }
