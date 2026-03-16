@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 205,
-        "streak": 122,
+        "bananas": 207,
+        "streak": 2,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -3187,8 +3187,8 @@
         "found": []
     },
     "1353874257779753043": {
-        "bananas": 26,
-        "streak": 3,
+        "bananas": 30,
+        "streak": 0,
         "best_streak": 9,
         "found": [
             "Grass",
@@ -3207,7 +3207,10 @@
             "Zenstone",
             "Voidfractal",
             "Mosasaursit",
-            "Cardboardite"
+            "Cardboardite",
+            "Heavenite",
+            "Onyx",
+            "Stone"
         ]
     },
     "1251441898879713303": {
@@ -3241,5 +3244,11 @@
             "Volcanic Rock",
             "Mistvein"
         ]
+    },
+    "1412436387554398291": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
     }
 }
