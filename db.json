@@ -3069,9 +3069,9 @@
         ]
     },
     "1439014012548415599": {
-        "bananas": 1098,
-        "streak": 27,
-        "best_streak": 27,
+        "bananas": 1153,
+        "streak": 38,
+        "best_streak": 38,
         "found": [
             "Lucky Cat",
             "Bananite",
@@ -3107,7 +3107,9 @@
             "Heavenite",
             "Sandstone",
             "Tungsten",
-            "Demonite"
+            "Demonite",
+            "Snowite",
+            "Sanctis"
         ]
     },
     "1030517571788750908": {
@@ -3207,8 +3209,8 @@
         "found": []
     },
     "1353874257779753043": {
-        "bananas": 34,
-        "streak": 4,
+        "bananas": 44,
+        "streak": 1,
         "best_streak": 9,
         "found": [
             "Grass",
@@ -3231,7 +3233,11 @@
             "Heavenite",
             "Onyx",
             "Stone",
-            "Sealed Curse"
+            "Sealed Curse",
+            "Tin",
+            "Sakuranite",
+            "Orange Crystal",
+            "Lucky Cat"
         ]
     },
     "1251441898879713303": {
