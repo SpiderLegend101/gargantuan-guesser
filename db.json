@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 207,
-        "streak": 2,
+        "bananas": 208,
+        "streak": 3,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -3069,9 +3069,9 @@
         ]
     },
     "1439014012548415599": {
-        "bananas": 1018,
-        "streak": 0,
-        "best_streak": 6,
+        "bananas": 1098,
+        "streak": 27,
+        "best_streak": 27,
         "found": [
             "Lucky Cat",
             "Bananite",
@@ -3087,7 +3087,27 @@
             "Volcanic Rock",
             "Stolen Heart",
             "Poopite",
-            "Heart of The Island"
+            "Heart of The Island",
+            "Etherealite",
+            "Duquack",
+            "Obsidian",
+            "Bamboo",
+            "Gold",
+            "Sun Stone",
+            "Sapphire",
+            "Blue Crystal",
+            "Emerald",
+            "Iron",
+            "Iceite",
+            "Eye Ore",
+            "Grass",
+            "Golem Heart",
+            "Yeti Heart",
+            "Boneite",
+            "Heavenite",
+            "Sandstone",
+            "Tungsten",
+            "Demonite"
         ]
     },
     "1030517571788750908": {
@@ -3187,8 +3207,8 @@
         "found": []
     },
     "1353874257779753043": {
-        "bananas": 30,
-        "streak": 0,
+        "bananas": 34,
+        "streak": 4,
         "best_streak": 9,
         "found": [
             "Grass",
@@ -3210,7 +3230,8 @@
             "Cardboardite",
             "Heavenite",
             "Onyx",
-            "Stone"
+            "Stone",
+            "Sealed Curse"
         ]
     },
     "1251441898879713303": {
