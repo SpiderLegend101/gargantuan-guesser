@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 208,
-        "streak": 3,
+        "bananas": 209,
+        "streak": 4,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -2938,11 +2938,13 @@
         ]
     },
     "1183794432462573579": {
-        "bananas": 2,
-        "streak": 2,
-        "best_streak": 2,
+        "bananas": 5,
+        "streak": 5,
+        "best_streak": 5,
         "found": [
-            "Meteorite"
+            "Meteorite",
+            "Platinum",
+            "Tin"
         ]
     },
     "1399150490507284561": {
@@ -3069,9 +3071,9 @@
         ]
     },
     "1439014012548415599": {
-        "bananas": 1153,
-        "streak": 38,
-        "best_streak": 38,
+        "bananas": 1213,
+        "streak": 50,
+        "best_streak": 50,
         "found": [
             "Lucky Cat",
             "Bananite",
@@ -3109,7 +3111,9 @@
             "Tungsten",
             "Demonite",
             "Snowite",
-            "Sanctis"
+            "Sanctis",
+            "Cobalt",
+            "Cuprite"
         ]
     },
     "1030517571788750908": {
