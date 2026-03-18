@@ -1,7 +1,7 @@
 {
     "1395328044599611466": {
-        "bananas": 209,
-        "streak": 4,
+        "bananas": 210,
+        "streak": 5,
         "best_streak": 189,
         "cooldown": 1769866579.5397868,
         "found": [
@@ -3213,8 +3213,8 @@
         "found": []
     },
     "1353874257779753043": {
-        "bananas": 44,
-        "streak": 1,
+        "bananas": 54,
+        "streak": 8,
         "best_streak": 9,
         "found": [
             "Grass",
@@ -3241,7 +3241,13 @@
             "Tin",
             "Sakuranite",
             "Orange Crystal",
-            "Lucky Cat"
+            "Lucky Cat",
+            "Velchire",
+            "Meteorite",
+            "Mushroomite",
+            "Bamboo",
+            "Suryafal",
+            "Melonite"
         ]
     },
     "1251441898879713303": {
