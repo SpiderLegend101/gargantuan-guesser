@@ -2944,8 +2944,8 @@
         ]
     },
     "1183794432462573579": {
-        "bananas": 17,
-        "streak": 2,
+        "bananas": 19,
+        "streak": 0,
         "best_streak": 10,
         "found": [
             "Meteorite",
@@ -2957,7 +2957,8 @@
             "Cuprite",
             "Stolen Heart",
             "Gold",
-            "Heart of The Island"
+            "Heart of The Island",
+            "Obsidian"
         ]
     },
     "1399150490507284561": {
@@ -2981,8 +2982,8 @@
         ]
     },
     "1124434434700103820": {
-        "bananas": 32,
-        "streak": 0,
+        "bananas": 33,
+        "streak": 1,
         "best_streak": 13,
         "found": [
             "Stone",
@@ -3002,7 +3003,8 @@
             "Snowite",
             "Demonite",
             "Ruby",
-            "Grass"
+            "Grass",
+            "Sealed Curse"
         ]
     },
     "1254115557247287369": {
@@ -3015,15 +3017,16 @@
         ]
     },
     "1374408937259925689": {
-        "bananas": 5,
-        "streak": 5,
-        "best_streak": 5,
+        "bananas": 7,
+        "streak": 6,
+        "best_streak": 6,
         "found": [
             "Grass",
             "Amethyst",
             "Bananite",
             "Magit",
-            "Fireite"
+            "Fireite",
+            "Ruby"
         ]
     },
     "1469845249005191313": {
@@ -3281,9 +3284,9 @@
         ]
     },
     "1251441898879713303": {
-        "bananas": 7,
+        "bananas": 13,
         "streak": 1,
-        "best_streak": 3,
+        "best_streak": 4,
         "found": [
             "Stone",
             "Sandstone",
@@ -3291,7 +3294,13 @@
             "Amethyst",
             "Volcanic Rock",
             "Magenta Crystal",
-            "Heavenly Orb"
+            "Heavenly Orb",
+            "Ruby",
+            "Snowite",
+            "Iceite",
+            "Duquack",
+            "Cuprite",
+            "Cardboardite"
         ]
     },
     "1468817084220706980": {
@@ -3304,14 +3313,16 @@
         ]
     },
     "1426894275190198404": {
-        "bananas": 4,
-        "streak": 3,
-        "best_streak": 3,
+        "bananas": 8,
+        "streak": 0,
+        "best_streak": 6,
         "found": [
             "Volcanic Rock",
             "Mistvein",
             "Wraith",
-            "Silver"
+            "Silver",
+            "Bananite",
+            "Cardboardite"
         ]
     },
     "1412436387554398291": {
@@ -3341,19 +3352,20 @@
         ]
     },
     "1360866670327107697": {
-        "bananas": 4,
-        "streak": 4,
-        "best_streak": 4,
+        "bananas": 7,
+        "streak": 0,
+        "best_streak": 6,
         "found": [
             "Cuprite",
             "Eye Ore",
             "Iron",
-            "Copper"
+            "Copper",
+            "Blue Gem Quill"
         ]
     },
     "887302998064267265": {
-        "bananas": 21,
-        "streak": 12,
+        "bananas": 23,
+        "streak": 2,
         "best_streak": 12,
         "found": [
             "Silver",
@@ -3364,7 +3376,8 @@
             "Emerald",
             "Gargantuan",
             "Grass",
-            "Water Stone"
+            "Water Stone",
+            "Heart of The Island"
         ]
     },
     "577333618054135821": {
@@ -3467,5 +3480,45 @@
         "streak": 0,
         "best_streak": 0,
         "found": []
+    },
+    "828687268554342400": {
+        "bananas": 0,
+        "streak": 0,
+        "best_streak": 0,
+        "found": []
+    },
+    "1089912668846047304": {
+        "bananas": 2,
+        "streak": 2,
+        "best_streak": 2,
+        "found": [
+            "Stolen Heart",
+            "Sealed Curse"
+        ]
+    },
+    "1135139985037733960": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Tin"
+        ]
+    },
+    "1353998583006756874": {
+        "bananas": 1,
+        "streak": 1,
+        "best_streak": 1,
+        "found": [
+            "Mythril"
+        ]
+    },
+    "1261944482958676039": {
+        "bananas": 2,
+        "streak": 0,
+        "best_streak": 2,
+        "found": [
+            "Grass",
+            "Larimar"
+        ]
     }
 }
